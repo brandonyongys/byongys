@@ -82,29 +82,251 @@
 //   });
 // }
 
-import matter from 'gray-matter';
+// import matter from 'gray-matter';
 
-// const posts = import.meta.glob('../posts/*.md', { eager: true, as: 'raw' });
-const posts = import.meta.glob('./posts/*.md', { eager: true, query: '?raw', import: 'default' });
+// // const posts = import.meta.glob('../posts/*.md', { eager: true, as: 'raw' });
+// const posts = import.meta.glob('../posts/*.md', { eager: true, query: '?raw', import: 'default' });
+// // TODO Issue is with this import meta glob
 
 
+// export function getAllPosts() {
+//   try {
+//     return Object.entries(posts).map(([path, rawContent]) => {
+//       const { data, content } = matter(rawContent);
+//       const slug = path.split('/').pop().replace('.md', '');
+
+//       return {
+//         slug,
+//         title: data.title,
+//         date: data.date,
+//         summary: data.summary,
+//         content,
+//         tags: data.tags || [],
+//       };
+//     });
+//   } catch (error) {
+//     console.error('Error in getAllPosts:', error);
+//     return [
+//     { slug: 'aws-deployment', title: 'Deploying a React App with Vercel', date: '2025-06-01', summary: 'test summary', tags: ['react', 'deployment'] },
+//     { slug: 'aws-lambda', title: 'Using AWS Lambda for Automation', date: '2025-05-22', tags: ['aws', 'automation'] },
+//   ];
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+// import matter from 'gray-matter';
+
+// export function getAllPosts() {
+//   try {
+//     const postFiles = {
+//       '../posts/first-post.md': `---
+// title: "My First Post"
+// date: "2025-06-09"
+// description: "Introduction to my blog."
+// ---
+
+// # Hello World
+
+// Welcome to my first blog post!`,
+      
+//       '../posts/second-post.md': `---
+// title: "Second Post"
+// date: "2025-06-08"
+// description: "More thoughts and updates."
+// ---
+
+// # Updates
+
+// Here's what's new this week.`,
+      
+//       '../posts/third-post.md': `---
+// title: "Third Post"
+// date: "2025-06-01"
+// description: "Reflections and ideas."
+// ---
+
+// # Reflections
+
+// Some interesting things I've been thinking about.`
+//     };
+
+//     const postsData = Object.entries(postFiles).map(([path, rawContent]) => {
+//       const { data, content } = matter(rawContent);
+//       const slug = path.split('/').pop().replace('.md', '');
+
+//       return {
+//         slug,
+//         title: data.title || 'Untitled Post',
+//         date: data.date || 'Unknown Date',
+//         description: data.description || '',
+//         content: content || '',
+//         tags: data.tags || [],   // this will just be an empty array unless you add tags in frontmatter
+//       };
+//     });
+
+//     postsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+//     return postsData;
+
+//   } catch (error) {
+//     console.error('Error in getAllPosts:', error);
+//     return [
+//       { slug: 'aws-deployment', title: 'Default post: Deploying a React App with Vercel', date: '2025-06-01', description: 'test summary', tags: ['react', 'deployment'] },
+//       { slug: 'aws-lambda', title: 'Default post: AWS Lambda Automation', date: '2025-05-22', description: 'Another summary', tags: ['aws', 'automation'] },
+//     ];
+//   }
+// }
+
+
+
+
+// import fm from 'front-matter';
+// import { marked } from 'marked';
+
+// export function getAllPosts() {
+//   try {
+//     const postFiles = {
+//       '../posts/first-post.md': `---
+// title: "My First Post"
+// date: "2025-06-09"
+// description: "Introduction to my blog."
+// ---
+
+// # Hello World
+
+// Welcome to my first blog post!`,
+      
+//       '../posts/second-post.md': `---
+// title: "Second Post"
+// date: "2025-06-08"
+// description: "More thoughts and updates."
+// ---
+
+// # Updates
+
+// Here's what's new this week.`,
+      
+//       '../posts/third-post.md': `---
+// title: "Third Post"
+// date: "2025-06-01"
+// description: "Reflections and ideas."
+// ---
+
+// # Reflections
+
+// Some interesting things I've been thinking about.`
+//     };
+
+//     const postsData = Object.entries(postFiles).map(([path, rawContent]) => {
+//       const parsed = fm(rawContent);
+//       const slug = path.split('/').pop().replace('.md', '');
+
+//       return {
+//         slug,
+//         title: parsed.attributes.title || 'Untitled Post',
+//         date: parsed.attributes.date || 'Unknown Date',
+//         description: parsed.attributes.description || '',
+//         content: marked(parsed.body), // Converts markdown to HTML
+//         tags: parsed.attributes.tags || [],
+//       };
+//     });
+
+//     postsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+//     return postsData;
+//   } catch (error) {
+//     console.error('Error in getAllPosts:', error);
+//     return [];
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+// import fm from 'front-matter';
+// import { marked } from 'marked';
+
+// export function getAllPosts() {
+//   try {
+//     const postFiles = import.meta.glob('../posts/*.md', { eager: true, query: '?raw', import: 'default' });
+//     // const posts = import.meta.glob('../posts/*.md', { eager: true, as: 'raw' });
+
+//     const postsData = Object.entries(postFiles).map(([path, rawContent]) => {
+//       const parsed = fm(rawContent);
+//       const slug = path.split('/').pop().replace('.md', '');
+
+//       return {
+//         slug,
+//         title: parsed.attributes.title || 'Untitled Post',
+//         date: parsed.attributes.date || 'Unknown Date',
+//         description: parsed.attributes.description || '',
+//         content: marked(parsed.body), // Converts markdown to HTML
+//         tags: parsed.attributes.tags || [],
+//       };
+//     });
+
+//     postsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+//     return postsData;
+//   } catch (error) {
+//     console.error('Error in getAllPosts:', error);
+//     return [];
+//   }
+// }
+
+
+
+
+import fm from 'front-matter';
+import { marked } from 'marked';
+
+// Function to dynamically import and process all markdown posts
 export function getAllPosts() {
   try {
-    return Object.entries(posts).map(([path, rawContent]) => {
-      const { data, content } = matter(rawContent);
+    const postFiles = import.meta.glob('../posts/*.md', { eager: true, as: 'raw' });
+
+    console.log('Loaded postFiles:', postFiles);
+    const postsData = Object.entries(postFiles).map(([path, rawContent]) => {
+      console.log('Parsing:', path);
+      const parsed = fm(rawContent);
       const slug = path.split('/').pop().replace('.md', '');
 
       return {
         slug,
-        title: data.title,
-        date: data.date,
-        summary: data.summary,
-        content,
-        tags: data.tags || [],
+        title: parsed.attributes.title || 'Untitled Post',
+        date: parsed.attributes.date || 'Unknown Date',
+        description: parsed.attributes.description || '',
+        content: marked(parsed.body),
+        tags: parsed.attributes.tags || [],
       };
     });
+
+    postsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    console.log('Final postsData:', postsData);   
+
+    return postsData;
   } catch (error) {
     console.error('Error in getAllPosts:', error);
-    return [];
+    return [
+      { slug: 'aws-deployment', title: 'Default post: Deploying a React App with Vercel', date: '2025-06-01', description: 'test summary', tags: ['react', 'deployment'] },
+      { slug: 'aws-lambda', title: 'Default post: AWS Lambda Automation', date: '2025-05-22', description: 'Another summary', tags: ['aws', 'automation'] },
+    ];
   }
 }

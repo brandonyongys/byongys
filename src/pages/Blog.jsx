@@ -357,7 +357,7 @@ export default function Blog() {
                 <Link to={`/projects/${project.slug}`}>
                   <h3 className="text-xl font-semibold text-orange-800 hover:underline">{project.title}</h3>
                 </Link>
-                <p className="text-sm text-orange-600">{project.date}</p>
+                <p className="text-sm text-orange-600">{new Date(project.date).toLocaleDateString('en-GB')}</p>
                 <p className="text-sm">{project.summary}</p>
                 <div className="mt-1 space-x-2">
                   {(project.tags || []).map(tag => (
