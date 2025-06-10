@@ -1,18 +1,18 @@
 // Ref: https://react-icons.github.io/react-icons/
 
 // import the icon
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 // Add the icon and link below
 export default function Footer() {
   return (
-    <footer className="bg-orange-100 text-orange-800 py-6 mt-16 text-center">
-      <div className="flex justify-center gap-6 text-2xl">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-        {/* <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer"><FaTwitter /></a> */}
+    <footer className="bg-orange-100 text-orange-800 py-4 mt-8 text-center">
+      <div className="flex justify-center gap-4 text-2xl">
+        <a href="https://github.com/brandonyongys" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+        <a href="https://linkedin.com/in/byongys" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+        <a href="mailto:byongys@gmail.com"><FaEnvelope /></a>
       </div>
-      <p className="mt-4 text-sm">&copy; {new Date().getFullYear()} Brandon Yong. All rights reserved.</p>
+      <p className="mt-2 text-sm">&copy; {new Date().getFullYear()} Brandon Yong. All rights reserved.</p>
     </footer>
   );
 }
