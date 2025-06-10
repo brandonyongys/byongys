@@ -7,7 +7,7 @@ export default function PostList() {
   console.log(posts); 
 
   // Limit posts to 5 latest (assuming posts are already sorted by date descending)
-  const n_posts = 8
+  const n_posts = 5
   const latestPosts = posts.slice(0, n_posts);
 
   return (

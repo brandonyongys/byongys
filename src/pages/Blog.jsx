@@ -12,7 +12,7 @@ export default function Blog() {
     setPosts(posts);
   }, []);
 
-  const postsPerPage = 5;
+  const postsPerPage = 10;
 
   const tagCounts = posts.reduce((acc, post) => {
     (post.tags || []).forEach(tag => {
@@ -39,7 +39,7 @@ export default function Blog() {
 
   return (
     <main className="max-w-6xl mx-auto p-4 flex gap-6">
-      <aside className="w-1/4 border-r pr-4">
+      <aside className="w-1/6 border-r pr-4">
         <h3 className="text-xl font-bold mb-4">Tags</h3>
         <ul className="space-y-2">
           <li>
