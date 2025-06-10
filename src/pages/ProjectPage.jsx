@@ -1,5 +1,3 @@
-// This page is used to display the project page
-
 import { useParams } from 'react-router-dom';
 import { getMarkDown } from '../utils/getMarkdown';
 

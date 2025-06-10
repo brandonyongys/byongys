@@ -7,12 +7,12 @@ export default function PostList() {
   console.log(posts); 
 
   // Limit posts to 5 latest (assuming posts are already sorted by date descending)
-  const n_posts = 4
+  const n_posts = 8
   const latestPosts = posts.slice(0, n_posts);
 
   return (
     <section className="max-w-4xl mx-auto">
-      <h3 className="text-3xl font-semibold mb-4">Latest Posts in PostList.jsx</h3>
+      <h3 className="text-3xl font-semibold mb-4">Latest Posts</h3>
       <ul className="space-y-3">
         {latestPosts.map(post => (
           <li key={post.slug} className="border-b border-orange-200 pb-2">
