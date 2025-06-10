@@ -280,7 +280,7 @@
 
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllPosts } from '../utils/getAllPosts';
+import { getMarkDown } from '../utils/getMarkdown';
 
 export default function Blog() {
   const [projects, setProjects] = useState([]);
@@ -288,7 +288,7 @@ export default function Blog() {
   const [selectedTag, setSelectedTag] = useState(null);
 
   useEffect(() => {
-    const posts = getAllPosts();
+    const posts = getMarkDown('posts');
     setProjects(posts);
   }, []);
 

@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { getMarkDown } from '../utils/getConfig';
+import { getMarkDown } from '../utils/getMarkdown';
 
 export default function About() {
   const MarkdownData = getMarkDown();

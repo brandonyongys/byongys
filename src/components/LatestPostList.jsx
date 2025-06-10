@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
-import { getAllPosts } from '../utils/getAllPosts';
+import { getMarkDown } from '../utils/getMarkdown';
 
 
 export default function PostList() {
-  const posts = getAllPosts();
+  const posts = getMarkDown('posts');
   console.log(posts); 
 
-  
   // Limit posts to 5 latest (assuming posts are already sorted by date descending)
   const n_posts = 4
   const latestPosts = posts.slice(0, n_posts);

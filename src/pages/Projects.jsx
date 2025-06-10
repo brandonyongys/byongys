@@ -122,21 +122,10 @@
 /////////// Filter at the top 
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-// import { getAllPosts } from '../utils/posts';
+import { getMarkDown } from '../utils/getMarkdown';
 
 export default function Blog() {
-  // const posts = getAllPosts(); // Have issue calling this
-  const posts =  [
-    { slug: 'aws-deployment', title: 'PROJECT a React App with Vercel', date: '2025-06-01', 
-      summary: 'test summary', content: 'THIS A TEST CONTENT HELLOW!', tags: ['react', 'deployment']},
-    { slug: 'aws-lambda', title: 'PROJECT AWS Lambda for Automation', date: '2025-05-22', tags: ['test', 'tag1'] },
-    { slug: 'llms-healthcare', title: 'PROJECT in Healthcare: What Works', date: '2025-05-15', tags: ['test', 'llm'] },
-    { slug: 'testing-123', title: 'PROJECT3423 ', date: '2025-04-15', tags: ['misc'] },
-    { slug: 'random-4234', title: 'PROJECT 12', date: '2025-03-15', tags: ['test', 'tag1'] },
-    { slug: 'llmserw', title: 'PROJECT', date: '2025-02-15', tags: ['test', 'tag1'] },
-    { slug: 'llms-dsfg', title: 'PROJECTs dsfg Works', date: '2025-01-15', tags: ['test', 'tag1'] },
-    { slug: 'llms-healthcare-old', title: 'PROJECT in Healthcare: What Works', date: '2024-05-15', tags: ['test', 'tag1'] },
-  ];
+  const posts = getMarkDown('projects'); // Have issue calling this
 
   const postsPerPage = 5;
   const [currentPage, setCurrentPage] = useState(1);
@@ -189,7 +178,7 @@ export default function Blog() {
             <Link to={`/posts/${post.slug}`}>
               <h3 className="text-xl font-semibold text-orange-800 hover:underline">{post.title}</h3>
             </Link>
-            <p className="text-sm text-orange-600">{post.date}</p>
+            <p className="text-sm text-orange-600">{new Date(post.date).toLocaleDateString('en-GB')}</p>
             <p className="text-sm">{post.summary}</p>
           </li>
         ))}
