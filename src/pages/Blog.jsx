@@ -354,7 +354,7 @@ export default function Blog() {
           <ul className="space-y-4">
             {currentProjects.map(project => (
               <li key={project.slug} className="border-b border-orange-300 pb-2">
-                <Link to={`/projects/${project.slug}`}>
+                <Link to={`/posts/${project.slug}`}>
                   <h3 className="text-xl font-semibold text-orange-800 hover:underline">{project.title}</h3>
                 </Link>
                 <p className="text-sm text-orange-600">{new Date(project.date).toLocaleDateString('en-GB')}</p>
