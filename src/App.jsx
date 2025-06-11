@@ -12,17 +12,24 @@ import ProjectPage from './pages/ProjectPage'
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/posts/:slug" element={<PostPage />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:slug" element={<ProjectPage />} />
-        {/* <Route path="/tags" element={<Tags />} /> */}
-      </Routes>
-      <Footer />
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+
+        {/* Main content should grow to push Footer to the bottom */}
+        <main className="flex-grow text-orange-900">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/posts/:slug" element={<PostPage />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:slug" element={<ProjectPage />} />
+            {/* <Route path="/tags" element={<Tags />} /> */}
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
     </Router>
   );
 }

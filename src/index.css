@@ -8,3 +8,7 @@
   margin-bottom: 1rem; 
   border-color: #d1d5db;  /* optional, matches gray-300 */
 }
+
+body {
+  @apply bg-orange-50;
+}
