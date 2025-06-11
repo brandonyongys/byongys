@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Life's More Than Just Work
-description: It's Also About Travel (and the Downtime in Between)
+title: Life's more than just work
+description: It's also about travel (and the downtime in between)
 
 date: 2025-04-16
 tags: [life, growth]

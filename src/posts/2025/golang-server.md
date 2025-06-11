@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Building a Secure Go Server for My AWS Lambda Microservices
+title: Building a secure Go server for my AWS Lambda microservices
 description: An opportunity to learn a new language!
 
 date: 2025-04-01

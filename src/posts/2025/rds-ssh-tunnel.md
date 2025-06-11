@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hosting a Database - From EC2 to RDS with an SSH Tunnel
+title: Hosting a database - from EC2 to RDS with an SSH tunnel
 # description: What is I'm not satisfied?
 
 date: 2025-03-25

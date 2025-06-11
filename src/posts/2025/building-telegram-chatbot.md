@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Building a Telegram Chatbot with AWS Lambda
+title: Building a tlegram chatbot with AWS Lambda
 description: What a fun challenge!
 
 date: 2025-02-01

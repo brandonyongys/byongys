@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What I Learned from My GenAI Data Scientist Interview
+title: What I learned from my genAI data scientist interview
 description: Reflections on my strengths, gaps, and areas to improve..
 
 date: 2025-02-21

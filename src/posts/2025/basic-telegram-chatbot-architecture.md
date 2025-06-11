@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Building a Basic Telegram Chatbot
+title: Building a basic Telegram chatbot
 # description: An opportunity to learn a new language!
 
 date: 2025-04-07

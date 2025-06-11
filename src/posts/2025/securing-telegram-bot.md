@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Securing My Telegram Bot
+title: Securing my Telegram bot
 description: Preventing unauthorized requests
 
 date: 2025-02-07

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Lessons from Scaling a Naive RAG Pipeline..
+title: Lessons from scaling a naive RAG pipeline..
 description: ...I'm sure there are more to come
 
 date: 2025-06-01

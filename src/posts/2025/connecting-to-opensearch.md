@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Setting Up Lambda Access to Amazon OpenSearch in a Private Subnet
+title: Setting up Lambda access to Amazon OpenSearch in a private subnet
 # description: It's Also About Travel (and the Downtime in Between)
 
 date: 2025-05-03
