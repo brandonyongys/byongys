@@ -4,7 +4,7 @@ title: Launch of new github page
 description: Launching al-folio template as my github page
 
 date: 2023-01-15
-tags: [blog, github,]
+tags: [portfolio, github,]
 published: true
 ---
 

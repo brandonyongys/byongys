@@ -50,7 +50,7 @@ export default function Projects() {
       </div>
 
       {/* Projects List */}
-      <ul className="space-y-4">
+      <ul className="space-y-4 p-8 bg-gray-50">
         {currentProjects.map(project => (
           <li key={project.slug} className="border-b border-orange-300 pb-2">
             <Link to={`/projects/${project.slug}`}>
