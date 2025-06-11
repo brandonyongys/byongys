@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Reduce vertical margin around <hr> inside prose */
+.prose hr {
+  margin-top: 1rem;    
+  margin-bottom: 1rem; 
+  border-color: #d1d5db;  /* optional, matches gray-300 */
+}
+
+body {
+  @apply bg-orange-50;
+}

@@ -1,6 +1,11 @@
 import fm from 'front-matter';
 import { marked } from 'marked';
 
+marked.setOptions({
+  breaks: true,            // respects line breaks
+  gfm: true,               // GitHub Flavored Markdown (enables tables, etc.)
+});
+
 // Function to dynamically import and process all markdown posts
 export function getMarkDown(type = 'config') {
   try {
@@ -8,7 +13,7 @@ export function getMarkDown(type = 'config') {
     if (type === 'config') {
       MarkdownFiles = import.meta.glob('../config/*.md', { eager: true, as: 'raw' });
     } else if (type === 'posts') {
-      MarkdownFiles = import.meta.glob('../posts/*.md', { eager: true, as: 'raw' });
+      MarkdownFiles = import.meta.glob('../posts/*/*.md', { eager: true, as: 'raw' });
     } else if (type === 'projects') {
       MarkdownFiles = import.meta.glob('../projects/*.md', { eager: true, as: 'raw'});
     } else {
@@ -29,6 +34,7 @@ export function getMarkDown(type = 'config') {
         description: parsed.attributes.description || '',
         content: marked(parsed.body),
         tags: parsed.attributes.tags || [],
+        published: parsed.attributes.published ?? true,
       };
     });
 
