@@ -8,7 +8,7 @@ tags: [technical, programming, career]
 published: true
 ---
 
-Working with the Google Photos API is not easy especially for me despite being able to develop some codes to automatically download media from Google Photos, as written in [here](https://brandonyongys.github.io/blog/2023/google-photos-download/). I was looking at the [One Map API documentations](https://www.onemap.gov.sg/docs/) and they too would need me to work with REST API. I've decided to take the time to learn how to work with REST API. The [post](https://realpython.com/api-integration-in-python/) by Real Python has been really helpful. 
+Working with the Google Photos API is not easy especially for me despite being able to develop some codes to automatically download media from Google Photos. I was looking at the [One Map API documentations](https://www.onemap.gov.sg/docs/) and they too would need me to work with REST API. I've decided to take the time to learn how to work with REST API. The [post](https://realpython.com/api-integration-in-python/) by Real Python has been really helpful. 
 
 <hr>
 

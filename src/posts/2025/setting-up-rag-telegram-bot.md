@@ -14,7 +14,7 @@ Lately, it feels like "RAG" is everywhere. It's not a new concept, but it keeps 
 1. Retrieve the k most similar embeddings.
 1. Feed these retrieved texts, along with the original query and role instructions, to an LLM to generate a natural language response.
 
-In my existing [Telegram bot](https://brandonyongys.github.io/blog/2025/telegram-chatbot/), it currently just responds with a simple message whenever a user sends something. Now, I want to enhance it by integrating an RAG pipeline, allowing users to ask questions and receive relevant responses based on stored knowledge. This post will focus on setting up the basic implementation.
+In my existing [Telegram bot](./building-telegram-chatbot), it currently just responds with a simple message whenever a user sends something. Now, I want to enhance it by integrating an RAG pipeline, allowing users to ask questions and receive relevant responses based on stored knowledge. This post will focus on setting up the basic implementation.
 
 <hr>
 

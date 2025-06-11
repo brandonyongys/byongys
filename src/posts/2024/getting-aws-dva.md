@@ -7,7 +7,7 @@ date: 2024-12-21
 tags: [career, AWS, technical, certificate]
 published: true
 ---
-So yeah... I passed the AWS Developer Associate exam yesterday and got my second AWS Associate certificate. It all happened within a year, having passed the AWS Solutions Architect Associate exam back in Apr this year (see [post](https://brandonyongys.github.io/blog/2024/AWS-SAA/)). 
+So yeah... I passed the AWS Developer Associate exam yesterday and got my second AWS Associate certificate. It all happened within a year, having passed the AWS Solutions Architect Associate exam back in Apr this year (see [post](./getting-aws-saa)). 
 
 There is no particular incentive to getting myself certified other than the fact that my current role is more of a developer role. I primarily work with AWS serverless resources and the DVA certificate goes quite well with my role. Besides that, I learned about other resources that could help to enhance the pipelines I'm developing for the chatbot such as using AWS X-ray to enhance tracing and logging capability.
 

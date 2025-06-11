@@ -7,12 +7,16 @@ date: 2025-02-01
 tags: [technical, programming, project, AWS, development, chatbot]
 published: true
 ---
-One of my exciting [plans for 2025](https://brandonyongys.github.io/blog/2025/setting-my-goals/) is to develop a simple Supermarket chatbot, and after reflecting on my current knowledge, I initially thought of using WhatsApp for its implementation since I have prior experience with it at work. However, I quickly realized that using WhatsApp might not be the most efficient option, as it would involve additional third-party software and could become quite costly.
+One of my exciting [plans for 2025](./2025-goals) is to develop a simple Supermarket chatbot, and after reflecting on my current knowledge, I initially thought of using WhatsApp for its implementation since I have prior experience with it at work. However, I quickly realized that using WhatsApp might not be the most efficient option, as it would involve additional third-party software and could become quite costly.
 
 That being said, what fun would it be if I built the chatbot using what I already know? To challenge myself, I’ve decided to build the chatbot on Telegram instead. Not only does Telegram offer a fresh challenge, but it also has a larger following among younger audiences, which would help me connect with a wider user base.
 
+<hr>
+
 # Creating Telegram Bot
 The first step in building this chatbot is creating a Telegram bot, which can easily be done by chatting with @BotFather on Telegram. BotFather will guide you through the process, and the basic command to create a new bot is `/newbot`. After creating the bot, save the bot token for future use.
+
+<hr>
 
 # Connecting Bot to AWS Lambda
 To handle the interaction between users and the bot, I’ve chosen to use AWS Lambda. This allows me to scale the bot while controlling the session flow. The following Lambda function receives user messages and sends back a simple reply:
@@ -47,8 +51,12 @@ def lambda_handler(event, context):
 
 After deploying the code to AWS Lambda, the next step is setting up an API Gateway. A simple HTTP API should suffice to minimize costs according to the [Amazon API Gateway pricing](https://aws.amazon.com/api-gateway/pricing/). Remember to create three stages: dev, staging, and prod for different environments. You should also create separate API gateways for each environment, just as you would for a dev, staging, and prod version of the chatbot.
 
+<hr>
+
 # Configuring the API Gateway
 Once the gateway is set up, you need to create a route for the POST method and connect the webhook to your Lambda function. This ensures that every new message sent to your Telegram bot is forwarded to the Lambda function for processing.
+
+<hr>
 
 # Set up Telegram Webhook
 The final step is to configure the webhook for the bot. First, retrieve the URL for your API Gateway. Once you have the URL, use the following `curl` command to set up the webhook:

@@ -8,7 +8,7 @@ tags: [development, LLM, technical, programming, project, AWS]
 published: true
 ---
 
-In my spare time, I've been building a simple [RAG (Retrieval-Augmented Generation) pipeline](https://brandonyongys.github.io/blog/2025/naive-rag-pipeline/) - and I finally got a functional chatbot running! At first, it seemed promising. It handled queries about a specific credit card fairly well (though, admittedly, I only used one document in the initial test). I felt like I had achieved something significant and thought I was ready to scale this for production.
+In my spare time, I've been building a simple [RAG (Retrieval-Augmented Generation) pipeline](./naive-rag-pipeline) - and I finally got a functional chatbot running! At first, it seemed promising. It handled queries about a specific credit card fairly well (though, admittedly, I only used one document in the initial test). I felt like I had achieved something significant and thought I was ready to scale this for production.
 
 So I pushed it further by bulk-loading more documents into the pipeline.
 

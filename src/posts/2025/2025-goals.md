@@ -7,7 +7,7 @@ date: 2025-01-02
 tags: [life, career, growth]
 published: true
 ---
-In my previous [post](https://brandonyongys.github.io/blog/2024/year-end-review/), I talked about passing MLS-C01 exam, developing a small Golang app, working out regularly, building a simple Supermarket Chatbot and posting here regularly. These goals are high level goals and I realize that I am not good with goals. Not in the sense that I hate having goals but I simply work better with milestones. To do that, I have to break down each goal into regular tasks and blocking out time to complete them.
+In my previous [post](./2024-reflection), I talked about passing MLS-C01 exam, developing a small Golang app, working out regularly, building a simple Supermarket Chatbot and posting here regularly. These goals are high level goals and I realize that I am not good with goals. Not in the sense that I hate having goals but I simply work better with milestones. To do that, I have to break down each goal into regular tasks and blocking out time to complete them.
 
 # 1. Pass MLS-C01 exam
 
