@@ -10,7 +10,7 @@ export default function Blog() {
 
   // Get the set of posts in reverse chronological order
   useEffect(() => {
-    const posts = getMarkDown('posts');
+    const posts = getMarkDown('posts').filter(post => post.published);
     setPosts(posts);
   }, []);
 
@@ -22,7 +22,7 @@ export default function Blog() {
     return acc;
   }, {});
 
-  const allTags = Object.keys(tagCounts);
+  const allTags = Object.keys(tagCounts).sort((a,b) => a.localeCompare(b));
 
   const filteredPosts = selectedTag
     ? posts.filter(post => (post.tags || []).includes(selectedTag))
