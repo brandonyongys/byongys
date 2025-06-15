@@ -7,6 +7,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 import Home from './pages/Home';
 import About from './pages/About';
+import CV from './pages/CV';
 import Blog from './pages/Blog';
 import PostPage from './pages/PostPage';
 import Projects from './pages/Projects';
@@ -25,6 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/cv" element={<CV />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/posts/:slug" element={<PostPage />} />
             <Route path="/projects" element={<Projects />} />

@@ -17,6 +17,7 @@ export default function Navbar() {
       <div className="space-x-4">
         <Link to="/" className="font-semibold text-orange-800 text-l hover:underline">Home</Link>
         <Link to="/about" className="font-semibold text-orange-800 text-l hover:underline">About Me</Link>
+        <Link to="/cv" className="font-semibold text-orange-800 text-l hover:underline">CV</Link>
         <Link to="/blog" className="font-semibold text-orange-800 text-l hover:underline">Blog</Link>
         <Link to="/projects" className="font-semibold text-orange-800 text-l hover:underline">Projects</Link>
         {/* <Link to="/tags" className="font-semibold text-orange-800 hover:italic">Tags NB</Link> */}
