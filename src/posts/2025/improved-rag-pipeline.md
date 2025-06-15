@@ -4,7 +4,7 @@ title: Improving my RAG pipeline
 description: What went wrong and how I fixed it
 
 date: 2025-06-23
-tags: [development, LLM, technical, programming, project, AWS]
+tags: [development, LLM, telegram, chatbot, RAG, project, AWS]
 published: true
 ---
 
