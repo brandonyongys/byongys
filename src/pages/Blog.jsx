@@ -34,6 +34,7 @@ export default function Blog() {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
 
+  // Reset to page 1 when a tag is selected
   const handleTagClick = (tag) => {
     setSelectedTag(tag);
     setCurrentPage(1);
