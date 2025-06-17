@@ -74,7 +74,7 @@ export default function Blog() {
       </aside>
 
       {/* Posts menu */}
-      <div className="w-2/3 p-8 bg-gray-50">
+      <div className="w-2/3 p-8 bg-gray-50 rounded shadow">
         <h2 className="text-2xl font-bold mb-6">
           {selectedTag ? `Posts tagged "${selectedTag}"` : 'All Posts'}
         </h2>

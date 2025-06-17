@@ -6,8 +6,6 @@ import cvFile from '../config/cv.yml?raw';
 
 const cvData = yaml.load(cvFile);
 
-console.log(cvData);
-
 export default function CV() {
     // Split sections into work exp and others
     const workExperience = cvData.sections.find(section => section.title.toLowerCase().includes('work'));
