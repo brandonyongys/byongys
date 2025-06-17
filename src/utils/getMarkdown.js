@@ -36,8 +36,13 @@ export function getMarkDown(type = 'config') {
     });
 
     // Remove future dated posts
-    const today = new Date()
-    const VisibleMarkdownData = MarkdownData.filter(post => new Date(post.date) <= today)
+    let VisibleMarkdownData;
+    if (type === 'posts' || type === 'projects') {
+      const today = new Date()
+      VisibleMarkdownData = MarkdownData.filter(post => new Date(post.date) <= today)
+    } else {
+      VisibleMarkdownData = MarkdownData
+    }
 
     // Sort by date
     VisibleMarkdownData.sort((a, b) => new Date(b.date) - new Date(a.date));
