@@ -20,10 +20,7 @@ export function getMarkDown(type = 'config') {
       throw new Error('Invalid type');
     }
 
-    console.log('Loaded MarkdownFiles:', MarkdownFiles);
-
     const MarkdownData = Object.entries(MarkdownFiles).map(([path, rawContent]) => {
-      console.log('Parsing:', path);
       const parsed = fm(rawContent);
       const slug = path.split('/').pop().replace('.md', '');
 
@@ -38,11 +35,14 @@ export function getMarkDown(type = 'config') {
       };
     });
 
-    MarkdownData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    // Remove future dated posts
+    const today = new Date()
+    const VisibleMarkdownData = MarkdownData.filter(post => new Date(post.date) <= today)
 
-    console.log('Final MarkdownData:', MarkdownData);   
+    // Sort by date
+    VisibleMarkdownData.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    return MarkdownData;
+    return VisibleMarkdownData;
   } catch (error) {
     console.error('Error in getAllPosts:', error);
     return [];
