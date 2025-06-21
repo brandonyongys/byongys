@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { getMarkDown } from '../utils/getMarkdown';
+import MissingPage from '../components/MissingPage'
 
 export default function ProjectPostPage() {
   const { slug } = useParams();
@@ -9,7 +10,7 @@ export default function ProjectPostPage() {
   // const relatedPosts = blogPosts.filter((post) => post.projectSlug === slug);
 
   if (!project) {
-    return <div>Project not found</div>;
+    return <MissingPage pageName='Project' />;
   }
 
   return (
@@ -18,7 +19,7 @@ export default function ProjectPostPage() {
       {/* <img src={project.image} alt={project.title} className="rounded-xl mb-4" /> */}
       <p className="text-m font-semibold text-orange-700">{project.description}</p>
       {/* <p className="text-sm font-semibold text-orange-600 mb-6">First created: {new Date(project.date).toLocaleDateString('en-GB')}</p> */}
-      <p className="text-sm font-semibold text-orange-600 mb-6">Last updated: {new Date(project.updated_date).toLocaleDateString('en-GB')}</p>
+      <p className="text-sm font-semibold text-orange-600 mb-6">Last updated on {new Date(project.updated_date).toLocaleDateString('en-GB')}</p>
       <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: project.content }} />
     </article>
   );

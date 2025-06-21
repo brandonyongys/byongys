@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { getMarkDown } from '../utils/getMarkdown';
+import MissingPage from '../components/MissingPage'
 
 export default function PostPage() {
   const { slug } = useParams();
@@ -7,7 +8,7 @@ export default function PostPage() {
   const post = posts.find(p => p.slug === slug);
 
   if (!post) {
-    return <div>Post not found</div>;
+    return <MissingPage pageName='Post' />;
   }
 
   return (
