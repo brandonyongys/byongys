@@ -32,6 +32,7 @@ export function getMarkDown(type = 'config') {
         content: marked(parsed.body),
         tags: parsed.attributes.tags || [],
         published: parsed.attributes.published ?? true,
+        updated_date: parsed.attributes.updated_date || '',
       };
     });
 
