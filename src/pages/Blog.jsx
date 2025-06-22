@@ -93,7 +93,13 @@ export default function Blog() {
                   <Link to={`/posts/${post.slug}`}>
                     <h3 className="text-xl font-semibold text-orange-800 hover:underline">{post.title}</h3>
                   </Link>
-                  <p className="text-sm font-semibold text-orange-600 ml-4 whitespace-nowrap">{new Date(post.date).toLocaleDateString('en-GB')}</p>
+                  <p className="text-sm font-semibold text-orange-600 ml-4 whitespace-nowrap">
+                    {new Date(post.date).toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric',
+                      })}
+                    </p>
                 </div>
 
                 {/* Post description */}
