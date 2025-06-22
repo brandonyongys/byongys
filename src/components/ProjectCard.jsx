@@ -12,24 +12,25 @@ export default function ProjectCard({ project }) {
       )}
 
       <Link to={`/projects/${project.slug}`} className="relative">
-        <h2 className="text-2xl font-bold mb-4 text-orange-800">{project.title}</h2>
-        <p className="text-m text-gray-700 mb-2">{project.description}</p>
+        <h2 className="text-2xl font-bold mb-2 text-orange-800">{project.title}</h2>
         {project.updated_date !== '' && (
-          <p className="text-sm">
+          <p className="text-sm font-semibold text-orange-600"><i>
             Updated on {new Date(project.updated_date).toLocaleDateString('en-GB', {
           day: '2-digit',
           month: 'short',
           year: 'numeric',
         })}
-          </p>
+          </i></p>
         )}
-        <p className="text-sm mb-1">
+        <p className="text-sm mb-2 text-orange-600">
           Published on {new Date(project.published_date).toLocaleDateString('en-GB', {
           day: '2-digit',
           month: 'short',
           year: 'numeric',
         })}
         </p>
+        <p className="text-m text-gray-700 mt-2">{project.description}</p>
+
 
       </Link>
 
