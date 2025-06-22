@@ -7,7 +7,7 @@ marked.setOptions({
 });
 
 // Function to dynamically import and process all markdown posts
-export function getMarkDown(type = 'config') {
+export function getMarkDown(type) {
   try {
     let MarkdownFiles;
     if (type === 'config') {

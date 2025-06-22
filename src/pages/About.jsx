@@ -1,7 +1,7 @@
 import { getMarkDown } from '../utils/getMarkdown';
 
 export default function About() {
-  const MarkdownData = getMarkDown();
+  const MarkdownData = getMarkDown('config');
   const markdown = MarkdownData.find(p => p.slug === "about");
 
   if (!markdown) {
