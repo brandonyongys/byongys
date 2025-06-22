@@ -31,7 +31,7 @@ export function getMarkDown(type = 'config') {
         description: parsed.attributes.description || '',
         content: marked(parsed.body),
         published: parsed.attributes.published ?? true,
-        date: parsed.attributes.date || parsed.attributes.updated_date || parsed.attributes.published_date || '',
+        date: parsed.attributes.date || parsed.attributes.published_date || parsed.attributes.updated_date || '',
 
         // Params for posts
         tags: parsed.attributes.tags || [],
