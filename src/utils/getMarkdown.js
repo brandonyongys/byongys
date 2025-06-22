@@ -25,24 +25,35 @@ export function getMarkDown(type = 'config') {
       const slug = path.split('/').pop().replace('.md', '');
 
       return {
+        // Mandatory params
         slug,
         title: parsed.attributes.title || '',
-        date: parsed.attributes.date || '',
         description: parsed.attributes.description || '',
         content: marked(parsed.body),
-        tags: parsed.attributes.tags || [],
         published: parsed.attributes.published ?? true,
+        date: parsed.attributes.date || parsed.attributes.updated_date || parsed.attributes.published_date || '',
+
+        // Params for posts
+        tags: parsed.attributes.tags || [],
+
+        // Params for projects
+        image: parsed.attributes.image || '',
+        published_date: parsed.attributes.published_date || '',
         updated_date: parsed.attributes.updated_date || '',
+
       };
     });
 
-    // Remove future dated posts
+    // Keep published data only
+    const PublishedMarkdownData = MarkdownData.filter(data => data.published)
+
+    // Remove future dated data
     let VisibleMarkdownData;
     if (type === 'posts' || type === 'projects') {
       const today = new Date()
-      VisibleMarkdownData = MarkdownData.filter(post => new Date(post.date) <= today)
+      VisibleMarkdownData = PublishedMarkdownData.filter(data => new Date(data.date) <= today)
     } else {
-      VisibleMarkdownData = MarkdownData
+      VisibleMarkdownData = PublishedMarkdownData
     }
 
     // Sort by date
@@ -50,7 +61,7 @@ export function getMarkDown(type = 'config') {
 
     return VisibleMarkdownData;
   } catch (error) {
-    console.error('Error in getAllPosts:', error);
+    console.error('Error in getMarkDown:', error);
     return [];
   }
 }

@@ -2,12 +2,37 @@ import { Link } from "react-router-dom";
 
 export default function ProjectCard({ project }) {
   return (
-    <div className="rounded-2xl shadow-lg p-4 bg-white">
-      <Link to={`/projects/${project.slug}`}>
-        {/* <img src={project.image} alt={project.title} className="rounded-xl" /> */}
-        <h2 className="text-xl font-bold mt-2">{project.title}</h2>
-        <p className="text-gray-600">{project.description}</p>
+    <div className="relative rounded-2xl shadow-lg p-4 bg-gray-50 overflow-hidden">
+      {/* Make the project image as the background, if any */}
+      {project.image !== '' && (
+        <div
+          className="absolute inset-x-0 top-0 h-full bg-top bg-cover opacity-10 pointer-events-none"
+          style={{ backgroundImage: `url(${project.image})` }}
+        />
+      )}
+
+      <Link to={`/projects/${project.slug}`} className="relative">
+        <h2 className="text-2xl font-bold mb-4 text-orange-800">{project.title}</h2>
+        <p className="text-m text-gray-700 mb-2">{project.description}</p>
+        {project.updated_date !== '' && (
+          <p className="text-sm">
+            Updated on {new Date(project.updated_date).toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric',
+        })}
+          </p>
+        )}
+        <p className="text-sm mb-1">
+          Published on {new Date(project.published_date).toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric',
+        })}
+        </p>
+
       </Link>
+
 
       {/* Related Blog Posts
       <div className="mt-3 text-sm">
