@@ -4,16 +4,19 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "generate-index": "vite-node src/utils/generateSearchIndex.js",
+    "dev": "npm run generate-index && vite",
+    "build": "npm run generate-index && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "front-matter": "^4.0.2",
+    "fuse.js": "^7.1.0",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
+    "lucide-react": "^0.522.0",
     "marked": "^15.0.12",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -32,6 +35,7 @@
     "globals": "^16.0.0",
     "postcss": "^8.5.4",
     "tailwindcss": "^3.4.1",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-node": "^3.2.4"
   }
 }

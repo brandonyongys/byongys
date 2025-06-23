@@ -4,11 +4,10 @@ import { getMarkDown } from '../utils/getMarkdown';
 
 export default function PostList() {
   const posts = getMarkDown('posts');
-  console.log(posts); 
 
   // Limit posts to 5 latest (assuming posts are already sorted by date descending)
-  const n_posts = 5
-  const latestPosts = posts.slice(0, n_posts);
+  const postNoLimit = 5
+  const latestPosts = posts.slice(0, postNoLimit);
 
   return (
     <section className="max-w-4xl mx-auto p-8 bg-gray-50 rounded shadow">
@@ -24,11 +23,11 @@ export default function PostList() {
               </Link>
               <p className="text-sm font-semibold text-orange-600 ml-4 whitespace-nowrap">
                 {new Date(post.date).toLocaleDateString('en-GB', {
-          day: '2-digit',
-          month: 'short',
-          year: 'numeric',
-        })}
-                </p>
+                  day: '2-digit',
+                  month: 'short',
+                  year: 'numeric',
+                })}
+              </p>
             </div>
 
             {/* Post description */}
