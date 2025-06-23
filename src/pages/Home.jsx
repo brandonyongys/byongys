@@ -1,13 +1,13 @@
 import LatestPostList from '../components/LatestPostList';
 import { getMarkDown } from '../utils/getMarkdown';
+import MissingPage from '../components/MissingPage';
 
 export default function Home() {
   const MarkdownData = getMarkDown('config')
   const markdown = MarkdownData.find(p => p.slug === "welcome");
 
-  // Replace with MissingPage
   if (!markdown) {
-    return <center><div>Page not found</div></center>
+    return <MissingPage pageName='Home' />;
   }
 
   return (
@@ -18,9 +18,6 @@ export default function Home() {
         <article className="prose max-w-none text-orange-900 text-lg">
           <div dangerouslySetInnerHTML={{ __html: markdown.content }} />
         </article>
-        {/* <p className="text-lg">
-          🛠️ This blog is called <b>Build, Break, Rebuild</b> because that's exactly how my systems (and skills) have evolved - one failure at a time.
-        </p> */}
       </section>
 
       <LatestPostList />

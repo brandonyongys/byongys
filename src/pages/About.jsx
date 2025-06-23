@@ -1,11 +1,12 @@
 import { getMarkDown } from '../utils/getMarkdown';
+import MissingPage from '../components/MissingPage';
 
 export default function About() {
   const MarkdownData = getMarkDown('config');
   const markdown = MarkdownData.find(p => p.slug === "about");
 
   if (!markdown) {
-    return <center><div>Page not found</div></center>
+    return <MissingPage pageName='About' />;
   }
 
   return (

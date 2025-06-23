@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { getMarkDown } from '../utils/getMarkdown';
-import MissingPage from '../components/MissingPage'
+import MissingPage from '../components/MissingPage';
 
 export default function PostPage() {
   const { slug } = useParams();
