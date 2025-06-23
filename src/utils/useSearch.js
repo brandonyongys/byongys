@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import Fuse from "fuse.js";
-import searchIndex from "../data/searchIndex.json";
+import searchIndex from "../config/searchIndex.json";
 
 export default function useSearch(query) {
     const [results, setResults] = useState([]);

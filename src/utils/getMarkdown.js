@@ -11,11 +11,11 @@ export function getMarkDown(type) {
   try {
     let MarkdownFiles;
     if (type === 'config') {
-      MarkdownFiles = import.meta.glob('../config/*.md', { eager: true, as: 'raw' });
+      MarkdownFiles = import.meta.glob('../config/*.md', { eager: true, query: '?raw', import: 'default' });
     } else if (type === 'posts') {
-      MarkdownFiles = import.meta.glob('../posts/*/*.md', { eager: true, as: 'raw' });
+      MarkdownFiles = import.meta.glob('../posts/*/*.md', { eager: true, query: '?raw', import: 'default' });
     } else if (type === 'projects') {
-      MarkdownFiles = import.meta.glob('../projects/*.md', { eager: true, as: 'raw'});
+      MarkdownFiles = import.meta.glob('../projects/*.md', { eager: true, query: '?raw', import: 'default' });
     } else {
       throw new Error('Invalid type');
     }
