@@ -13,6 +13,7 @@ import PostPage from './pages/PostPage';
 import Projects from './pages/Projects';
 import ProjectPage from './pages/ProjectPage'
 // import Tags from './pages/Tags';
+import SearchPage from './pages/SearchPage';  
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:slug" element={<ProjectPage />} />
             {/* <Route path="/tags" element={<Tags />} /> */}
+            <Route path="/search" element={<SearchPage />} />
           </Routes>
         </main>
 
