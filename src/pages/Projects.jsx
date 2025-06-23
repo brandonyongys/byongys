@@ -12,7 +12,7 @@ export default function ProjectsPage() {
 
   return (
     <article className="max-w-4xl mx-auto my-4 grid gap-3 grid-cols-2 my-12">
-      
+      <div className="page-background" aria-hidden="true"></div>
       {/* max-w-4xl mx-auto p-8 my-8 bg-gray-50 rounded shadow grid gap-6 grid-cols-2 */}
       {projects.map((project) => {
         // const relatedPosts = blogPosts.filter((post) =>

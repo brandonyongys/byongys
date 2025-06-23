@@ -17,6 +17,7 @@ export default function CV() {
 
     return (
         <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-50 rounded shadow">
+            <div className="page-background" aria-hidden="true"></div>
             <h1 className="text-4xl font-bold mb-4 text-orange-800 text-center">{cvData.name}</h1>
 
             <div className="text-justify mb-8">
