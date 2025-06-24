@@ -14,7 +14,7 @@ export default function ProjectPostPage() {
   }
 
   return (
-    <article className="max-w-3xl mx-auto p-8 my-8 bg-gray-50 rounded shadow">
+    <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-50 rounded shadow">
       <div className="page-background" aria-hidden="true"></div>
       <h1 className="text-4xl font-bold mb-3 text-orange-800">{project.title}</h1>
       {/* <p className="text-m font-semibold text-orange-700 mb-3">{project.description}</p> */}
@@ -36,7 +36,7 @@ export default function ProjectPostPage() {
         })}
       </p>
       <hr></hr>
-      <div className="prose max-w-none mt-2" dangerouslySetInnerHTML={{ __html: project.content }} />
+      <div className="prose max-w-none text-gray-700 mt-2" dangerouslySetInnerHTML={{ __html: project.content }} />
     </article>
   );
 }

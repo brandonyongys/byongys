@@ -32,6 +32,7 @@ export function getMarkDown(type) {
         content: marked(parsed.body),
         published: parsed.attributes.published ?? true,
         date: parsed.attributes.date || parsed.attributes.published_date || parsed.attributes.updated_date || '',
+        layout: parsed.attributes.layout || '',
 
         // Params for posts
         tags: parsed.attributes.tags || [],

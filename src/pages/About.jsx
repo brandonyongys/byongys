@@ -10,10 +10,10 @@ export default function About() {
   }
 
   return (
-    <section className="max-w-3xl mx-auto p-8 my-8 bg-gray-50 rounded shadow">
+    <section className="max-w-4xl mx-auto p-8 my-8 bg-gray-50 rounded shadow">
       <div className="page-background" aria-hidden="true"></div>
-      <h2 className="text-3xl font-bold mb-4">About Me</h2>
-      <article className="prose max-w-none">
+      <h2 className="text-4xl font-bold mb-3 text-orange-800">About Me</h2>
+      <article className="prose max-w-none text-gray-700 mt-2">
         <div dangerouslySetInnerHTML={{ __html: markdown.content }} />
       </article>
     </section>
