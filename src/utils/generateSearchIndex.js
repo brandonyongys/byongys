@@ -17,12 +17,14 @@ const searchIndex = [
         title: post.title || '',
         description: post.description || '',
         tags: post.tags || [],
+        date: post.date || '',
         url: `/posts/${post.slug}`,
     })),
     ...projectsData.map(project => ({
         title: project.title || '',
         description: project.description || '',
         tags: project.tags || [],
+        project: project.date || '',
         url: `/projects/${project.slug}`,
     })),
 ];

@@ -2,18 +2,33 @@ export default function SearchResults({ results, query }) {
     if (!query.trim()) return null;
 
     if (results.length === 0) {
-        return <div className="mt-2 text-gray-500">No results found for <strong>{query}</strong>.</div>;
+        return <div className="mt-2 text-gray-700">No results found for <strong>{query}</strong>.</div>;
     }
+
+    // Sort results by date
+    results.sort((a,b) => new Date(b.date) - new Date(a.date))
 
     return (
         <ul className="mt-2 space-y-2">
         {results.map((item, index) => (
-            <li key={index} className="p-3 rounded-lg border shadow hover:bg-gray-50">
+            <li key={index} className="p-3 rounded-lg bg-gray-50 hover:bg-sky-100">
             <a href={item.url} className="block focus:outline-none focus:ring focus:ring-blue-300">
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                {/* ✅ Flex container for title + date */}
+                <div className="flex justify-between">
+                    <h3 className="text-lg font-semibold">{item.title}</h3>
+                    <span className="text-sm text-orange-600 mt-1">
+                        {new Date(item.date).toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric',
+                        })}
+                    </span>
+                </div>
+
+                <p className="mt-1 text-gray-600">{item.description}</p>
+
                 <div className="mt-1 text-sm text-blue-600">
-                {item.tags.join(", ")}
+                    {item.tags.join(', ')}
                 </div>
             </a>
             </li>
