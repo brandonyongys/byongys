@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-orange-100 px-6 py-1.5 shadow-md flex justify-between items-center relative">
-      <div className="text-orange-800 font-semibold text-l">byongys</div>
+      <div className="text-orange-800 font-semibold text-lg">byongys</div>
 
       <h1 className="absolute left-1/2 transform -translate-x-1/2 text-orange-700 font-bold text-xl">
         <Link to="/" className="text-orange-800">Build, Break, Rebuild</Link>
@@ -45,26 +45,28 @@ export default function Navbar() {
 
         <div ref={searchRef}>
           {isSearchOpen ? (
-            <form onSubmit={handleSubmit} className="flex items-center border rounded px-2 py-1">
+            <form onSubmit={handleSubmit} className="flex items-center border rounded">
+              {/* Search input */}
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                className="p-1 focus:outline-none"
+                className="focus:outline-none"
                 placeholder="Search..."
                 autoFocus
               />
               <button type="submit" className="p-1 text-gray-600 hover:text-black">
-                <Search size={18} />
+                <Search size={14} />
               </button>
             </form>
           ) : (
+            // Magnifying glass button
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 rounded-full hover:bg-gray-200 focus:outline-none focus:ring focus:ring-blue-300"
+              className="p-1 rounded-full hover:bg-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
               aria-label="Open search"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-3.5 h-3.5" />
             </button>
           )}
         </div>
