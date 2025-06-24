@@ -47,8 +47,8 @@ export default function SearchResults({ results, query }) {
                     className="block focus:outline-none focus:ring focus:ring-blue-300"
                 >
                 <div className="flex justify-between items-start">
-                    <h3 className="text-lg font-semibold">{item.title}</h3>
-                    <span className="text-sm text-orange-600 mt-1">
+                    <h3 className="text-lg font-semibold text-orange-800">{item.title}</h3>
+                    <span className="text-sm font-semibold text-orange-600 mt-1">
                         {new Date(item.date).toLocaleDateString("en-GB", {
                             day: "2-digit",
                             month: "short",
@@ -56,7 +56,7 @@ export default function SearchResults({ results, query }) {
                         })}
                     </span>
                 </div>
-                <p className="mt-1 text-gray-600">{item.description}</p>
+                <p className="mt-1 text-gray-700">{item.description}</p>
                 <div className="mt-1 text-sm text-blue-600">
                     {item.tags.join(", ")}
                 </div>
@@ -66,21 +66,21 @@ export default function SearchResults({ results, query }) {
         </ul>
 
         {/* ✅ Pagination Controls */}
-        <div className="flex justify-center items-center space-x-4 mt-4">
+        <div className="flex justify-center items-center space-x-2 mt-6">
             <button
                 onClick={handlePrev}
                 disabled={currentPage === 1}
-                className="px-3 py-1 rounded bg-orange-200 text-orange-900 disabled:opacity-50"
+                className="px-3 py-1 bg-orange-100 rounded disabled:opacity-50"
             >
                 Prev
             </button>
-            <span className="text-gray-700 text-sm">
+            <span className="px-3 py-1 font-medium">
                 Page {currentPage} of {totalPages}
             </span>
             <button
                 onClick={handleNext}
                 disabled={currentPage === totalPages}
-                className="px-3 py-1 rounded bg-orange-200 text-orange-900 disabled:opacity-50"
+                className="px-3 py-1 bg-orange-100 rounded disabled:opacity-50"
             >
                 Next
             </button>

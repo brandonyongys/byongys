@@ -14,8 +14,8 @@ export default function Home() {
     <main className="min-h-screen text-orange-900 p-8">
       <div className="page-background" aria-hidden="true"></div>
       <section className="max-w-4xl mx-auto mb-8 p-8 bg-gray-50 rounded shadow">
-        <h2 className="text-3xl font-bold mb-4">{markdown.title}</h2>
-        <article className="prose max-w-none text-orange-900 text-lg">
+        <h2 className="text-4xl font-bold mb-3 text-orange-800">{markdown.title}</h2>
+        <article className="prose max-w-none text-gray-700 mt-2">
           <div dangerouslySetInnerHTML={{ __html: markdown.content }} />
         </article>
       </section>

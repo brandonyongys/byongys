@@ -44,7 +44,7 @@ export default function Blog() {
     <main className="max-w-6xl mx-auto p-4 flex gap-6">
       <div className="page-background" aria-hidden="true"></div>
       {/* Side menu for tags */}
-      <aside className="w-1/6 border-r pr-4">
+      <aside className="w-1/6 pr-4 px-2">
         {/* Tags header */}
         <h3 className="text-xl font-bold mb-4">Tags</h3>
 
@@ -54,7 +54,7 @@ export default function Blog() {
             {/* All posts button */}
             <button
               onClick={() => handleTagClick(null)}
-              className={`text-left w-full ${!selectedTag ? 'font-bold text-orange-700' : 'text-gray-700'}`}
+              className={`text-left w-full ${!selectedTag ? 'font-bold text-orange-700' : 'text-gray-900'}`}
             >
               All Posts ({posts.length})
             </button>
@@ -65,7 +65,7 @@ export default function Blog() {
             <li key={tag}>
               <button
                 onClick={() => handleTagClick(tag)}
-                className={`text-left w-full ${selectedTag === tag ? 'font-bold text-orange-700' : 'text-gray-700'}`}
+                className={`text-left w-full ${selectedTag === tag ? 'font-bold text-orange-700' : 'text-gray-900'}`}
               >
                 {tag} ({tagCounts[tag]})
               </button>
