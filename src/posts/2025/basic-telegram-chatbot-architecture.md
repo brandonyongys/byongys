@@ -4,7 +4,7 @@ title: Building a basic Telegram chatbot
 # description: An opportunity to learn a new language!
 
 date: 2025-04-07
-tags: [AWS, project, technical, chatbot, development]
+tags: [AWS, project, technical, chatbot, development, telegram]
 published: true
 ---
 
