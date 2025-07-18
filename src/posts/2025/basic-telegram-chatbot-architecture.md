@@ -14,7 +14,9 @@ Back in February, I started exploring the Telegram API and put together a simple
 <hr>
 
 # The present
-![chatbot_architecture](/images/2025/overall_architecture.png)
+<p align="center">
+  <img src="/images/2025/overall_architecture.png" />
+</p>
 
 The next step was laying the groundwork for a more scalable and maintainable chatbot. The architecture I've designed is shown above.
 
