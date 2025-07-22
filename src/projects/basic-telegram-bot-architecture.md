@@ -6,7 +6,7 @@ importance: 1
 category: web app # chatbot, data analysis, web app, if wrong category, the post won't be posted
 
 published_date: 2025-07-17
-# updated_date: 2025-06-20 # Optional field
+updated_date: 2025-07-22 # Optional field
 comments: true
 published: true
 
@@ -93,6 +93,12 @@ I use DynamoDB for session state storage because:
 - Its TTL (Time to Live) feature automatically purges stale sessions.
 
 For long-term logs and potential analytics, I store full conversation data in S3.
+
+<hr>
+
+# Deployment process
+
+The basic Telegram chatbot requires several AWS resources, so I initially used the Serverless Framework for deployment due to its simplicity. However, I’ve recently switched to Terraform, which offers better control, visibility, and consistency when managing infrastructure. You can read more about the Terraform setup [here](../posts/terraform-basic-telegram).
 
 <hr>
 
