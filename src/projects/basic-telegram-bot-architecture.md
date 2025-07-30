@@ -26,7 +26,7 @@ This post gives a detailed look at the architecture and my design decisions.
 # The architecture
 
 <p align="center">
-  <img src="/images/2025/overall_architecture.png" />
+  <img src="/images/2025/basic_telegram_architecture.png" />
 </p>
 
 Here's how the system works:
