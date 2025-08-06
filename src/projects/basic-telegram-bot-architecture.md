@@ -23,10 +23,10 @@ This post gives a detailed look at the architecture and my design decisions.
 
 <hr>
 
-# The architecture
+# Proposed architecture 
 
 <p align="center">
-  <img src="/images/2025/overall_architecture.png" />
+  <img src="/images/2025/basic_telegram_architecture.png" />
 </p>
 
 Here's how the system works:
@@ -96,7 +96,7 @@ For long-term logs and potential analytics, I store full conversation data in S3
 
 <hr>
 
-# Deployment process
+# Deployment process *(Added on 22 Jul 2025)*
 
 The basic Telegram chatbot requires several AWS resources, so I initially used the Serverless Framework for deployment due to its simplicity. However, I’ve recently switched to Terraform, which offers better control, visibility, and consistency when managing infrastructure. You can read more about the Terraform setup [here](../posts/terraform-basic-telegram).
 
