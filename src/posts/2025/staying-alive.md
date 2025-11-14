@@ -3,7 +3,7 @@ layout: post
 title: I'm alive!
 description: Life has gotten busy lately..
 
-date: 2025-08-31
+date: 2025-11-14
 tags: [life, reflection]
 published: true
 ---
