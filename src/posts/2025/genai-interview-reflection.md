@@ -4,7 +4,7 @@ title: What I learned from my genAI data scientist interview
 description: Reflections on my strengths, gaps, and areas to improve..
 
 date: 2025-02-21
-tags: [career, growth]
+tags: [career, growth, interview]
 published: true
 ---
 
