@@ -13,7 +13,7 @@ export function getMarkDown(type) {
     if (type === 'config') {
       MarkdownFiles = import.meta.glob('../config/*.md', { eager: true, query: '?raw', import: 'default' });
     } else if (type === 'posts') {
-      MarkdownFiles = import.meta.glob('../posts/*/*.md', { eager: true, query: '?raw', import: 'default' });
+      MarkdownFiles = import.meta.glob('../posts/*/*/*.md', { eager: true, query: '?raw', import: 'default' });
     } else if (type === 'projects') {
       MarkdownFiles = import.meta.glob('../projects/*.md', { eager: true, query: '?raw', import: 'default' });
     } else {
