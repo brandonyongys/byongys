@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import yaml from 'js-yaml';
 
 // 👇 This works with Vite (and possibly with CRA + config overrides)
@@ -10,10 +10,15 @@ export default function CV() {
     // Split sections into work exp and others
     const workExperience = cvData.sections.find(section => section.title.toLowerCase().includes('work'));
     const contactDetails = cvData.sections.filter(section => section.title.toLowerCase().includes('contact'));
-    const otherSections = cvData.sections.filter(section => 
+    const otherSections = cvData.sections.filter(section =>
         section.title.toLowerCase().includes('certifications') ||
         section.title.toLowerCase().includes('education')
     );
+
+    useEffect(() => {
+        document.title = 'CV | Brandon Yong';
+        return () => { document.title = 'Brandon Yong'; };
+    }, []);
 
     return (
         <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-50 rounded shadow">
@@ -65,7 +70,7 @@ export default function CV() {
                             </div>
                         </div>
                     ))}
-                
+
                     {otherSections.map((section, index) => (
                         <div key={index}>
                             <h3 className="text-2xl font-semibold text-orange-700 border-b-2 border-orange-300 pb-1 mb-1">{section.title}</h3>

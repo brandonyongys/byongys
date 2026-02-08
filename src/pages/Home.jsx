@@ -1,14 +1,20 @@
+import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
 import LatestPostList from '../components/LatestPostList';
-import { useMarkdownData } from '../context/MarkdownContext';
+import { useMarkdownData } from '../hooks/useMarkdownData';
 import MissingPage from '../components/MissingPage';
 
 export default function Home() {
   const MarkdownData = useMarkdownData('config');
   const markdown = MarkdownData.find(p => p.slug === "welcome");
+
+  useEffect(() => {
+    document.title = 'Home | Brandon Yong';
+    return () => { document.title = 'Brandon Yong'; };
+  }, []);
 
   if (!markdown) {
     return <MissingPage pageName='Home' />;
