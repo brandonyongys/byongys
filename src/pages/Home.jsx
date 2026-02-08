@@ -21,9 +21,9 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen text-orange-900 p-8">
+    <main className="max-w-4xl mx-auto my-8 text-orange-900">
       <div className="page-background" aria-hidden="true"></div>
-      <section className="max-w-4xl mx-auto mb-8 p-8 bg-gray-50 rounded shadow">
+      <section className="mb-8 p-8 bg-gray-50 rounded shadow">
         <h2 className="text-4xl font-bold mb-3 text-orange-800">{markdown.title}</h2>
         <article className="prose max-w-none text-gray-700 mt-2">
           <ReactMarkdown
