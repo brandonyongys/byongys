@@ -39,7 +39,7 @@ export default function Navbar() {
 
       <div className="flex items-center space-x-4">
         {/* Desktop Links - Hidden on Mobile/Tablet */}
-        <div className="hidden lg:flex space-x-4 items-center mr-4">
+        <div className="hidden lg:flex space-x-4 items-center">
           <NavLink to="/" className={({ isActive }) => `font-semibold text-orange-800 text-l hover:underline ${isActive ? 'underline' : ''}`}>Home</NavLink>
           <NavLink to="/about" className={({ isActive }) => `font-semibold text-orange-800 text-l hover:underline ${isActive ? 'underline' : ''}`}>About Me</NavLink>
           <NavLink to="/cv" className={({ isActive }) => `font-semibold text-orange-800 text-l hover:underline ${isActive ? 'underline' : ''}`}>CV</NavLink>
@@ -48,30 +48,30 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center space-x-2">
-          <div ref={searchRef}>
-            {isSearchOpen ? (
-              <form onSubmit={handleSubmit} className="flex items-center border rounded bg-white">
+          <div ref={searchRef} className="relative">
+            <button
+              onClick={() => setIsSearchOpen(!isSearchOpen)}
+              className="p-1 rounded-full hover:bg-orange-200 focus:outline-none flex items-center justify-center transition-colors"
+              aria-label={isSearchOpen ? "Close search" : "Open search"}
+            >
+              <Search size={20} className="text-orange-800" />
+            </button>
+
+            {isSearchOpen && (
+              <form
+                onSubmit={handleSubmit}
+                className="absolute top-full right-0 mt-2 bg-white border border-orange-200 rounded-lg shadow-xl p-2 flex items-center animate-in fade-in zoom-in duration-200 z-50 overflow-hidden"
+              >
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  className="focus:outline-none px-2 w-32 md:w-48 text-sm"
-                  placeholder="Search..."
+                  className="focus:outline-none px-2 w-48 md:w-64 text-sm bg-transparent"
+                  placeholder="Search website..."
                   aria-label="Search content"
                   autoFocus
                 />
-                <button type="submit" className="p-1 text-gray-600 hover:text-black" aria-label="Submit search">
-                  <Search size={14} />
-                </button>
               </form>
-            ) : (
-              <button
-                onClick={() => setIsSearchOpen(true)}
-                className="p-1 rounded-full hover:bg-orange-200 focus:outline-none"
-                aria-label="Open search"
-              >
-                <Search className="w-5 h-5 text-orange-800" />
-              </button>
             )}
           </div>
 
