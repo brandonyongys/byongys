@@ -1,19 +1,26 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useMarkdownData } from '../context/MarkdownContext';
+import { useMarkdownData } from '../hooks/useMarkdownData';
+import { formatDate } from '../utils/formatDate';
+import { PAGINATION } from '../config/constants';
 
 export default function Blog() {
   const allPosts = useMarkdownData('posts');
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedTag, setSelectedTag] = useState(null);
-  const postsPerPage = 10;
+  const postsPerPage = PAGINATION.POSTS_PER_PAGE;
 
   // Get the set of posts in reverse chronological order
   useEffect(() => {
     const filteredPosts = allPosts.filter(post => post.published);
     setPosts(filteredPosts);
   }, [allPosts]);
+
+  useEffect(() => {
+    document.title = 'Blog | Brandon Yong';
+    return () => { document.title = 'Brandon Yong'; };
+  }, []);
 
   // Count number of posts per tag
   const tagCounts = posts.reduce((acc, post) => {
@@ -96,11 +103,7 @@ export default function Blog() {
                     <h3 className="text-xl font-semibold text-orange-800 hover:underline">{post.title}</h3>
                   </Link>
                   <p className="text-sm font-semibold text-orange-600 ml-4 whitespace-nowrap">
-                    {new Date(post.date).toLocaleDateString('en-GB', {
-                      day: '2-digit',
-                      month: 'short',
-                      year: 'numeric',
-                    })}
+                    {formatDate(post.date)}
                   </p>
                 </div>
 
@@ -113,6 +116,7 @@ export default function Blog() {
                     <button
                       key={tag}
                       onClick={() => handleTagClick(tag)}
+                      aria-label={`View posts tagged with ${tag}`}
                       className="inline-block text-xs text-gray-900 bg-gray-100 px-2 py-0.5 rounded hover:bg-gray-200"
                     >
                       {tag}

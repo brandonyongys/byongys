@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { formatDate } from "../utils/formatDate";
 
 export default function ProjectCard({ project }) {
   return (
@@ -15,19 +16,11 @@ export default function ProjectCard({ project }) {
         <h2 className="text-2xl font-bold mb-2 text-orange-800">{project.title}</h2>
         {project.updated_date !== '' && (
           <p className="text-sm font-semibold text-orange-600 mb-0.5"><i>
-            Updated on {new Date(project.updated_date).toLocaleDateString('en-GB', {
-          day: '2-digit',
-          month: 'short',
-          year: 'numeric',
-        })}
+            Updated on {formatDate(project.updated_date)}
           </i></p>
         )}
         <p className="text-sm mb-2 text-orange-600">
-          Published on {new Date(project.published_date).toLocaleDateString('en-GB', {
-          day: '2-digit',
-          month: 'short',
-          year: 'numeric',
-        })}
+          Published on {formatDate(project.published_date)}
         </p>
         <p className="text-sm text-gray-700 mt-2">{project.description}</p>
 

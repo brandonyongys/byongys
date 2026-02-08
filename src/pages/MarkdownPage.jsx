@@ -3,7 +3,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
-import { useMarkdownData } from '../context/MarkdownContext';
+import { useMarkdownData } from '../hooks/useMarkdownData';
+import { formatDate } from '../utils/formatDate';
 import MissingPage from '../components/MissingPage';
 
 export default function MarkdownPage() {
@@ -25,19 +26,11 @@ export default function MarkdownPage() {
       {
         project.updated_date !== '' && (
           <p className="text-sm font-semibold text-orange-600 mb-1"><i>
-            Updated on {new Date(project.updated_date).toLocaleDateString('en-GB', {
-              day: '2-digit',
-              month: 'short',
-              year: 'numeric',
-            })}
+            Updated on {formatDate(project.updated_date)}
           </i></p>
         )}
       <p className="text-sm text-orange-600 mb-3">
-        Published on {new Date(project.published_date).toLocaleDateString('en-GB', {
-          day: '2-digit',
-          month: 'short',
-          year: 'numeric',
-        })}
+        Published on {formatDate(project.published_date)}
       </p>
       <hr></hr>
       <div className="prose max-w-none text-gray-700 mt-2">
