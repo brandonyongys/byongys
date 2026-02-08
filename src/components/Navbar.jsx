@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, NavLink } from 'react-router-dom';
 import { useState, useRef, useEffect } from "react";
 import { Search } from 'lucide-react';
 
@@ -37,11 +37,11 @@ export default function Navbar() {
       </h1>
 
       <div className="space-x-4 flex items-center">
-        <Link to="/" className="font-semibold text-orange-800 text-l hover:underline">Home</Link>
-        <Link to="/about" className="font-semibold text-orange-800 text-l hover:underline">About Me</Link>
-        <Link to="/cv" className="font-semibold text-orange-800 text-l hover:underline">CV</Link>
-        <Link to="/blog" className="font-semibold text-orange-800 text-l hover:underline">Blog</Link>
-        <Link to="/projects" className="font-semibold text-orange-800 text-l hover:underline">Projects</Link>
+        <NavLink to="/" className={({ isActive }) => `font-semibold text-orange-800 text-l hover:underline ${isActive ? 'underline' : ''}`}>Home</NavLink>
+        <NavLink to="/about" className={({ isActive }) => `font-semibold text-orange-800 text-l hover:underline ${isActive ? 'underline' : ''}`}>About Me</NavLink>
+        <NavLink to="/cv" className={({ isActive }) => `font-semibold text-orange-800 text-l hover:underline ${isActive ? 'underline' : ''}`}>CV</NavLink>
+        <NavLink to="/blog" className={({ isActive }) => `font-semibold text-orange-800 text-l hover:underline ${isActive ? 'underline' : ''}`}>Blog</NavLink>
+        <NavLink to="/projects" className={({ isActive }) => `font-semibold text-orange-800 text-l hover:underline ${isActive ? 'underline' : ''}`}>Projects</NavLink>
 
         <div ref={searchRef}>
           {isSearchOpen ? (
@@ -53,9 +53,10 @@ export default function Navbar() {
                 onChange={(e) => setInput(e.target.value)}
                 className="focus:outline-none"
                 placeholder="Search..."
+                aria-label="Search content"
                 autoFocus
               />
-              <button type="submit" className="p-1 text-gray-600 hover:text-black">
+              <button type="submit" className="p-1 text-gray-600 hover:text-black" aria-label="Submit search">
                 <Search size={14} />
               </button>
             </form>
