@@ -1,12 +1,12 @@
 import ProjectCard from "../components/ProjectCard";
 // import blogPosts from "../data/blogPosts.json";
-import { getMarkDown } from '../utils/getMarkdown';
+import { useMarkdownData } from '../context/MarkdownContext';
 import MissingPage from '../components/MissingPage';
 
 export default function ProjectsPage() {
-  const projects = getMarkDown("projects")
+  const projects = useMarkdownData("projects");
 
-  if (projects.length === 0){
+  if (projects.length === 0) {
     return <MissingPage pageName='Projects' />;
   }
 

@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { getMarkDown } from '../utils/getMarkdown';
+import { useMarkdownData } from '../context/MarkdownContext';
 
 
 export default function PostList() {
-  const posts = getMarkDown('posts');
+  const posts = useMarkdownData('posts');
 
   // Limit posts to 5 latest (assuming posts are already sorted by date descending)
   const postNoLimit = 5

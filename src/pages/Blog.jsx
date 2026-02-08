@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getMarkDown } from '../utils/getMarkdown';
+import { useMarkdownData } from '../context/MarkdownContext';
 
 export default function Blog() {
+  const allPosts = useMarkdownData('posts');
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedTag, setSelectedTag] = useState(null);
@@ -10,9 +11,9 @@ export default function Blog() {
 
   // Get the set of posts in reverse chronological order
   useEffect(() => {
-    const posts = getMarkDown('posts').filter(post => post.published);
-    setPosts(posts);
-  }, []);
+    const filteredPosts = allPosts.filter(post => post.published);
+    setPosts(filteredPosts);
+  }, [allPosts]);
 
   // Count number of posts per tag
   const tagCounts = posts.reduce((acc, post) => {
@@ -22,7 +23,7 @@ export default function Blog() {
     return acc;
   }, {});
 
-  const allTags = Object.keys(tagCounts).sort((a,b) => a.localeCompare(b));
+  const allTags = Object.keys(tagCounts).sort((a, b) => a.localeCompare(b));
 
   const filteredPosts = selectedTag
     ? posts.filter(post => (post.tags || []).includes(selectedTag))
@@ -96,11 +97,11 @@ export default function Blog() {
                   </Link>
                   <p className="text-sm font-semibold text-orange-600 ml-4 whitespace-nowrap">
                     {new Date(post.date).toLocaleDateString('en-GB', {
-                        day: '2-digit',
-                        month: 'short',
-                        year: 'numeric',
-                      })}
-                    </p>
+                      day: '2-digit',
+                      month: 'short',
+                      year: 'numeric',
+                    })}
+                  </p>
                 </div>
 
                 {/* Post description */}
