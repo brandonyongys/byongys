@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
 import { useMarkdownData } from '../context/MarkdownContext';
 import MissingPage from '../components/MissingPage';
 
@@ -39,7 +41,12 @@ export default function MarkdownPage() {
       </p>
       <hr></hr>
       <div className="prose max-w-none text-gray-700 mt-2">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{project.content}</ReactMarkdown>
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw, rehypeSanitize]}
+        >
+          {project.content}
+        </ReactMarkdown>
       </div>
     </article>
   );
