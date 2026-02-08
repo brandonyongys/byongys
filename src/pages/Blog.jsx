@@ -1,17 +1,25 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getMarkDown } from '../utils/getMarkdown';
+import { useMarkdownData } from '../hooks/useMarkdownData';
+import { formatDate } from '../utils/formatDate';
+import { PAGINATION } from '../config/constants';
 
 export default function Blog() {
+  const allPosts = useMarkdownData('posts');
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedTag, setSelectedTag] = useState(null);
-  const postsPerPage = 10;
+  const postsPerPage = PAGINATION.POSTS_PER_PAGE;
 
   // Get the set of posts in reverse chronological order
   useEffect(() => {
-    const posts = getMarkDown('posts').filter(post => post.published);
-    setPosts(posts);
+    const filteredPosts = allPosts.filter(post => post.published);
+    setPosts(filteredPosts);
+  }, [allPosts]);
+
+  useEffect(() => {
+    document.title = 'Blog | Brandon Yong';
+    return () => { document.title = 'Brandon Yong'; };
   }, []);
 
   // Count number of posts per tag
@@ -22,7 +30,7 @@ export default function Blog() {
     return acc;
   }, {});
 
-  const allTags = Object.keys(tagCounts).sort((a,b) => a.localeCompare(b));
+  const allTags = Object.keys(tagCounts).sort((a, b) => a.localeCompare(b));
 
   const filteredPosts = selectedTag
     ? posts.filter(post => (post.tags || []).includes(selectedTag))
@@ -41,7 +49,7 @@ export default function Blog() {
   };
 
   return (
-    <main className="max-w-6xl mx-auto p-4 flex gap-6">
+    <main className="max-w-6xl mx-auto my-8 flex gap-6">
       <div className="page-background" aria-hidden="true"></div>
       {/* Side menu for tags */}
       <aside className="w-1/6 pr-4 px-2">
@@ -95,12 +103,8 @@ export default function Blog() {
                     <h3 className="text-xl font-semibold text-orange-800 hover:underline">{post.title}</h3>
                   </Link>
                   <p className="text-sm font-semibold text-orange-600 ml-4 whitespace-nowrap">
-                    {new Date(post.date).toLocaleDateString('en-GB', {
-                        day: '2-digit',
-                        month: 'short',
-                        year: 'numeric',
-                      })}
-                    </p>
+                    {formatDate(post.date)}
+                  </p>
                 </div>
 
                 {/* Post description */}
@@ -112,6 +116,7 @@ export default function Blog() {
                     <button
                       key={tag}
                       onClick={() => handleTagClick(tag)}
+                      aria-label={`View posts tagged with ${tag}`}
                       className="inline-block text-xs text-gray-900 bg-gray-100 px-2 py-0.5 rounded hover:bg-gray-200"
                     >
                       {tag}

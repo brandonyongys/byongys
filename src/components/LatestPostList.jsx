@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
-import { getMarkDown } from '../utils/getMarkdown';
+import { useMarkdownData } from '../hooks/useMarkdownData';
+import { formatDate } from '../utils/formatDate';
+import { PAGINATION } from '../config/constants';
 
 
 export default function PostList() {
-  const posts = getMarkDown('posts');
+  const posts = useMarkdownData('posts');
 
-  // Limit posts to 5 latest (assuming posts are already sorted by date descending)
-  const postNoLimit = 5
-  const latestPosts = posts.slice(0, postNoLimit);
+  // Limit posts to latest (assuming posts are already sorted by date descending)
+  const latestPosts = posts.slice(0, PAGINATION.LATEST_POSTS_LIMIT);
 
   return (
     <section className="max-w-4xl mx-auto p-8 bg-gray-50 rounded shadow">
@@ -22,11 +23,7 @@ export default function PostList() {
                 <h3 className="text-xl font-semibold text-orange-800 hover:underline">{post.title}</h3>
               </Link>
               <p className="text-sm font-semibold text-orange-600 ml-4 whitespace-nowrap">
-                {new Date(post.date).toLocaleDateString('en-GB', {
-                  day: '2-digit',
-                  month: 'short',
-                  year: 'numeric',
-                })}
+                {formatDate(post.date)}
               </p>
             </div>
 

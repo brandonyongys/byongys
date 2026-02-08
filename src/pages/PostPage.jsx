@@ -1,11 +1,30 @@
 import { useParams } from 'react-router-dom';
-import { getMarkDown } from '../utils/getMarkdown';
+import { useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
+import { useMarkdownData } from '../hooks/useMarkdownData';
+import { formatDate } from '../utils/formatDate';
 import MissingPage from '../components/MissingPage';
 
 export default function PostPage() {
   const { slug } = useParams();
-  const posts = getMarkDown('posts');
-  const post = posts.find(p => p.slug === slug);
+  const posts = useMarkdownData('posts');
+  const post = posts?.find(p => p.slug === slug);
+
+  useEffect(() => {
+    if (post) {
+      document.title = `${post.title} | Brandon Yong`;
+    }
+    return () => {
+      document.title = 'Brandon Yong';
+    };
+  }, [post]);
+
+  if (!posts) {
+    return <LoadingSpinner />;
+  }
 
   if (!post) {
     return <MissingPage pageName='Post' />;
@@ -17,14 +36,17 @@ export default function PostPage() {
       <h1 className="text-4xl font-bold mb-3 text-orange-800">{post.title}</h1>
       <p className="text-sm font-semibold text-orange-600 mb-1">{post.description}</p>
       <p className="text-sm text-orange-600 mb-3">
-        Published on {new Date(post.date).toLocaleDateString('en-GB', {
-          day: '2-digit',
-          month: 'short',
-          year: 'numeric',
-        })}
+        Published on {formatDate(post.date)}
       </p>
       <hr></hr>
-      <div className="prose max-w-none text-gray-700 mt-2" dangerouslySetInnerHTML={{ __html: post.content }} />
+      <div className="prose max-w-none text-gray-700 mt-2">
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw, rehypeSanitize]}
+        >
+          {post.content}
+        </ReactMarkdown>
+      </div>
     </article>
   );
 }

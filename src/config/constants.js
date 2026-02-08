@@ -1,0 +1,5 @@
+export const PAGINATION = {
+    POSTS_PER_PAGE: 10,
+    RESULTS_PER_PAGE: 10,
+    LATEST_POSTS_LIMIT: 5,
+};
