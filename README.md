@@ -1,12 +1,52 @@
-# React + Vite
+# Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance portfolio website built with React, Vite, and Tailwind CSS. Featuring a blog and project showcase powered by markdown.
 
-Currently, two official plugins are available:
+## Core Features
+- 🚀 **Performance Optimized**: Markdown data is parsed once and memoized using React Context.
+- 🔒 **Secure Rendering**: Markdown is rendered safely using `react-markdown` with `rehype-sanitize`.
+- 🔍 **Fast Search**: Client-side search index for instant content discovery.
+- 🛡️ **Robust Error Handling**: Global and route-level error boundaries.
+- 📱 **Responsive Design**: Mobile-friendly layout with Tailwind CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **Frontend**: React 18, Vite, Tailwind CSS
+- **Markdown**: react-markdown, remark-gfm, rehype-raw
+- **Routing**: React Router 6
+- **Icons**: Lucide React
+- **Data**: YAML frontmatter + Markdown content
 
-## Expanding the ESLint configuration
+## Project Structure
+- `src/context/MarkdownContext.jsx`: Global data provider.
+- `src/hooks/useMarkdownData.js`: Hook for accessing memoized data.
+- `src/utils/getMarkdown.js`: Core markdown fetching logic.
+- `src/config/searchIndex.json`: Pre-generated search data.
+- `src/utils/generateSearchIndex.js`: Script to rebuild search index.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Markdown Schema
+
+### Blog Posts (`/src/posts/*/*/*.md`)
+```yaml
+---
+title: "Post Title"
+description: "Brief summary"
+date: "YYYY-MM-DD"
+published: true
+tags: ["tag1", "tag2"]
+---
+[Markdown Content]
+```
+
+### Projects (`/src/projects/*.md`)
+```yaml
+---
+title: "Project Name"
+description: "Project description"
+published_date: "YYYY-MM-DD"
+updated_date: "YYYY-MM-DD"
+published: true
+image: "/images/path.png"
+---
+[Markdown Content]
+```
+
