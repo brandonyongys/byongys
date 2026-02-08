@@ -1,4 +1,29 @@
 
+V1.2.0 / 2026-02-08
+===================
+
+  * Merge pull request #31 from brandonyongys/enhancement/2026/codebase-review
+  * Make search bar pop up instead of inline of the nav bar
+  * Added hamburger menu when browser is small
+  * Adjusted the vertical spacing from the nav bar to be consistent
+  * Fixed motto position shift issue in projects page
+  * Added Twitter and Facebook meta tags to index for SEO and social sharing
+  * Updated tailwind and readme
+  * Updated Navbar to use NavLink
+  * Create a simple loading indicator for transitions
+  * Fixed typo in generating search index and error boundary
+  * Memoize data to prevent reparsing with every render
+  * Update page title
+  * Moved hardcoded values to constant.js. Standardized the date format using a single function. Use mark down from hooks.
+  * Fixed error rendering HTML elements
+  * package lock update
+  * Implemented error boundary
+  * Cache markdown data to improve performance
+  * Replaced dangerouslySetInnerHTML with react-markdown, remark-gfm and rehype-raw packages to resolve XSS vulnerability
+  * Merge pull request #30 from brandonyongys/post/2026/english-test
+  * Drafted a post on rethinking my writing after IELTS
+  * commit history md
+
 V1.1.1 / 2026-01-01
 ===================
 
