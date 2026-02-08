@@ -24,7 +24,7 @@ const searchIndex = [
         title: project.title || '',
         description: project.description || '',
         tags: project.tags || [],
-        project: project.date || '',
+        date: project.date || '',
         url: `/projects/${project.slug}`,
     })),
 ];
