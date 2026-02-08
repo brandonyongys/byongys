@@ -1,8 +1,10 @@
-import { getMarkDown } from '../utils/getMarkdown';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { useMarkdownData } from '../context/MarkdownContext';
 import MissingPage from '../components/MissingPage';
 
 export default function About() {
-  const MarkdownData = getMarkDown('config');
+  const MarkdownData = useMarkdownData('config');
   const markdown = MarkdownData.find(p => p.slug === "about");
 
   if (!markdown) {
@@ -14,7 +16,7 @@ export default function About() {
       <div className="page-background" aria-hidden="true"></div>
       <h2 className="text-4xl font-bold mb-3 text-orange-800">About Me</h2>
       <article className="prose max-w-none text-gray-700 mt-2">
-        <div dangerouslySetInnerHTML={{ __html: markdown.content }} />
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown.content}</ReactMarkdown>
       </article>
     </section>
   );

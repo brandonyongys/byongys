@@ -1,10 +1,4 @@
 import fm from 'front-matter';
-import { marked } from 'marked';
-
-marked.setOptions({
-  breaks: true,            // respects line breaks
-  gfm: true,               // GitHub Flavored Markdown (enables tables, etc.)
-});
 
 // Function to dynamically import and process all markdown posts
 export function getMarkDown(type) {
@@ -29,7 +23,7 @@ export function getMarkDown(type) {
         slug,
         title: parsed.attributes.title || '',
         description: parsed.attributes.description || '',
-        content: marked(parsed.body),
+        content: parsed.body, // Return raw markdown instead of HTML
         published: parsed.attributes.published ?? true,
         date: parsed.attributes.date || parsed.attributes.published_date || parsed.attributes.updated_date || '',
         layout: parsed.attributes.layout || '',

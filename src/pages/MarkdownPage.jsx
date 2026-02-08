@@ -4,7 +4,7 @@ import remarkGfm from 'remark-gfm';
 import { useMarkdownData } from '../context/MarkdownContext';
 import MissingPage from '../components/MissingPage';
 
-export default function ProjectPostPage() {
+export default function MarkdownPage() {
   const { slug } = useParams();
   const projects = useMarkdownData('projects');
   const project = projects.find((p) => p.slug === slug);

@@ -1,10 +1,12 @@
 import { useParams } from 'react-router-dom';
-import { getMarkDown } from '../utils/getMarkdown';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { useMarkdownData } from '../context/MarkdownContext';
 import MissingPage from '../components/MissingPage';
 
 export default function PostPage() {
   const { slug } = useParams();
-  const posts = getMarkDown('posts');
+  const posts = useMarkdownData('posts');
   const post = posts.find(p => p.slug === slug);
 
   if (!post) {
@@ -24,7 +26,9 @@ export default function PostPage() {
         })}
       </p>
       <hr></hr>
-      <div className="prose max-w-none text-gray-700 mt-2" dangerouslySetInnerHTML={{ __html: post.content }} />
+      <div className="prose max-w-none text-gray-700 mt-2">
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
+      </div>
     </article>
   );
 }
