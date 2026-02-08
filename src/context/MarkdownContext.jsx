@@ -1,7 +1,7 @@
-import { createContext, useContext, useMemo } from 'react';
+import { useMemo } from 'react';
 import { getMarkDown } from '../utils/getMarkdown';
 
-const MarkdownContext = createContext(null);
+import { MarkdownContext } from './MarkdownContextInstance';
 
 export function MarkdownProvider({ children }) {
     // Memoize all markdown data to prevent re-parsing on every render
@@ -16,12 +16,4 @@ export function MarkdownProvider({ children }) {
             {children}
         </MarkdownContext.Provider>
     );
-}
-
-export function useMarkdownData(type) {
-    const context = useContext(MarkdownContext);
-    if (!context) {
-        throw new Error('useMarkdownData must be used within a MarkdownProvider');
-    }
-    return context[type];
 }
