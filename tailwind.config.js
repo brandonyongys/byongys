@@ -7,7 +7,37 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        brand: {
+          'primary-light': 'var(--brand-primary-light)',
+          primary: 'var(--brand-primary)',
+          'primary-hover': 'var(--brand-primary-hover)',
+          'primary-border': 'var(--brand-primary-border)',
+          'text-main': 'var(--brand-text-main)',
+          'text-accent': 'var(--brand-text-accent)',
+          'text-muted': 'var(--brand-text-muted)',
+          'link': 'var(--nav-link-color)',
+        },
+        gray: {
+          'custom-bg': 'var(--gray-bg)',
+          'custom-light': 'var(--gray-light)',
+          'custom-border': 'var(--gray-border)',
+          'custom-text': 'var(--gray-text)',
+          'custom-muted': 'var(--gray-muted)',
+          'custom-dim': 'var(--gray-dim)',
+        },
+        accent: {
+          primary: 'var(--accent-primary)',
+          secondary: 'var(--accent-secondary)',
+          light: 'var(--accent-light)',
+          ring: 'var(--accent-ring)',
+        }
+      },
+      maxWidth: {
+        'content': 'var(--content-max-width)',
+      }
+    },
   },
   plugins: [typography],
 }

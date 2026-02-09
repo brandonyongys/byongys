@@ -21,7 +21,7 @@ V1.2.0 / 2026-02-08
   * Cache markdown data to improve performance
   * Replaced dangerouslySetInnerHTML with react-markdown, remark-gfm and rehype-raw packages to resolve XSS vulnerability
   * Merge pull request #30 from brandonyongys/post/2026/english-test
-  * Drafted a post on rethinking my writing after IELTS
+  * Drafted a post on "IELTS Made Me Rethink My Writing"
   * commit history md
 
 V1.1.1 / 2026-01-01
@@ -50,7 +50,7 @@ V1.1.1 / 2026-01-01
   * Merge pull request #20 from brandonyongys/post/2025/structured-logging
   * Drafted post on structured logging basics
   * Merge pull request #19 from brandonyongys/project/rag-powered-banking-chatbot
-  * Drafted post on rag pipeline
+  * Drafted "RAG Powered Chatbot Architecture" project post
   * Renamed basic telegram architecture diagram name
   * Merge pull request #18 from brandonyongys/post/2025/terraform-basic-telegram
   * Drafted terraform basic telegram post
@@ -59,7 +59,7 @@ V1.1.1 / 2026-01-01
   * Merge pull request #16 from brandonyongys/post/2025/multiturn_chatbot
   * Drafted multi turn chatbot post
 
-V1.1.0 / 2025-06-24
+V1.1.0 / 2025-06-26
 ===================
 
   * Merge pull request #15 from brandonyongys/enhancement/2025

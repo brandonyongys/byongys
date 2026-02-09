@@ -31,11 +31,11 @@ export default function PostPage() {
   }
 
   return (
-    <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-50 rounded shadow">
+    <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-custom-bg rounded shadow">
       <div className="page-background" aria-hidden="true"></div>
-      <h1 className="text-4xl font-bold mb-3 text-orange-800">{post.title}</h1>
-      <p className="text-sm font-semibold text-orange-600 mb-1">{post.description}</p>
-      <p className="text-sm text-orange-600 mb-3">
+      <h1 className="text-4xl font-bold mb-3 text-brand-text-main">{post.title}</h1>
+      <p className="text-sm font-semibold text-brand-text-muted mb-1">{post.description}</p>
+      <p className="text-sm text-brand-text-muted mb-3">
         Published on {formatDate(post.date)}
       </p>
       <hr></hr>

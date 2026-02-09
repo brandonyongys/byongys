@@ -11,7 +11,7 @@ export default function SearchResults({ results, query }) {
 
     if (results.length === 0) {
         return (
-            <div className="mt-2 text-gray-700">
+            <div className="mt-2 text-gray-custom-muted">
                 No results found for <strong>{query}</strong>.
             </div>
         );
@@ -43,14 +43,14 @@ export default function SearchResults({ results, query }) {
         <div className="mt-2 space-y-2">
             <ul className="space-y-2">
                 {currentResults.map((item, index) => (
-                    <li key={index} className="p-3 rounded-lg bg-gray-50 hover:bg-sky-100">
+                    <li key={index} className="p-3 rounded-lg bg-gray-custom-bg hover:bg-accent-light">
                         <a
                             href={item.url}
                             className="block focus:outline-none focus:ring focus:ring-blue-300"
                         >
                             <div className="flex justify-between items-start">
-                                <h3 className="text-lg font-semibold text-orange-800">{item.title}</h3>
-                                <span className="text-sm font-semibold text-orange-600 mt-1">
+                                <h3 className="text-lg font-semibold text-brand-text-main">{item.title}</h3>
+                                <span className="text-sm font-semibold text-brand-text-muted mt-1">
                                     {formatDate(item.date)}
                                 </span>
                             </div>
@@ -68,7 +68,7 @@ export default function SearchResults({ results, query }) {
                 <button
                     onClick={handlePrev}
                     disabled={currentPage === 1}
-                    className="px-3 py-1 bg-orange-100 rounded disabled:opacity-50"
+                    className="px-3 py-1 bg-brand-primary rounded disabled:opacity-50"
                 >
                     Prev
                 </button>
@@ -78,7 +78,7 @@ export default function SearchResults({ results, query }) {
                 <button
                     onClick={handleNext}
                     disabled={currentPage === totalPages}
-                    className="px-3 py-1 bg-orange-100 rounded disabled:opacity-50"
+                    className="px-3 py-1 bg-brand-primary rounded disabled:opacity-50"
                 >
                     Next
                 </button>

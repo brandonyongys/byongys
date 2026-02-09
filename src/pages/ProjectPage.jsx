@@ -19,17 +19,17 @@ export default function ProjectPostPage() {
   }
 
   return (
-    <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-50 rounded shadow">
+    <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-custom-bg rounded shadow">
       <div className="page-background" aria-hidden="true"></div>
-      <h1 className="text-4xl font-bold mb-3 text-orange-800">{project.title}</h1>
-      {/* <p className="text-m font-semibold text-orange-700 mb-3">{project.description}</p> */}
+      <h1 className="text-4xl font-bold mb-3 text-brand-text-main">{project.title}</h1>
+      {/* <p className="text-m font-semibold text-brand-text-accent mb-3">{project.description}</p> */}
       {
         project.updated_date !== '' && (
-          <p className="text-sm font-semibold text-orange-600 mb-1"><i>
+          <p className="text-sm font-semibold text-brand-text-muted mb-1"><i>
             Updated on {formatDate(project.updated_date)}
           </i></p>
         )}
-      <p className="text-sm text-orange-600 mb-3">
+      <p className="text-sm text-brand-text-muted mb-3">
         Published on {formatDate(project.published_date)}
       </p>
       <hr></hr>

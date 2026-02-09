@@ -62,7 +62,7 @@ export default function Blog() {
             {/* All posts button */}
             <button
               onClick={() => handleTagClick(null)}
-              className={`text-left w-full ${!selectedTag ? 'font-bold text-orange-700' : 'text-gray-900'}`}
+              className={`text-left w-full ${!selectedTag ? 'font-bold text-brand-text-accent' : 'text-gray-custom-text'}`}
             >
               All Posts ({posts.length})
             </button>
@@ -73,7 +73,7 @@ export default function Blog() {
             <li key={tag}>
               <button
                 onClick={() => handleTagClick(tag)}
-                className={`text-left w-full ${selectedTag === tag ? 'font-bold text-orange-700' : 'text-gray-900'}`}
+                className={`text-left w-full ${selectedTag === tag ? 'font-bold text-brand-text-accent' : 'text-gray-custom-text'}`}
               >
                 {tag} ({tagCounts[tag]})
               </button>
@@ -83,7 +83,7 @@ export default function Blog() {
       </aside>
 
       {/* Posts menu */}
-      <div className="w-2/3 p-8 bg-gray-50 rounded shadow">
+      <div className="w-2/3 p-8 bg-gray-custom-bg rounded shadow">
         <h2 className="text-2xl font-bold mb-6">
           {selectedTag ? `Posts tagged "${selectedTag}"` : 'All Posts'}
         </h2>
@@ -95,20 +95,20 @@ export default function Blog() {
           <ul className="space-y-3">
             {currentPosts.map(post => (
               // Horizontal line to separate the different posts
-              <li key={post.slug} className="border-b border-orange-300 pb-3">
+              <li key={post.slug} className="border-b border-brand-primary-border pb-3">
 
                 {/* Clickable post title with post date */}
                 <div className="flex items-center justify-between">
                   <Link to={`/posts/${post.slug}`}>
-                    <h3 className="text-xl font-semibold text-orange-800 hover:underline">{post.title}</h3>
+                    <h3 className="text-xl font-semibold text-brand-text-main hover:underline">{post.title}</h3>
                   </Link>
-                  <p className="text-sm font-semibold text-orange-600 ml-4 whitespace-nowrap">
+                  <p className="text-sm font-semibold text-brand-text-muted ml-4 whitespace-nowrap">
                     {formatDate(post.date)}
                   </p>
                 </div>
 
                 {/* Post description */}
-                <p className="text-m font-semibold text-orange-700">{post.description}</p>
+                <p className="text-m font-semibold text-brand-text-accent">{post.description}</p>
 
                 {/* Tags */}
                 <div className="mt-1 space-x-2">
@@ -117,7 +117,7 @@ export default function Blog() {
                       key={tag}
                       onClick={() => handleTagClick(tag)}
                       aria-label={`View posts tagged with ${tag}`}
-                      className="inline-block text-xs text-gray-900 bg-gray-100 px-2 py-0.5 rounded hover:bg-gray-200"
+                      className="inline-block text-xs text-gray-custom-text bg-gray-custom-light px-2 py-0.5 rounded hover:bg-gray-200"
                     >
                       {tag}
                     </button>
@@ -135,7 +135,7 @@ export default function Blog() {
           <button
             onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            className="px-3 py-1 bg-orange-100 rounded disabled:opacity-50"
+            className="px-3 py-1 bg-brand-primary rounded disabled:opacity-50"
           >
             Previous
           </button>
@@ -147,7 +147,7 @@ export default function Blog() {
           <button
             onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages || totalPages === 0}
-            className="px-3 py-1 bg-orange-100 rounded disabled:opacity-50"
+            className="px-3 py-1 bg-brand-primary rounded disabled:opacity-50"
           >
             Next
           </button>
