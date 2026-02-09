@@ -19,4 +19,6 @@ The website is enhanced with the following changes before I publicize the repo:
 - Improved the website performance by using code splitting and lazy loading. 
 - Added error page to ease troubleshooting during development.
 
-Before I publicized the repo, I also updated the README.md file to make it easier for users to understand how to use the site. I hope the users will find it useful. If you have any questions or ideas, feel free to reach out to me via LinkedIn or email.
+Before I publicized the repo, I also updated the README.md file to make it easier for users to understand how to use the site. You can read it [here](https://github.com/brandonyongys/byongys). 
+
+I hope the users will find it useful. If you have any questions or ideas, feel free to reach out to me via LinkedIn or email.
