@@ -11,18 +11,18 @@ export default function PostList() {
   const latestPosts = posts.slice(0, PAGINATION.LATEST_POSTS_LIMIT);
 
   return (
-    <section className="max-w-4xl mx-auto p-8 bg-gray-50 rounded shadow">
+    <section className="max-w-4xl mx-auto p-8 bg-gray-custom-bg rounded shadow">
       <h3 className="text-3xl font-semibold mb-4">Latest Posts</h3>
       <ul className="space-y-3">
         {latestPosts.map(post => (
-          <li key={post.slug} className="border-b border-orange-200 pb-2">
+          <li key={post.slug} className="border-b border-brand-primary-border pb-2">
 
             {/* Clickable post title with post date */}
             <div className="flex items-center justify-between">
               <Link to={`/posts/${post.slug}`}>
-                <h3 className="text-xl font-semibold text-orange-800 hover:underline">{post.title}</h3>
+                <h3 className="text-xl font-semibold text-brand-text-main hover:underline">{post.title}</h3>
               </Link>
-              <p className="text-sm font-semibold text-orange-600 ml-4 whitespace-nowrap">
+              <p className="text-sm font-semibold text-brand-text-muted ml-4 whitespace-nowrap">
                 {formatDate(post.date)}
               </p>
             </div>

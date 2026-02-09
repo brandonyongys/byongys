@@ -21,11 +21,11 @@ export default function Home() {
   }
 
   return (
-    <main className="max-w-4xl mx-auto my-8 text-orange-900">
+    <main className="max-w-4xl mx-auto my-8 text-brand-text-main">
       <div className="page-background" aria-hidden="true"></div>
-      <section className="mb-8 p-8 bg-gray-50 rounded shadow">
-        <h2 className="text-4xl font-bold mb-3 text-orange-800">{markdown.title}</h2>
-        <article className="prose max-w-none text-gray-700 mt-2">
+      <section className="mb-8 p-8 bg-gray-custom-bg rounded shadow">
+        <h2 className="text-4xl font-bold mb-3 text-brand-text-main">{markdown.title}</h2>
+        <article className="prose max-w-none text-gray-custom-muted mt-2">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw, rehypeSanitize]}
