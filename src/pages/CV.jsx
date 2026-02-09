@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import yaml from 'js-yaml';
 
 // 👇 This works with Vite (and possibly with CRA + config overrides)
@@ -7,27 +7,38 @@ import cvFile from '../config/cv.yml?raw';
 const cvData = yaml.load(cvFile);
 
 export default function CV() {
-    // Split sections into work exp and others
-    const workExperience = cvData.sections.find(section => section.title.toLowerCase().includes('work'));
-    const contactDetails = cvData.sections.filter(section => section.title.toLowerCase().includes('contact'));
-    const otherSections = cvData.sections.filter(section =>
-        section.title.toLowerCase().includes('certifications') ||
-        section.title.toLowerCase().includes('education')
-    );
+    // Memoize the data processing to avoid recalculating on every render
+    const { name, summary, sections } = useMemo(() => cvData, []);
+
+    // Split sections into work exp and others with robust filtering
+    const workExperience = useMemo(() =>
+        sections.find(section => section.title.toLowerCase().includes('work')) || { title: 'Work Experience', contents: [] }
+        , [sections]);
+
+    const contactDetails = useMemo(() =>
+        sections.filter(section => section.title.toLowerCase().includes('contact'))
+        , [sections]);
+
+    const otherSections = useMemo(() =>
+        sections.filter(section =>
+            !section.title.toLowerCase().includes('work') &&
+            !section.title.toLowerCase().includes('contact')
+        )
+        , [sections]);
 
     useEffect(() => {
-        document.title = 'CV | Brandon Yong';
-        return () => { document.title = 'Brandon Yong'; };
-    }, []);
+        document.title = `CV | ${name}`;
+        return () => { document.title = name; };
+    }, [name]);
 
     return (
         <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-custom-bg rounded shadow">
             <div className="page-background" aria-hidden="true"></div>
-            <h1 className="text-4xl font-bold mb-4 text-brand-text-main text-center">{cvData.name}</h1>
+            <h1 className="text-4xl font-bold mb-4 text-brand-text-main text-center">{name}</h1>
 
             <div className="text-justify mb-8">
                 <h3 className="text-2xl font-semibold text-brand-text-accent border-b-2 border-brand-primary-border pb-1 mb-1">Summary</h3>
-                <p className="text-gray-custom-muted">{cvData.summary}</p>
+                <p className="text-gray-custom-muted">{summary}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -61,12 +72,22 @@ export default function CV() {
                         <div key={index}>
                             <h3 className="text-2xl font-semibold text-brand-text-accent border-b-2 border-brand-primary-border pb-1 mb-1">{section.title}</h3>
                             <div className="space-y-1">
-                                {section.contents.map((item, idx) => (
-                                    <div key={idx} className="flex items-center">
-                                        <span className="font-semibold text-gray-custom-text">{item.label}:</span>
-                                        <span className="ml-2 text-gray-custom-muted">{item.value}</span>
-                                    </div>
-                                ))}
+                                {section.contents.map((item, idx) => {
+                                    const isSocial = ['github', 'linkedin'].includes(item.label.toLowerCase());
+
+                                    return (
+                                        <div key={idx} className="flex items-center">
+                                            <span className="font-semibold text-gray-custom-text">{item.label}:</span>
+                                            <span className="ml-2 text-gray-custom-muted">
+                                                {isSocial ? (
+                                                    <a href={item.value} target="_blank" rel="noopener noreferrer" className="text-brand-text-accent hover:underline">
+                                                        {item.value.replace(/^https?:\/\//, '')}
+                                                    </a>
+                                                ) : item.value}
+                                            </span>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
                     ))}
