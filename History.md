@@ -1,4 +1,11 @@
 
+V1.2.2 / 2026-02-09
+===================
+
+  * Merge pull request #33 from brandonyongys/enhancement/2026/codebase-review
+  * Included linkedin and github in CV page
+  * Updated readme file
+
 V1.2.1 / 2026-02-09
 ===================
 
