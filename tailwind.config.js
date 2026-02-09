@@ -17,6 +17,7 @@ export default {
           'text-main': 'var(--brand-text-main)',
           'text-accent': 'var(--brand-text-accent)',
           'text-muted': 'var(--brand-text-muted)',
+          'link': 'var(--nav-link-color)',
         },
         gray: {
           'custom-bg': 'var(--gray-bg)',
