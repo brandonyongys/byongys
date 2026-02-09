@@ -46,8 +46,8 @@ To run this project locally, ensure you have [Node.js](https://nodejs.org/) inst
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/byongys_portfolio.git
-   cd byongys_portfolio
+   git clone https://github.com/brandonyongys/byongys.git
+   cd byongys
    ```
 
 2. **Install dependencies**
