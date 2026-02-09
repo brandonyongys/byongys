@@ -2,11 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Brand Colors */
+  --brand-primary-light: #fff7ed;
+  /* orange-50 */
+  --brand-primary: #ffedd5;
+  /* orange-100 */
+  --brand-primary-hover: #fed7aa;
+  /* orange-200 */
+  --brand-primary-border: #fdba74;
+  /* orange-300 */
+
+  --brand-text-main: #9a3412;
+  /* orange-800 */
+  --brand-text-accent: #c2410c;
+  /* orange-700 */
+  --brand-text-muted: #ea580c;
+  /* orange-600 */
+
+  /* Gray Scale (Centralized) */
+  --gray-bg: #f9fafb;
+  /* gray-50 */
+  --gray-light: #f3f4f6;
+  /* gray-100 */
+  --gray-border: #d1d5db;
+  /* gray-300 */
+  --gray-text: #111827;
+  /* gray-900 */
+  --gray-muted: #4b5563;
+  /* gray-600 */
+  --gray-dim: #6b7280;
+  /* gray-500 */
+
+  /* Accent Colors */
+  --accent-primary: #3b82f6;
+  /* blue-500 */
+  --accent-secondary: #2563eb;
+  /* blue-600 */
+  --accent-light: #e0f2fe;
+  /* sky-100 */
+  --accent-ring: #93c5fd;
+  /* blue-300 */
+
+  /* Layout */
+  --content-max-width: 1280px;
+}
+
 /* Reduce vertical margin around <hr> inside prose */
 .prose hr {
-  margin-top: 1rem;    
-  margin-bottom: 1rem; 
-  border-color: #d1d5db;  /* optional, matches gray-300 */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-color: var(--gray-border);
 }
 
 html {
@@ -14,7 +60,7 @@ html {
 }
 
 body {
-  @apply bg-orange-50;
+  @apply bg-brand-primary-light;
 }
 
 .page-background {
@@ -25,5 +71,6 @@ body {
   background-size: cover;
   background-position: center;
   opacity: 0.5;
-  pointer-events: none;  /* So clicks go through it */
+  pointer-events: none;
+  /* So clicks go through it */
 }

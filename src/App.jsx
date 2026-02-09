@@ -26,7 +26,7 @@ function App() {
             <Navbar />
 
             {/* Main content should grow to push Footer to the bottom */}
-            <main className="flex-grow text-orange-900">
+            <main className="flex-grow text-brand-text-main">
               <ErrorBoundary>
                 <Routes>
                   <Route path="/" element={<Home />} />
