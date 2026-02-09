@@ -1,4 +1,14 @@
 
+V1.2.1 / 2026-02-09
+===================
+
+  * Merge pull request #32 from brandonyongys/enhancement/2026/codebase-review
+  * Fixed typo
+  * Updated nav bar front colour
+  * Updated all the components and pages to call CSS params from index file
+  * Centralize the CSS params
+  * Fixed typos
+
 V1.2.0 / 2026-02-08
 ===================
 
