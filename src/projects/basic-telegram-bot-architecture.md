@@ -19,7 +19,13 @@ However, I noticed that our existing chatbot architecture relied on multiple mid
 
 As part of my professional development, I decided to build my own Telegram chatbot using an architecture that reflects what I've learned. My goal is to create a modular, microservice-oriented, serverless architecture that is easy to scale, maintain, and extend.
 
-This post gives a detailed look at the architecture and my design decisions.
+<hr>
+
+# Repo _(Added on 23 Feb 2026)_
+
+I have decided to open source my telegram bot repo. You can find it [here](https://github.com/brandonyongys/telegram-chatbot). There is a clear README.md file that explains how to set up and deploy the chatbot to your own AWS account. The README also includes a section on how to deploy the chatbot to multiple AWS accounts using Terraform without affecting the other accounts.
+
+You can also try the deployed bot [here](https://t.me/BackendLabBot). I will be using it to build and test new features.
 
 <hr>
 
@@ -113,12 +119,6 @@ For long-term logs and potential analytics, I store full conversation data in S3
 # Deployment process _(Added on 22 Jul 2025)_
 
 The basic Telegram chatbot requires several AWS resources, so I initially used the Serverless Framework for deployment due to its simplicity. However, I’ve recently switched to Terraform, which offers better control, visibility, and consistency when managing infrastructure. You can read more about the Terraform setup [here](../posts/terraform-basic-telegram).
-
-# Repo _(Added on 23 Feb 2026)_
-
-I have decided to open source my telegram bot repo. You can find it [here](https://github.com/brandonyongys/telegram-chatbot). There is a clear README.md file that explains how to set up and deploy the chatbot to your own AWS account. The README also includes a section on how to deploy the chatbot to multiple AWS accounts using Terraform without affecting the other accounts.
-
-You can also try the deployed bot [here](https://t.me/BackendLabBot). I will be using it to build and test new features.
 
 <hr>
 
