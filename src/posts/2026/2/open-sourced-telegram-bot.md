@@ -17,4 +17,4 @@ The repo includes a clear README with step by step instructions on how to set up
 
 The project is still evolving. There are features I plan to add and parts of the codebase I want to refine.
 
-For now, feel free to explore the repo and share your thoughts. You can also try the deployed bot [here](https://t.me/BackendLabBot). I will be using it to build and test new features, including the upcoming supermarket price lookup.
+For now, feel free to explore the repo and share your thoughts. You can also try the deployed bot [here](https://t.me/BackendLabBot). At the moment, the bot is configured to return `Hi! Your message is: '<USER INPUT>'.`. This is just a placeholder to show that the bot is working. I plan to add more features in the future, including the upcoming supermarket price lookup.
