@@ -68,16 +68,18 @@ export default function SearchResults({ results, query }) {
                 <button
                     onClick={handlePrev}
                     disabled={currentPage === 1}
+                    aria-label="Go to previous page"
                     className="px-3 py-1 bg-brand-primary rounded disabled:opacity-50"
                 >
                     Prev
                 </button>
-                <span className="px-3 py-1 font-medium">
+                <span className="px-3 py-1 font-medium" aria-live="polite">
                     Page {currentPage} of {totalPages}
                 </span>
                 <button
                     onClick={handleNext}
                     disabled={currentPage === totalPages}
+                    aria-label="Go to next page"
                     className="px-3 py-1 bg-brand-primary rounded disabled:opacity-50"
                 >
                     Next
