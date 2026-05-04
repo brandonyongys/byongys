@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
-import { useEffect } from 'react';
 import useSearch from "../utils/useSearch";
 import SearchResults from "../components/SearchResults";
+import { usePageMeta } from '../hooks/usePageMeta';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -11,14 +11,10 @@ export default function SearchPage() {
   const query = useQuery().get("q") || "";
   const results = useSearch(query);
 
-  useEffect(() => {
-    if (query) {
-      document.title = `Search: ${query} | Brandon Yong`;
-    } else {
-      document.title = 'Search | Brandon Yong';
-    }
-    return () => { document.title = 'Brandon Yong'; };
-  }, [query]);
+  usePageMeta({
+    title: query ? `Search: ${query}` : 'Search',
+    path: '/search',
+  });
 
   return (
     <div className="max-w-3xl mx-auto my-8 p-4">

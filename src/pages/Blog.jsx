@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMarkdownData } from '../hooks/useMarkdownData';
 import { formatDate } from '../utils/formatDate';
 import { PAGINATION } from '../config/constants';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function Blog() {
   const allPosts = useMarkdownData('posts');
@@ -11,16 +12,13 @@ export default function Blog() {
   const [selectedTag, setSelectedTag] = useState(null);
   const postsPerPage = PAGINATION.POSTS_PER_PAGE;
 
+  usePageMeta({ title: 'Blog', path: '/blog' });
+
   // Get the set of posts in reverse chronological order
   useEffect(() => {
     const filteredPosts = allPosts.filter(post => post.published);
     setPosts(filteredPosts);
   }, [allPosts]);
-
-  useEffect(() => {
-    document.title = 'Blog | Brandon Yong';
-    return () => { document.title = 'Brandon Yong'; };
-  }, []);
 
   // Count number of posts per tag
   const tagCounts = posts.reduce((acc, post) => {

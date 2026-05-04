@@ -1,17 +1,14 @@
-import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useMarkdownData } from '../hooks/useMarkdownData';
 import { REMARK_PLUGINS, REHYPE_PLUGINS } from '../config/markdownPlugins';
 import MissingPage from '../components/MissingPage';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function About() {
   const MarkdownData = useMarkdownData('config');
   const markdown = MarkdownData.find(p => p.slug === "about");
 
-  useEffect(() => {
-    document.title = 'About Me | Brandon Yong';
-    return () => { document.title = 'Brandon Yong'; };
-  }, []);
+  usePageMeta({ title: 'About Me', path: '/about' });
 
   if (!markdown) {
     return <MissingPage pageName='About' />;

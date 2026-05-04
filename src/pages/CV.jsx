@@ -1,4 +1,5 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
+import { usePageMeta } from '../hooks/usePageMeta';
 import yaml from 'js-yaml';
 
 // 👇 This works with Vite (and possibly with CRA + config overrides)
@@ -26,10 +27,7 @@ export default function CV() {
         )
         , [sections]);
 
-    useEffect(() => {
-        document.title = `CV | ${name}`;
-        return () => { document.title = name; };
-    }, [name]);
+    usePageMeta({ title: 'CV', path: '/cv' });
 
     return (
         <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-custom-bg rounded shadow">

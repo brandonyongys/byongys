@@ -1,16 +1,12 @@
-import { useEffect } from 'react';
 import ProjectCard from "../components/ProjectCard";
-// import blogPosts from "../data/blogPosts.json";
 import { useMarkdownData } from '../hooks/useMarkdownData';
 import MissingPage from '../components/MissingPage';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function ProjectsPage() {
   const projects = useMarkdownData("projects");
 
-  useEffect(() => {
-    document.title = 'Projects | Brandon Yong';
-    return () => { document.title = 'Brandon Yong'; };
-  }, []);
+  usePageMeta({ title: 'Projects', path: '/projects' });
 
   if (projects.length === 0) {
     return <MissingPage pageName='Projects' />;

@@ -1,25 +1,22 @@
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useMarkdownData } from '../hooks/useMarkdownData';
 import { formatDate } from '../utils/formatDate';
 import MissingPage from '../components/MissingPage';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { REMARK_PLUGINS, REHYPE_PLUGINS } from '../config/markdownPlugins';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function PostPage() {
   const { slug } = useParams();
   const posts = useMarkdownData('posts');
   const post = posts?.find(p => p.slug === slug);
 
-  useEffect(() => {
-    if (post) {
-      document.title = `${post.title} | Brandon Yong`;
-    }
-    return () => {
-      document.title = 'Brandon Yong';
-    };
-  }, [post]);
+  usePageMeta({
+    title: post?.title,
+    description: post?.description,
+    path: post ? `/posts/${slug}` : '/posts',
+  });
 
   if (!posts) {
     return <LoadingSpinner />;

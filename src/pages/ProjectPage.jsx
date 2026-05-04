@@ -4,11 +4,18 @@ import { useMarkdownData } from '../hooks/useMarkdownData';
 import { REMARK_PLUGINS, REHYPE_PLUGINS } from '../config/markdownPlugins';
 import { formatDate } from '../utils/formatDate';
 import MissingPage from '../components/MissingPage';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function ProjectPostPage() {
   const { slug } = useParams();
   const projects = useMarkdownData('projects');
   const project = projects.find((p) => p.slug === slug);
+
+  usePageMeta({
+    title: project?.title,
+    description: project?.description,
+    path: project ? `/projects/${slug}` : '/projects',
+  });
 
   // const relatedPosts = blogPosts.filter((post) => post.projectSlug === slug);
 
