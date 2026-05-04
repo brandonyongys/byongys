@@ -21,7 +21,7 @@ export default function ProjectsPage() {
         //   post.projectSlug === project.slug
         // );
 
-        return <ProjectCard key={project.id} project={project} />;
+        return <ProjectCard key={project.slug} project={project} />;
       })}
     </article>
 
