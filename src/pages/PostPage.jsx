@@ -5,6 +5,9 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
 import { useMarkdownData } from '../hooks/useMarkdownData';
+
+const REMARK_PLUGINS = [remarkGfm];
+const REHYPE_PLUGINS = [rehypeRaw, rehypeSanitize];
 import { formatDate } from '../utils/formatDate';
 import MissingPage from '../components/MissingPage';
 
@@ -41,8 +44,8 @@ export default function PostPage() {
       <hr></hr>
       <div className="prose max-w-none text-gray-700 mt-2">
         <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw, rehypeSanitize]}
+          remarkPlugins={REMARK_PLUGINS}
+          rehypePlugins={REHYPE_PLUGINS}
         >
           {post.content}
         </ReactMarkdown>

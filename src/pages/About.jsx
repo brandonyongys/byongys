@@ -4,6 +4,9 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
 import { useMarkdownData } from '../hooks/useMarkdownData';
+
+const REMARK_PLUGINS = [remarkGfm];
+const REHYPE_PLUGINS = [rehypeRaw, rehypeSanitize];
 import MissingPage from '../components/MissingPage';
 
 export default function About() {
@@ -25,8 +28,8 @@ export default function About() {
       <h2 className="text-4xl font-bold mb-3 text-brand-text-main">About Me</h2>
       <article className="prose max-w-none text-gray-custom-muted mt-2">
         <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw, rehypeSanitize]}
+          remarkPlugins={REMARK_PLUGINS}
+          rehypePlugins={REHYPE_PLUGINS}
         >
           {markdown.content}
         </ReactMarkdown>
