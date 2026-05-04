@@ -38,6 +38,23 @@ The application is structured as a static-site-generation (SSG) hybrid, where co
 - `src/context/`: Global state management for Markdown data.
 - `src/utils/`: Core logic for data fetching, search indexing, and markdown processing.
 
+### Routes
+
+| Path | Component | Description |
+|---|---|---|
+| `/` | Home | Landing page with welcome message (from `src/config/welcome.md`) and latest posts |
+| `/about` | About | About page rendered from `src/config/about.md` |
+| `/cv` | CV | CV page parsed from `src/config/cv.yml` |
+| `/blog` | Blog | Paginated list of all published posts, sorted by date |
+| `/posts/:slug` | PostPage | Individual blog post rendered from `src/posts/YYYY/M/:slug.md` |
+| `/projects` | Projects | Grid of all published projects as cards |
+| `/projects/:slug` | ProjectPage | Individual project write-up rendered from `src/projects/:slug.md` |
+| `/search` | SearchPage | Fuzzy search across all posts using Fuse.js and the pre-built search index |
+
+### Vite Configuration Note
+
+`vite.config.js` sets `assetsInclude: ['**/*.md']`, which enables `import.meta.glob` to treat Markdown files as raw string assets. This is what powers the build-time content discovery — without it, `.md` imports would fail.
+
 ---
 
 ## 🛠️ Getting Started
@@ -55,15 +72,46 @@ To run this project locally, ensure you have [Node.js](https://nodejs.org/) inst
    npm install
    ```
 
-3. **Generate the search index**
-   ```bash
-   npm run generate-index
-   ```
-
-4. **Start the development server**
+3. **Start the development server**
    ```bash
    npm run dev
    ```
+
+   > **Note**: Always use `npm run dev` (not `vite` directly). The `generate-index` step runs first and generates `src/config/searchIndex.json`. This file is gitignored — skipping this step breaks client-side search.
+
+---
+
+## 🚀 Deployment
+
+Deployed on [Netlify](https://www.netlify.com/). `public/_redirects` contains:
+
+```
+/*    /index.html   200
+```
+
+This is required for SPA client-side routing — without it, direct URL access (e.g. `/blog`) and page refreshes return a 404.
+
+---
+
+## ✍️ Adding Content
+
+**New blog post** — create `src/posts/YYYY/M/your-slug.md` with frontmatter:
+
+```yaml
+---
+title: Your Post Title
+description: A short description.
+date: 2026-01-15
+tags: [tag1, tag2]
+published: true
+---
+```
+
+Posts with a future `date` are automatically hidden until that date. Set `published: false` to draft indefinitely.
+
+**New project** — create `src/projects/your-slug.md` with the same frontmatter plus `image`, `published_date`, and `updated_date`.
+
+No code changes needed for either — `getMarkDown` picks up new files automatically via `import.meta.glob`.
 
 ---
 
