@@ -5,11 +5,12 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
 import { useMarkdownData } from '../hooks/useMarkdownData';
+import { formatDate } from '../utils/formatDate';
+import MissingPage from '../components/MissingPage';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const REMARK_PLUGINS = [remarkGfm];
 const REHYPE_PLUGINS = [rehypeRaw, rehypeSanitize];
-import { formatDate } from '../utils/formatDate';
-import MissingPage from '../components/MissingPage';
 
 export default function PostPage() {
   const { slug } = useParams();
