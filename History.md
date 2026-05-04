@@ -1,4 +1,32 @@
 
+V1.2.4 / 2026-05-04
+===================
+
+  * Merge pull request #44 from brandonyongys/maintenance/2026/improve-website
+  * Get current year outside the footer function
+  * skip decorative image
+  * import component only for error boundary
+  * Use memo when loading cv data
+  * Use memo when sorting search result
+  * Use project slug instead of id
+  * added aria label
+  * Added a try catch statement
+  * Moved the commonly used useEffect to a hook
+  * Import plugins from config plugins
+  * Created a netlify.toml
+  * Updated packages
+  * added manual chunks to build
+  * Fixed imports in postpage.jsx
+  * Removed unused vite template css
+  * lazy load images
+  * Added a timer to search
+  * hoisted arrays out from omponent body
+  * lazy import files
+  * Removed redundant packages
+  * Changed background from png to webp
+  * Merge pull request #43 from brandonyongys/post/2026/terraform-certification
+  * Drafted a post on terraform associate cert
+
 V1.2.3 / 2026-05-04
 ===================
 
