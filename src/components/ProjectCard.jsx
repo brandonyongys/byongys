@@ -9,6 +9,7 @@ export default function ProjectCard({ project }) {
         <img
           src={project.image}
           alt=""
+          aria-hidden="true"
           loading="lazy"
           className="absolute inset-0 w-full h-full object-cover object-top opacity-10 pointer-events-none"
         />
