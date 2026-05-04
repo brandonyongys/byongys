@@ -1,12 +1,7 @@
 import { useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
-import rehypeSanitize from 'rehype-sanitize';
 import { useMarkdownData } from '../hooks/useMarkdownData';
-
-const REMARK_PLUGINS = [remarkGfm];
-const REHYPE_PLUGINS = [rehypeRaw, rehypeSanitize];
+import { REMARK_PLUGINS, REHYPE_PLUGINS } from '../config/markdownPlugins';
 import { formatDate } from '../utils/formatDate';
 import MissingPage from '../components/MissingPage';
 

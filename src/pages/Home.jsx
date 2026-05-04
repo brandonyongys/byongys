@@ -1,12 +1,7 @@
 import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
-import rehypeSanitize from 'rehype-sanitize';
 import LatestPostList from '../components/LatestPostList';
-
-const REMARK_PLUGINS = [remarkGfm];
-const REHYPE_PLUGINS = [rehypeRaw, rehypeSanitize];
+import { REMARK_PLUGINS, REHYPE_PLUGINS } from '../config/markdownPlugins';
 import { useMarkdownData } from '../hooks/useMarkdownData';
 import MissingPage from '../components/MissingPage';
 
