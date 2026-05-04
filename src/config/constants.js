@@ -3,3 +3,14 @@ export const PAGINATION = {
     RESULTS_PER_PAGE: 10,
     LATEST_POSTS_LIMIT: 5,
 };
+
+export const SEARCH = {
+    DEBOUNCE_MS: 200,
+};
+
+export const SITE = {
+    NAME: 'Brandon Yong',
+    URL: 'https://byongys.me',
+    DEFAULT_TITLE: 'Brandon Yong | Software Engineer Portfolio',
+    DEFAULT_DESCRIPTION: 'Personal portfolio and blog of Brandon Yong, a software engineer focusing on building scalable web applications and exploring new technologies.',
+};

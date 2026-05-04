@@ -70,7 +70,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: -10;
-  background-image: url('/images/background/bg_ruins_to_future_skyline.png');
+  background-image: url('/images/background/bg_ruins_to_future_skyline.webp');
   background-size: cover;
   background-position: center;
   opacity: 0.5;

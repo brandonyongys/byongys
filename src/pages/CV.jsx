@@ -1,35 +1,17 @@
-import { useEffect, useMemo } from 'react';
+import { usePageMeta } from '../hooks/usePageMeta';
 import yaml from 'js-yaml';
 
-// 👇 This works with Vite (and possibly with CRA + config overrides)
 import cvFile from '../config/cv.yml?raw';
 
 const cvData = yaml.load(cvFile);
+const { name, summary, sections } = cvData;
+const workExperience = sections.find(s => s.title.toLowerCase().includes('work')) || { title: 'Work Experience', contents: [] };
+const contactDetails = sections.filter(s => s.title.toLowerCase().includes('contact'));
+const otherSections = sections.filter(s => !s.title.toLowerCase().includes('work') && !s.title.toLowerCase().includes('contact'));
 
 export default function CV() {
-    // Memoize the data processing to avoid recalculating on every render
-    const { name, summary, sections } = useMemo(() => cvData, []);
 
-    // Split sections into work exp and others with robust filtering
-    const workExperience = useMemo(() =>
-        sections.find(section => section.title.toLowerCase().includes('work')) || { title: 'Work Experience', contents: [] }
-        , [sections]);
-
-    const contactDetails = useMemo(() =>
-        sections.filter(section => section.title.toLowerCase().includes('contact'))
-        , [sections]);
-
-    const otherSections = useMemo(() =>
-        sections.filter(section =>
-            !section.title.toLowerCase().includes('work') &&
-            !section.title.toLowerCase().includes('contact')
-        )
-        , [sections]);
-
-    useEffect(() => {
-        document.title = `CV | ${name}`;
-        return () => { document.title = name; };
-    }, [name]);
+    usePageMeta({ title: 'CV', path: '/cv' });
 
     return (
         <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-custom-bg rounded shadow">

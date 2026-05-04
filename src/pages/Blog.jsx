@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMarkdownData } from '../hooks/useMarkdownData';
 import { formatDate } from '../utils/formatDate';
 import { PAGINATION } from '../config/constants';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function Blog() {
   const allPosts = useMarkdownData('posts');
@@ -11,16 +12,13 @@ export default function Blog() {
   const [selectedTag, setSelectedTag] = useState(null);
   const postsPerPage = PAGINATION.POSTS_PER_PAGE;
 
+  usePageMeta({ title: 'Blog', path: '/blog' });
+
   // Get the set of posts in reverse chronological order
   useEffect(() => {
     const filteredPosts = allPosts.filter(post => post.published);
     setPosts(filteredPosts);
   }, [allPosts]);
-
-  useEffect(() => {
-    document.title = 'Blog | Brandon Yong';
-    return () => { document.title = 'Brandon Yong'; };
-  }, []);
 
   // Count number of posts per tag
   const tagCounts = posts.reduce((acc, post) => {
@@ -62,6 +60,8 @@ export default function Blog() {
             {/* All posts button */}
             <button
               onClick={() => handleTagClick(null)}
+              aria-label="Show all posts"
+              aria-pressed={!selectedTag}
               className={`text-left w-full ${!selectedTag ? 'font-bold text-brand-text-accent' : 'text-gray-custom-text'}`}
             >
               All Posts ({posts.length})
@@ -73,6 +73,8 @@ export default function Blog() {
             <li key={tag}>
               <button
                 onClick={() => handleTagClick(tag)}
+                aria-label={`Filter by tag: ${tag}`}
+                aria-pressed={selectedTag === tag}
                 className={`text-left w-full ${selectedTag === tag ? 'font-bold text-brand-text-accent' : 'text-gray-custom-text'}`}
               >
                 {tag} ({tagCounts[tag]})
@@ -135,18 +137,18 @@ export default function Blog() {
           <button
             onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
+            aria-label="Go to previous page"
             className="px-3 py-1 bg-brand-primary rounded disabled:opacity-50"
           >
             Previous
           </button>
 
-          {/* Pages number */}
-          <span className="px-3 py-1 font-medium">{currentPage} / {totalPages || 1}</span>
+          <span className="px-3 py-1 font-medium" aria-live="polite">{currentPage} / {totalPages || 1}</span>
 
-          {/* Next button */}
           <button
             onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages || totalPages === 0}
+            aria-label="Go to next page"
             className="px-3 py-1 bg-brand-primary rounded disabled:opacity-50"
           >
             Next

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { formatDate } from "../utils/formatDate";
 import { PAGINATION } from "../config/constants";
 
@@ -6,6 +6,11 @@ const RESULTS_PER_PAGE = PAGINATION.RESULTS_PER_PAGE;
 
 export default function SearchResults({ results, query }) {
     const [currentPage, setCurrentPage] = useState(1);
+
+    const sortedResults = useMemo(
+        () => [...results].sort((a, b) => new Date(b.date) - new Date(a.date)),
+        [results]
+    );
 
     if (!query.trim()) return null;
 
@@ -16,11 +21,6 @@ export default function SearchResults({ results, query }) {
             </div>
         );
     }
-
-    // Sort results by date (latest first)
-    const sortedResults = [...results].sort(
-        (a, b) => new Date(b.date) - new Date(a.date)
-    );
 
     const totalPages = Math.ceil(sortedResults.length / RESULTS_PER_PAGE);
 
@@ -68,16 +68,18 @@ export default function SearchResults({ results, query }) {
                 <button
                     onClick={handlePrev}
                     disabled={currentPage === 1}
+                    aria-label="Go to previous page"
                     className="px-3 py-1 bg-brand-primary rounded disabled:opacity-50"
                 >
                     Prev
                 </button>
-                <span className="px-3 py-1 font-medium">
+                <span className="px-3 py-1 font-medium" aria-live="polite">
                     Page {currentPage} of {totalPages}
                 </span>
                 <button
                     onClick={handleNext}
                     disabled={currentPage === totalPages}
+                    aria-label="Go to next page"
                     className="px-3 py-1 bg-brand-primary rounded disabled:opacity-50"
                 >
                     Next

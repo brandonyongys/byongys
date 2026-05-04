@@ -1,16 +1,21 @@
 import { useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
-import rehypeSanitize from 'rehype-sanitize';
 import { useMarkdownData } from '../hooks/useMarkdownData';
+import { REMARK_PLUGINS, REHYPE_PLUGINS } from '../config/markdownPlugins';
 import { formatDate } from '../utils/formatDate';
 import MissingPage from '../components/MissingPage';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function ProjectPostPage() {
   const { slug } = useParams();
   const projects = useMarkdownData('projects');
   const project = projects.find((p) => p.slug === slug);
+
+  usePageMeta({
+    title: project?.title,
+    description: project?.description,
+    path: project ? `/projects/${slug}` : '/projects',
+  });
 
   // const relatedPosts = blogPosts.filter((post) => post.projectSlug === slug);
 
@@ -35,8 +40,8 @@ export default function ProjectPostPage() {
       <hr></hr>
       <div className="prose max-w-none text-gray-700 mt-2">
         <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw, rehypeSanitize]}
+          remarkPlugins={REMARK_PLUGINS}
+          rehypePlugins={REHYPE_PLUGINS}
         >
           {project.content}
         </ReactMarkdown>

@@ -1,26 +1,22 @@
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
-import rehypeSanitize from 'rehype-sanitize';
 import { useMarkdownData } from '../hooks/useMarkdownData';
 import { formatDate } from '../utils/formatDate';
 import MissingPage from '../components/MissingPage';
+import LoadingSpinner from '../components/LoadingSpinner';
+import { REMARK_PLUGINS, REHYPE_PLUGINS } from '../config/markdownPlugins';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function PostPage() {
   const { slug } = useParams();
   const posts = useMarkdownData('posts');
   const post = posts?.find(p => p.slug === slug);
 
-  useEffect(() => {
-    if (post) {
-      document.title = `${post.title} | Brandon Yong`;
-    }
-    return () => {
-      document.title = 'Brandon Yong';
-    };
-  }, [post]);
+  usePageMeta({
+    title: post?.title,
+    description: post?.description,
+    path: post ? `/posts/${slug}` : '/posts',
+  });
 
   if (!posts) {
     return <LoadingSpinner />;
@@ -41,8 +37,8 @@ export default function PostPage() {
       <hr></hr>
       <div className="prose max-w-none text-gray-700 mt-2">
         <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw, rehypeSanitize]}
+          remarkPlugins={REMARK_PLUGINS}
+          rehypePlugins={REHYPE_PLUGINS}
         >
           {post.content}
         </ReactMarkdown>

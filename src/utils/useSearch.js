@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import Fuse from "fuse.js";
 import searchIndex from "../config/searchIndex.json";
+import { SEARCH } from "../config/constants";
 
 export default function useSearch(query) {
     const [results, setResults] = useState([]);
@@ -13,12 +14,16 @@ export default function useSearch(query) {
     }, []);
 
     useEffect(() => {
-        if (query.trim() === "") {
-        setResults([]);
-        return;
-        }
-        const searchResults = fuse.search(query).map(res => res.item);
-        setResults(searchResults);
+        const timer = setTimeout(() => {
+            if (query.trim() === "") {
+                setResults([]);
+                return;
+            }
+            const searchResults = fuse.search(query).map(res => res.item);
+            setResults(searchResults);
+        }, SEARCH.DEBOUNCE_MS);
+
+        return () => clearTimeout(timer);
     }, [query, fuse]);
 
     return results;
