@@ -1,4 +1,31 @@
 
+V1.2.3 / 2026-05-04
+===================
+
+  * Merge pull request #42 from brandonyongys/feature/claude-code
+  * Created CLAUDE.md
+  * Updated readme
+  * graphify repo
+  * Merge pull request #41 from brandonyongys/maintenance/2026/update-credentials
+  * Added terraform associate certificate
+  * Merge pull request #40 from brandonyongys/post/2026/telegram-bot-repo
+  * Edited the telegram posts
+  * Merge pull request #39 from brandonyongys/post/2026/telegram-bot-repo
+  * Updated the telegram bot project page
+  * Drafted a post on my telegram bot repo
+  * updated packages
+  * Merge pull request #38 from brandonyongys/post/2026/finding-inspiration
+  * Drafted a post on my inspiration for greatness
+  * Added bachelor to education in cv
+  * Merge pull request #37 from brandonyongys/post/2026/enhancing-react-website
+  * Added github link in post
+  * Merge pull request #36 from brandonyongys/post/2026/enhancing-react-website
+  * Drafted a post on enhancing my react website
+  * Revert "Drafted a post on enhancing my react website"
+  * Drafted a post on enhancing my react website
+  * Merge pull request #34 from brandonyongys/enhancement/2026/codebase-review
+  * Fixed typos
+
 V1.2.2 / 2026-02-09
 ===================
 
