@@ -6,9 +6,11 @@ export default function ProjectCard({ project }) {
     <div className="relative rounded-2xl shadow-lg p-4 bg-gray-custom-bg overflow-hidden">
       {/* Make the project image as the background, if any */}
       {project.image !== '' && (
-        <div
-          className="absolute inset-x-0 top-0 h-full bg-top bg-cover opacity-10 pointer-events-none"
-          style={{ backgroundImage: `url(${project.image})` }}
+        <img
+          src={project.image}
+          alt=""
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover object-top opacity-10 pointer-events-none"
         />
       )}
 
