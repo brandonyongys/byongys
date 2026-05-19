@@ -33,34 +33,7 @@ src/projects/*.md             ├──► getMarkDown(type)  ──► Markdown
 src/config/{about,welcome}.md ┘
 ```
 
-- `src/utils/getMarkdown.js` — `getMarkDown(type)` uses `import.meta.glob` to load all `.md` files at build time. Accepts `'posts'`, `'projects'`, or `'config'`. Filters out unpublished and future-dated content. Returns sorted array.
-- `src/context/MarkdownContext.jsx` — `MarkdownProvider` calls `getMarkDown` for all three types once, wrapped in `useMemo(() => ({ ... }), [])`. Single parse per session.
-- `src/context/MarkdownContextInstance.js` — exports the `MarkdownContext` object (kept separate to avoid circular imports).
-- `src/hooks/useMarkdownData.js` — `useMarkdownData(type)` consumes `MarkdownContext` and returns the full array for `'posts'`, `'projects'`, or `'config'`. Pages call `.find()` themselves to get a specific item by slug.
-
-### Search pipeline
-
-```
-generateSearchIndex.js  (build-time node script)
-  ──► reads all posts via getMarkDown
-  ──► writes src/config/searchIndex.json
-      ──► useSearch.js (Fuse.js) ──► SearchPage / SearchResults
-```
-
-### Routing
-
-All routes defined in `src/App.jsx`:
-
-| Route | Component |
-|---|---|
-| `/` | `Home` |
-| `/about` | `About` |
-| `/cv` | `CV` |
-| `/blog` | `Blog` |
-| `/posts/:slug` | `PostPage` |
-| `/projects` | `Projects` |
-| `/projects/:slug` | `ProjectPage` |
-| `/search` | `SearchPage` |
+`getMarkDown(type)` filters unpublished and future-dated content, then sorts by date. `MarkdownProvider` calls it once for all three types at app start.
 
 ### Content structure
 
@@ -72,24 +45,18 @@ src/config/welcome.md        ← Home page welcome section
 src/config/cv.yml            ← CV data (parsed with js-yaml)
 ```
 
-Post frontmatter fields: `title`, `description`, `date`, `tags`, `published` (bool, default true). Posts with future `date` are hidden automatically.
+Post frontmatter fields: `title`, `description`, `date`, `tags`, `published` (bool, default true).
 
 Project frontmatter fields: same as posts plus `image`, `published_date`, `updated_date`.
-
-### Pagination constants
-
-All pagination config lives in `src/config/constants.js`:
-- `POSTS_PER_PAGE: 10`
-- `RESULTS_PER_PAGE: 10`
-- `LATEST_POSTS_LIMIT: 5`
 
 ## Key invariants
 
 - **Never use `dangerouslySetInnerHTML`** for markdown — use `react-markdown` with `rehype-sanitize` (XSS protection).
 - **`MarkdownProvider` must wrap the entire app** — it sits above `<Router>` in `App.jsx`. Don't move it inside a route.
-- **Search index is static** — `searchIndex.json` is committed and regenerated at build time. If you add/rename posts, run `npm run generate-index` (or just `npm run dev`/`npm run build`).
-- **`getMarkDown` filters future dates** — posts with `date` > today are invisible in dev and prod. This is intentional for scheduled publishing.
-- **`ErrorBoundary` wraps both the whole app and the routes** — two layers, outer catches provider errors, inner catches route render errors.
+- **Search index is static** — regenerated at build time. Run `npm run generate-index` after adding/renaming posts.
+- **`getMarkDown` filters future dates** — posts with `date` > today are invisible. Intentional for scheduled publishing.
+- **`ErrorBoundary` wraps both the whole app and the routes** — two layers. Don't remove either.
+- **Project detail pages use `MarkdownPage`**, not `ProjectPage` — that file does not exist.
 
 ## Adding content
 
@@ -97,4 +64,27 @@ All pagination config lives in `src/config/constants.js`:
 
 **New project:** create `src/projects/your-slug.md` with frontmatter including `image`. No code changes needed.
 
-**New page/route:** add component to `src/pages/`, add `<Route>` in `src/App.jsx`, add nav link in `src/components/Navbar.jsx`.
+**New page/route:** see `.claude/docs/routing.md`.
+
+## Reference docs
+
+Load these when the task needs them — don't read all upfront:
+
+- `.claude/docs/components.md` — all components, props, usage notes
+- `.claude/docs/routing.md` — route table, adding new pages
+- `.claude/docs/utilities.md` — utils, hooks, plugin config
+- `.claude/docs/config.md` — constants, searchIndex details
+
+## Blog writing tone and style
+
+Match 2025–2026 tone for all post drafting and editing.
+
+**Voice:** Direct, reflective, confident. First person but not chatty. State observations as facts, not hedged opinions.
+
+**Structure:** Clear sections separated by `<hr>`. Each section does one job — context, then detail, then reflection. No trailing summaries or lesson-in-a-bow endings.
+
+**Sentences:** Mix of short declarative statements and longer sentences that build an argument. Fragments used for emphasis.
+
+**Avoid:** "So yeah", "basically", "in a way", "I guess", "quite", "rather", "All in all", restating what was just said, closing with a moral.
+
+**Reference posts:** `src/posts/2026/5/ai-impact-on-swe.md`, `src/posts/2026/5/ai-coding-assistant.md`
