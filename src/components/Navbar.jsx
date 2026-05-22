@@ -5,9 +5,18 @@ import { Search, Menu, X } from 'lucide-react';
 export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [input, setInput] = useState("");
   const searchRef = useRef(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > 8);
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(e) {
@@ -30,70 +39,95 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 bg-brand-primary px-6 py-1.5 shadow-md flex justify-between items-center relative">
-      <div className="text-brand-link font-semibold text-lg flex-shrink-0">byongys</div>
+    <nav className={`sticky top-0 z-50 px-8 py-4 flex justify-between items-center transition-all duration-200 bg-surface-base ${scrolled ? 'border-b border-border-subtle' : ''}`}>
+      {/* Brand */}
+      <Link to="/" className="font-display text-lg font-semibold text-text-primary hover:text-accent transition-colors tracking-tight">
+        Brandon Yong
+      </Link>
 
-      <h1 className="absolute left-1/2 transform -translate-x-1/2 text-brand-link font-bold text-xl whitespace-nowrap hidden sm:block">
-        <Link to="/" className="text-brand-link hover:text-brand-text-main transition-colors">Build, Break, Rebuild</Link>
-      </h1>
-
-      <div className="flex items-center space-x-4">
-        {/* Desktop Links - Hidden on Mobile/Tablet */}
-        <div className="hidden lg:flex space-x-4 items-center">
-          <NavLink to="/" className={({ isActive }) => `font-semibold text-l transition-colors ${isActive ? 'text-brand-text-main font-bold' : 'text-brand-link hover:text-brand-text-main'}`}>Home</NavLink>
-          <NavLink to="/about" className={({ isActive }) => `font-semibold text-l transition-colors ${isActive ? 'text-brand-text-main font-bold' : 'text-brand-link hover:text-brand-text-main'}`}>About Me</NavLink>
-          <NavLink to="/cv" className={({ isActive }) => `font-semibold text-l transition-colors ${isActive ? 'text-brand-text-main font-bold' : 'text-brand-link hover:text-brand-text-main'}`}>CV</NavLink>
-          <NavLink to="/blog" className={({ isActive }) => `font-semibold text-l transition-colors ${isActive ? 'text-brand-text-main font-bold' : 'text-brand-link hover:text-brand-text-main'}`}>Blog</NavLink>
-          <NavLink to="/projects" className={({ isActive }) => `font-semibold text-l transition-colors ${isActive ? 'text-brand-text-main font-bold' : 'text-brand-link hover:text-brand-text-main'}`}>Projects</NavLink>
-        </div>
-
-        <div className="flex items-center space-x-2">
-          <div ref={searchRef} className="relative">
-            <button
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="p-1 rounded-full hover:bg-brand-primary-hover focus:outline-none flex items-center justify-center transition-colors"
-              aria-label={isSearchOpen ? "Close search" : "Open search"}
+      {/* Desktop nav */}
+      <div className="hidden lg:flex items-center gap-1 text-sm">
+        {[
+          { to: '/', label: 'Home' },
+          { to: '/about', label: 'About' },
+          { to: '/cv', label: 'CV' },
+          { to: '/blog', label: 'Blog' },
+          { to: '/projects', label: 'Projects' },
+        ].map(({ to, label }, i, arr) => (
+          <span key={to} className="flex items-center gap-1">
+            <NavLink
+              to={to}
+              end={to === '/'}
+              className={({ isActive }) =>
+                `transition-colors font-body ${isActive ? 'text-accent font-semibold' : 'text-text-secondary hover:text-text-primary'}`
+              }
             >
-              <Search size={20} className="text-brand-link hover:text-brand-text-main" />
-            </button>
+              {label}
+            </NavLink>
+            {i < arr.length - 1 && <span className="text-border-medium select-none">·</span>}
+          </span>
+        ))}
 
-            {isSearchOpen && (
-              <form
-                onSubmit={handleSubmit}
-                className="absolute top-full right-0 mt-2 bg-white border border-brand-primary-border rounded-lg shadow-xl p-2 flex items-center animate-in fade-in zoom-in duration-200 z-50 overflow-hidden"
-              >
-                <input
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  className="focus:outline-none px-2 w-48 md:w-64 text-sm bg-transparent"
-                  placeholder="Search website..."
-                  aria-label="Search content"
-                  autoFocus
-                />
-              </form>
-            )}
-          </div>
-
-          {/* Mobile Menu Toggle */}
+        {/* Search */}
+        <span className="text-border-medium select-none ml-1">·</span>
+        <div ref={searchRef} className="relative ml-1">
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-1 rounded-md hover:bg-brand-primary-hover text-brand-link focus:outline-none"
-            aria-label="Toggle menu"
+            onClick={() => setIsSearchOpen(!isSearchOpen)}
+            className="text-text-secondary hover:text-text-primary transition-colors flex items-center"
+            aria-label={isSearchOpen ? "Close search" : "Open search"}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <Search size={16} />
           </button>
+          {isSearchOpen && (
+            <form
+              onSubmit={handleSubmit}
+              className="absolute top-full right-0 mt-2 bg-surface-base border border-border-subtle rounded shadow-sm p-2 flex items-center animate-in fade-in zoom-in duration-150 z-50"
+            >
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                className="focus:outline-none px-2 w-48 md:w-64 text-sm bg-transparent font-body text-text-primary placeholder:text-text-muted"
+                placeholder="Search..."
+                aria-label="Search content"
+                autoFocus
+              />
+            </form>
+          )}
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile menu toggle */}
+      <button
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        className="lg:hidden text-text-secondary hover:text-text-primary transition-colors"
+        aria-label="Toggle menu"
+      >
+        {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+      </button>
+
+      {/* Mobile drawer */}
       {isMenuOpen && (
-        <div className="lg:hidden absolute top-full right-0 w-36 bg-brand-primary shadow-xl py-3 px-6 flex flex-col space-y-1 animate-in slide-in-from-top duration-200 rounded-bl-xl border-l border-b border-brand-primary-border z-50">
-          <NavLink to="/" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => `font-semibold text-lg transition-colors ${isActive ? 'text-brand-text-main font-bold' : 'text-brand-link hover:text-brand-text-main'}`}>Home</NavLink>
-          <NavLink to="/about" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => `font-semibold text-lg transition-colors ${isActive ? 'text-brand-text-main font-bold' : 'text-brand-link hover:text-brand-text-main'}`}>About Me</NavLink>
-          <NavLink to="/cv" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => `font-semibold text-lg transition-colors ${isActive ? 'text-brand-text-main font-bold' : 'text-brand-link hover:text-brand-text-main'}`}>CV</NavLink>
-          <NavLink to="/blog" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => `font-semibold text-lg transition-colors ${isActive ? 'text-brand-text-main font-bold' : 'text-brand-link hover:text-brand-text-main'}`}>Blog</NavLink>
-          <NavLink to="/projects" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => `font-semibold text-lg transition-colors ${isActive ? 'text-brand-text-main font-bold' : 'text-brand-link hover:text-brand-text-main'}`}>Projects</NavLink>
+        <div className="lg:hidden absolute top-full right-0 w-40 bg-surface-base border border-border-subtle shadow-sm py-4 px-6 flex flex-col space-y-3 animate-in slide-in-from-top duration-150 z-50">
+          {[
+            { to: '/', label: 'Home' },
+            { to: '/about', label: 'About' },
+            { to: '/cv', label: 'CV' },
+            { to: '/blog', label: 'Blog' },
+            { to: '/projects', label: 'Projects' },
+          ].map(({ to, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={to === '/'}
+              onClick={() => setIsMenuOpen(false)}
+              className={({ isActive }) =>
+                `font-body text-sm transition-colors ${isActive ? 'text-accent font-semibold' : 'text-text-secondary hover:text-text-primary'}`
+              }
+            >
+              {label}
+            </NavLink>
+          ))}
         </div>
       )}
     </nav>
