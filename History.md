@@ -1,4 +1,13 @@
 
+V2.1.0 / 2026-05-22
+===================
+
+  * Merge pull request #51 from brandonyongys/maintenance/2026/improve-frontend-design
+  * Updated the padding scrolled
+  * refactor: rename TRANSITION_DURATION to TRANSITION_DURATION_CLASS, add Tailwind scan note
+  * feat: scroll-aware navbar shrink using NAVBAR config constants
+  * feat: add NAVBAR config constants for scroll-aware shrink
+
 V2.0.0 / 2026-05-22
 ===================
 
