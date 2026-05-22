@@ -14,3 +14,10 @@ export const SITE = {
     DEFAULT_TITLE: 'Brandon Yong | Software Engineer Portfolio',
     DEFAULT_DESCRIPTION: 'Personal portfolio and blog of Brandon Yong, a software engineer focusing on building scalable web applications and exploring new technologies.',
 };
+
+export const NAVBAR = {
+    SCROLL_THRESHOLD: 8,
+    PADDING_TOP: 'py-4',
+    PADDING_SCROLLED: 'py-2',
+    TRANSITION_DURATION: 'duration-300',
+};
