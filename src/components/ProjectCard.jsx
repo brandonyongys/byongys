@@ -3,47 +3,42 @@ import { formatDate } from "../utils/formatDate";
 
 export default function ProjectCard({ project }) {
   return (
-    <div className="relative rounded-2xl shadow-lg p-4 bg-gray-custom-bg overflow-hidden">
-      {/* Make the project image as the background, if any */}
-      {project.image !== '' && (
-        <img
-          src={project.image}
-          alt=""
-          aria-hidden="true"
-          loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover object-top opacity-10 pointer-events-none"
-        />
+    <div className="border border-border-subtle bg-surface-raised rounded-sm overflow-hidden hover:border-border-medium transition-colors">
+      {project.image && (
+        <div className="h-36 overflow-hidden bg-surface-hover">
+          <img
+            src={project.image}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            className="w-full h-full object-cover object-top opacity-80"
+          />
+        </div>
       )}
 
-      <Link to={`/projects/${project.slug}`} className="relative">
-        <h2 className="text-2xl font-bold mb-2 text-brand-text-main">{project.title}</h2>
-        {project.updated_date !== '' && (
-          <p className="text-sm font-semibold text-brand-text-muted mb-0.5"><i>
-            Updated on {formatDate(project.updated_date)}
-          </i></p>
-        )}
-        <p className="text-sm mb-2 text-brand-text-muted">
-          Published on {formatDate(project.published_date)}
+      <div className="p-5">
+        <Link to={`/projects/${project.slug}`}>
+          <h2 className="font-display text-lg font-semibold text-text-primary hover:text-accent transition-colors leading-snug mb-2">
+            {project.title}
+          </h2>
+        </Link>
+
+        <p className="font-body text-sm text-text-secondary leading-relaxed mb-3">
+          {project.description}
         </p>
-        <p className="text-sm text-gray-custom-muted mt-2">{project.description}</p>
 
-
-      </Link>
-
-
-      {/* Related Blog Posts
-      <div className="mt-3 text-sm">
-        <h3 className="font-semibold">Related Posts:</h3>
-        <ul className="list-disc list-inside">
-          {relatedPosts.map((post) => (
-            <li key={post.id}>
-              <Link to={`/blog/${post.slug}`} className="text-blue-500 hover:underline">
-                {post.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div> */}
+        <div className="flex items-center justify-between">
+          {project.updated_date ? (
+            <span className="font-mono text-xs text-text-muted">
+              Updated {formatDate(project.updated_date)}
+            </span>
+          ) : (
+            <span className="font-mono text-xs text-text-muted">
+              {formatDate(project.published_date)}
+            </span>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
