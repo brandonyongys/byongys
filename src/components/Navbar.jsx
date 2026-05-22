@@ -29,6 +29,17 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') {
+        setIsSearchOpen(false);
+        setInput("");
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   function handleSubmit(e) {
     e.preventDefault();
     if (input.trim() !== "") {
@@ -39,7 +50,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className={`sticky top-0 z-50 px-8 py-4 flex justify-between items-center transition-all duration-200 bg-surface-base ${scrolled ? 'border-b border-border-subtle' : ''}`}>
+    <nav className={`relative sticky top-0 z-50 px-8 py-4 flex justify-between items-center transition-all duration-200 bg-surface-base ${scrolled ? 'border-b border-border-subtle' : ''}`}>
       {/* Brand */}
       <Link to="/" className="font-display text-lg font-semibold text-text-primary hover:text-accent transition-colors tracking-tight">
         Brandon Yong
