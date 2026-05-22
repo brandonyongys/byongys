@@ -48,7 +48,6 @@ export default function Blog() {
 
   return (
     <main className="max-w-6xl mx-auto my-8 flex gap-6">
-      <div className="page-background" aria-hidden="true"></div>
       {/* Side menu for tags */}
       <aside className="w-1/6 pr-4 px-2">
         {/* Tags header */}
