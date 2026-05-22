@@ -79,11 +79,13 @@ Load these when the task needs them — don't read all upfront:
 
 Match 2025–2026 tone for all post drafting and editing.
 
-**Voice:** Direct, reflective, confident. First person but not chatty. State observations as facts, not hedged opinions.
+**Voice:** Direct, reflective, confident. First person but not chatty. State observations as facts, not hedged opinions. Do not use caveman style.
 
 **Structure:** Clear sections separated by `<hr>`. Each section does one job — context, then detail, then reflection. No trailing summaries or lesson-in-a-bow endings.
 
 **Sentences:** Mix of short declarative statements and longer sentences that build an argument. Fragments used for emphasis.
+
+**Lists:** Avoid numbered or bulleted lists in the body. If multiple things need covering, work through them as prose paragraphs, naming each with an italicised label if needed (e.g. *The first was result relevance.*).
 
 **Avoid:** "So yeah", "basically", "in a way", "I guess", "quite", "rather", "All in all", restating what was just said, closing with a moral.
 
