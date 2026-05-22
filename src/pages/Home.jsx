@@ -16,11 +16,15 @@ export default function Home() {
   }
 
   return (
-    <main className="max-w-4xl mx-auto my-8 text-brand-text-main">
-      <div className="page-background" aria-hidden="true"></div>
-      <section className="mb-8 p-8 bg-gray-custom-bg rounded shadow">
-        <h2 className="text-4xl font-bold mb-3 text-brand-text-main">{markdown.title}</h2>
-        <article className="prose max-w-none text-gray-custom-muted mt-2">
+    <main className="max-w-3xl mx-auto px-6 py-16">
+      {/* Hero */}
+      <section className="mb-16">
+        <h1 className="font-display text-5xl font-semibold text-text-primary mb-3 leading-tight tracking-tight">
+          {markdown.title}
+        </h1>
+        <p className="font-mono text-sm text-text-muted mb-4">Backend engineer · data pipelines · cloud infrastructure · Python · AWS</p>
+        <div className="w-12 h-px bg-accent mb-6" />
+        <article className="prose prose-stone max-w-none text-text-secondary font-body text-lg leading-relaxed">
           <ReactMarkdown
             remarkPlugins={REMARK_PLUGINS}
             rehypePlugins={REHYPE_PLUGINS}

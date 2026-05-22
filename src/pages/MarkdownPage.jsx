@@ -17,21 +17,16 @@ export default function MarkdownPage() {
   }
 
   return (
-    <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-50 rounded shadow">
-      <div className="page-background" aria-hidden="true"></div>
-      <h1 className="text-4xl font-bold mb-3 text-orange-800">{project.title}</h1>
-      {/* <p className="text-m font-semibold text-orange-700 mb-3">{project.description}</p> */}
-      {
-        project.updated_date !== '' && (
-          <p className="text-sm font-semibold text-orange-600 mb-1"><i>
-            Updated on {formatDate(project.updated_date)}
-          </i></p>
-        )}
-      <p className="text-sm text-orange-600 mb-3">
-        Published on {formatDate(project.published_date)}
+    <article className="max-w-4xl mx-auto p-8 my-8 bg-surface-raised rounded-sm border border-border-subtle">
+      <h1 className="font-display text-4xl font-semibold mb-3 text-text-primary">{project.title}</h1>
+      {project.updated_date !== '' && (
+        <p className="font-mono text-xs text-text-muted mb-1">Updated {formatDate(project.updated_date)}</p>
+      )}
+      <p className="font-mono text-xs text-text-muted mb-3">
+        Published {formatDate(project.published_date)}
       </p>
       <hr></hr>
-      <div className="prose max-w-none text-gray-700 mt-2">
+      <div className="prose max-w-none mt-2">
         <ReactMarkdown
           remarkPlugins={REMARK_PLUGINS}
           rehypePlugins={REHYPE_PLUGINS}

@@ -27,15 +27,14 @@ export default function PostPage() {
   }
 
   return (
-    <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-custom-bg rounded shadow">
-      <div className="page-background" aria-hidden="true"></div>
-      <h1 className="text-4xl font-bold mb-3 text-brand-text-main">{post.title}</h1>
-      <p className="text-sm font-semibold text-brand-text-muted mb-1">{post.description}</p>
-      <p className="text-sm text-brand-text-muted mb-3">
-        Published on {formatDate(post.date)}
+    <article className="max-w-4xl mx-auto p-8 my-8 bg-surface-raised rounded-sm border border-border-subtle">
+      <h1 className="font-display text-4xl font-semibold mb-3 text-text-primary">{post.title}</h1>
+      <p className="font-body text-base text-text-secondary mb-1">{post.description}</p>
+      <p className="font-mono text-xs text-text-muted mb-3">
+        {formatDate(post.date)}
       </p>
       <hr></hr>
-      <div className="prose max-w-none text-gray-700 mt-2">
+      <div className="prose max-w-none mt-2">
         <ReactMarkdown
           remarkPlugins={REMARK_PLUGINS}
           rehypePlugins={REHYPE_PLUGINS}

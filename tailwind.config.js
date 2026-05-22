@@ -9,30 +9,49 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
-          'primary-light': 'var(--brand-primary-light)',
-          primary: 'var(--brand-primary)',
-          'primary-hover': 'var(--brand-primary-hover)',
-          'primary-border': 'var(--brand-primary-border)',
-          'text-main': 'var(--brand-text-main)',
-          'text-accent': 'var(--brand-text-accent)',
-          'text-muted': 'var(--brand-text-muted)',
-          'link': 'var(--nav-link-color)',
+        surface: {
+          base: 'var(--surface-base)',
+          raised: 'var(--surface-raised)',
+          hover: 'var(--surface-hover)',
         },
-        gray: {
-          'custom-bg': 'var(--gray-bg)',
-          'custom-light': 'var(--gray-light)',
-          'custom-border': 'var(--gray-border)',
-          'custom-text': 'var(--gray-text)',
-          'custom-muted': 'var(--gray-muted)',
-          'custom-dim': 'var(--gray-dim)',
+        border: {
+          subtle: 'var(--border-subtle)',
+          medium: 'var(--border-medium)',
+        },
+        text: {
+          primary: 'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
+          muted: 'var(--text-muted)',
         },
         accent: {
-          primary: 'var(--accent-primary)',
-          secondary: 'var(--accent-secondary)',
-          light: 'var(--accent-light)',
-          ring: 'var(--accent-ring)',
-        }
+          DEFAULT: 'var(--accent)',
+          subtle: 'var(--accent-subtle)',
+          light: 'var(--accent-subtle)',
+        },
+        // Keep legacy aliases so existing components don't break yet
+        brand: {
+          'primary-light': 'var(--surface-base)',
+          primary: 'var(--surface-raised)',
+          'primary-hover': 'var(--surface-hover)',
+          'primary-border': 'var(--border-subtle)',
+          'text-main': 'var(--text-primary)',
+          'text-accent': 'var(--accent)',
+          'text-muted': 'var(--text-secondary)',
+          link: 'var(--text-primary)',
+        },
+        gray: {
+          'custom-bg': 'var(--surface-base)',
+          'custom-light': 'var(--surface-raised)',
+          'custom-border': 'var(--border-subtle)',
+          'custom-text': 'var(--text-primary)',
+          'custom-muted': 'var(--text-secondary)',
+          'custom-dim': 'var(--text-muted)',
+        },
+      },
+      fontFamily: {
+        display: ['var(--font-display)'],
+        body: ['var(--font-body)'],
+        mono: ['var(--font-mono)'],
       },
       maxWidth: {
         'content': 'var(--content-max-width)',

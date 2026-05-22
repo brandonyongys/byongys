@@ -14,17 +14,12 @@ export default function Blog() {
 
   usePageMeta({ title: 'Blog', path: '/blog' });
 
-  // Get the set of posts in reverse chronological order
   useEffect(() => {
-    const filteredPosts = allPosts.filter(post => post.published);
-    setPosts(filteredPosts);
+    setPosts(allPosts.filter(post => post.published));
   }, [allPosts]);
 
-  // Count number of posts per tag
   const tagCounts = posts.reduce((acc, post) => {
-    (post.tags || []).forEach(tag => {
-      acc[tag] = (acc[tag] || 0) + 1;
-    });
+    (post.tags || []).forEach(tag => { acc[tag] = (acc[tag] || 0) + 1; });
     return acc;
   }, {});
 
@@ -34,124 +29,108 @@ export default function Blog() {
     ? posts.filter(post => (post.tags || []).includes(selectedTag))
     : posts;
 
-  // Pagination logic
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
   const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = filteredPosts.slice(indexOfLastPost - postsPerPage, indexOfLastPost);
 
-  // Reset to page 1 when a tag is selected
   const handleTagClick = (tag) => {
     setSelectedTag(tag);
     setCurrentPage(1);
   };
 
   return (
-    <main className="max-w-6xl mx-auto my-8 flex gap-6">
-      <div className="page-background" aria-hidden="true"></div>
-      {/* Side menu for tags */}
-      <aside className="w-1/6 pr-4 px-2">
-        {/* Tags header */}
-        <h3 className="text-xl font-bold mb-4">Tags</h3>
-
-        {/* Spacing between tags */}
-        <ul className="space-y-1">
+    <main className="max-w-4xl mx-auto px-6 py-12 flex gap-12">
+      {/* Tag sidebar */}
+      <aside className="w-40 shrink-0">
+        <h3 className="font-display text-xs font-semibold tracking-widest uppercase text-text-muted mb-4">
+          Topics
+        </h3>
+        <ul className="space-y-2">
           <li>
-            {/* All posts button */}
             <button
               onClick={() => handleTagClick(null)}
-              aria-label="Show all posts"
               aria-pressed={!selectedTag}
-              className={`text-left w-full ${!selectedTag ? 'font-bold text-brand-text-accent' : 'text-gray-custom-text'}`}
+              className={`text-left w-full text-sm font-body transition-colors ${!selectedTag ? 'text-accent font-semibold' : 'text-text-secondary hover:text-text-primary'}`}
             >
-              All Posts ({posts.length})
+              All Posts
+              <span className="font-mono text-xs text-text-muted ml-1">({posts.length})</span>
             </button>
           </li>
-
-          {/* Rest of the tags */}
           {allTags.map(tag => (
             <li key={tag}>
               <button
                 onClick={() => handleTagClick(tag)}
-                aria-label={`Filter by tag: ${tag}`}
                 aria-pressed={selectedTag === tag}
-                className={`text-left w-full ${selectedTag === tag ? 'font-bold text-brand-text-accent' : 'text-gray-custom-text'}`}
+                className={`text-left w-full text-sm font-body transition-colors ${selectedTag === tag ? 'text-accent font-semibold' : 'text-text-secondary hover:text-text-primary'}`}
               >
-                {tag} ({tagCounts[tag]})
+                {tag}
+                <span className="font-mono text-xs text-text-muted ml-1">({tagCounts[tag]})</span>
               </button>
             </li>
           ))}
         </ul>
       </aside>
 
-      {/* Posts menu */}
-      <div className="w-2/3 p-8 bg-gray-custom-bg rounded shadow">
-        <h2 className="text-2xl font-bold mb-6">
-          {selectedTag ? `Posts tagged "${selectedTag}"` : 'All Posts'}
-        </h2>
+      {/* Posts list */}
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-4 mb-8">
+          <h2 className="font-display text-sm font-semibold tracking-widest uppercase text-text-muted whitespace-nowrap">
+            {selectedTag ? `#${selectedTag}` : 'All Writing'}
+          </h2>
+          <div className="flex-1 h-px bg-border-subtle" />
+        </div>
 
         {currentPosts.length === 0 ? (
-          <p>No posts found{selectedTag ? ` for "${selectedTag}"` : ''}.</p>
+          <p className="font-body text-text-secondary">No posts found{selectedTag ? ` for "${selectedTag}"` : ''}.</p>
         ) : (
-          // Post details for selection
-          <ul className="space-y-3">
+          <ul className="space-y-0">
             {currentPosts.map(post => (
-              // Horizontal line to separate the different posts
-              <li key={post.slug} className="border-b border-brand-primary-border pb-3">
-
-                {/* Clickable post title with post date */}
-                <div className="flex items-center justify-between">
-                  <Link to={`/posts/${post.slug}`}>
-                    <h3 className="text-xl font-semibold text-brand-text-main hover:underline">{post.title}</h3>
+              <li key={post.slug} className="py-5 border-b border-border-subtle last:border-b-0">
+                <div className="flex items-baseline justify-between gap-4">
+                  <Link to={`/posts/${post.slug}`} className="font-body text-base text-text-primary hover:text-accent transition-colors leading-snug">
+                    {post.title}
                   </Link>
-                  <p className="text-sm font-semibold text-brand-text-muted ml-4 whitespace-nowrap">
+                  <span className="font-mono text-xs text-text-muted whitespace-nowrap shrink-0">
                     {formatDate(post.date)}
-                  </p>
+                  </span>
                 </div>
-
-                {/* Post description */}
-                <p className="text-m font-semibold text-brand-text-accent">{post.description}</p>
-
-                {/* Tags */}
-                <div className="mt-1 space-x-2">
+                {post.description && (
+                  <p className="font-body text-sm text-text-secondary mt-1 leading-relaxed">
+                    {post.description}
+                  </p>
+                )}
+                <div className="mt-2 flex flex-wrap gap-1">
                   {(post.tags || []).map(tag => (
                     <button
                       key={tag}
                       onClick={() => handleTagClick(tag)}
-                      aria-label={`View posts tagged with ${tag}`}
-                      className="inline-block text-xs text-gray-custom-text bg-gray-custom-light px-2 py-0.5 rounded hover:bg-gray-200"
+                      className="font-mono text-xs text-text-muted border border-border-subtle px-2 py-0.5 rounded-sm hover:border-border-medium hover:text-text-secondary transition-colors"
                     >
                       {tag}
                     </button>
                   ))}
                 </div>
-
               </li>
             ))}
           </ul>
         )}
 
-        {/* Next and previous button for pagination */}
-        <div className="flex justify-center items-center space-x-2 mt-6">
-          {/* Previous button */}
+        {/* Pagination */}
+        <div className="flex items-center gap-3 mt-8">
           <button
             onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            aria-label="Go to previous page"
-            className="px-3 py-1 bg-brand-primary rounded disabled:opacity-50"
+            className="font-mono text-xs text-text-secondary border border-border-subtle px-3 py-1.5 rounded-sm hover:border-border-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            Previous
+            ← Prev
           </button>
-
-          <span className="px-3 py-1 font-medium" aria-live="polite">{currentPage} / {totalPages || 1}</span>
-
+          <span className="font-mono text-xs text-text-muted">{currentPage} / {totalPages || 1}</span>
           <button
             onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages || totalPages === 0}
-            aria-label="Go to next page"
-            className="px-3 py-1 bg-brand-primary rounded disabled:opacity-50"
+            className="font-mono text-xs text-text-secondary border border-border-subtle px-3 py-1.5 rounded-sm hover:border-border-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            Next
+            Next →
           </button>
         </div>
       </div>

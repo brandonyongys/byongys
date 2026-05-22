@@ -1,19 +1,22 @@
-// Ref: https://react-icons.github.io/react-icons/
-
-// import the icon
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-primary text-brand-text-main py-3 text-center opacity-60">
-      <div className="flex justify-center gap-4 text-2xl opacity-100">
-        <a href="https://github.com/brandonyongys" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-        <a href="https://linkedin.com/in/byongys" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-        <a href="mailto:byongys@gmail.com"><FaEnvelope /></a>
+    <footer className="border-t border-border-subtle bg-surface-base py-6 text-center">
+      <div className="flex justify-center gap-5 text-xl text-text-muted mb-3">
+        <a href="https://github.com/brandonyongys" target="_blank" rel="noopener noreferrer" className="hover:text-text-primary transition-colors" aria-label="GitHub">
+          <FaGithub />
+        </a>
+        <a href="https://linkedin.com/in/byongys" target="_blank" rel="noopener noreferrer" className="hover:text-text-primary transition-colors" aria-label="LinkedIn">
+          <FaLinkedin />
+        </a>
+        <a href="mailto:byongys@gmail.com" className="hover:text-text-primary transition-colors" aria-label="Email">
+          <FaEnvelope />
+        </a>
       </div>
-      <p className="mt-2 text-sm opacity-100">&copy; {CURRENT_YEAR} Brandon Yong. All rights reserved.</p>
+      <p className="text-xs text-text-muted font-mono">&copy; {CURRENT_YEAR} Brandon Yong</p>
     </footer>
   );
 }
