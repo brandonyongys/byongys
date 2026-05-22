@@ -1,6 +1,7 @@
 import { Link, useNavigate, NavLink } from 'react-router-dom';
 import { useState, useRef, useEffect } from "react";
 import { Search, Menu, X } from 'lucide-react';
+import { NAVBAR } from '../config/constants';
 
 export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -12,7 +13,7 @@ export default function Navbar() {
 
   useEffect(() => {
     function handleScroll() {
-      setScrolled(window.scrollY > 8);
+      setScrolled(window.scrollY > NAVBAR.SCROLL_THRESHOLD);
     }
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -50,7 +51,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className={`relative sticky top-0 z-50 px-8 py-4 flex justify-between items-center transition-all duration-200 bg-surface-base ${scrolled ? 'border-b border-border-subtle' : ''}`}>
+    <nav className={`relative sticky top-0 z-50 px-8 flex justify-between items-center transition-all bg-surface-base ${NAVBAR.TRANSITION_DURATION} ${scrolled ? `${NAVBAR.PADDING_SCROLLED} border-b border-border-subtle` : NAVBAR.PADDING_TOP}`}>
       {/* Brand */}
       <Link to="/" className="font-display text-lg font-semibold text-text-primary hover:text-accent transition-colors tracking-tight">
         Brandon Yong
