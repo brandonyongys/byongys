@@ -34,6 +34,11 @@ export default {
           ring: 'var(--accent-ring)',
         }
       },
+      fontFamily: {
+        display: 'var(--font-display)',
+        body: 'var(--font-body)',
+        mono: 'var(--font-mono)',
+      },
       maxWidth: {
         'content': 'var(--content-max-width)',
       }
