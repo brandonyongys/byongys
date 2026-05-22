@@ -51,7 +51,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className={`relative sticky top-0 z-50 px-8 flex justify-between items-center transition-all bg-surface-base ${NAVBAR.TRANSITION_DURATION} ${scrolled ? `${NAVBAR.PADDING_SCROLLED} border-b border-border-subtle` : NAVBAR.PADDING_TOP}`}>
+    <nav className={`relative sticky top-0 z-50 px-8 flex justify-between items-center transition-all bg-surface-base ${NAVBAR.TRANSITION_DURATION_CLASS} ${scrolled ? `${NAVBAR.PADDING_SCROLLED} border-b border-border-subtle` : NAVBAR.PADDING_TOP}`}>
       {/* Brand */}
       <Link to="/" className="font-display text-lg font-semibold text-text-primary hover:text-accent transition-colors tracking-tight">
         Brandon Yong
