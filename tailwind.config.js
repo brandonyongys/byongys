@@ -35,9 +35,9 @@ export default {
         }
       },
       fontFamily: {
-        display: 'var(--font-display)',
-        body: 'var(--font-body)',
-        mono: 'var(--font-mono)',
+        display: ['var(--font-display)'],
+        body: ['var(--font-body)'],
+        mono: ['var(--font-mono)'],
       },
       maxWidth: {
         'content': 'var(--content-max-width)',
