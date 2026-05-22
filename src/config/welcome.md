@@ -1,14 +1,8 @@
 ---
 layout: about
-title: Welcome!
-# permalink: /
-# subtitle: # <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+title: Build, Break, Rebuild.
 published: true
 ---
-👋 Hi. Welcome to my blog where I share my ongoing journey to become a better engineer than I was yesterday.
+I'm Brandon — a backend engineer working on data pipelines, cloud infrastructure, and the systems in between.
 
-🛠️ This blog is called <b>Build, Break, Rebuild</b> because that's exactly how my systems (and skills) have evolved - one failure at a time.
-
-💻 I write about building software, deploying to the cloud, breaking things (sometimes on purpose), and rebuilding with better practices. Expect posts on backend development, cloud engineering, and lessons learned from the trenches.
-
-🎯 Whether you're early in your career or deep in the weeds, I hope my notes and mistakes help you build better too.
+I write about what I build, what breaks, and what I learn from putting the pieces back together. Expect posts on Python, AWS, data engineering, and the occasional post-mortem.

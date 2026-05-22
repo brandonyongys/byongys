@@ -15,9 +15,9 @@ export default function About() {
   }
 
   return (
-    <section className="max-w-4xl mx-auto p-8 my-8 bg-gray-custom-bg rounded shadow">
-      <h2 className="text-4xl font-bold mb-3 text-brand-text-main">About Me</h2>
-      <article className="prose max-w-none text-gray-custom-muted mt-2">
+    <section className="max-w-4xl mx-auto p-8 my-8 bg-surface-raised rounded-sm border border-border-subtle">
+      <h2 className="font-display text-4xl font-semibold mb-3 text-text-primary">About Me</h2>
+      <article className="prose max-w-none mt-2">
         <ReactMarkdown
           remarkPlugins={REMARK_PLUGINS}
           rehypePlugins={REHYPE_PLUGINS}
