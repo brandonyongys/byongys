@@ -19,6 +19,6 @@ export const SITE = {
 export const NAVBAR = {
     SCROLL_THRESHOLD: 8,
     PADDING_TOP: 'py-4',
-    PADDING_SCROLLED: 'py-2',
+    PADDING_SCROLLED: 'py-1',
     TRANSITION_DURATION_CLASS: 'duration-300',
 };
