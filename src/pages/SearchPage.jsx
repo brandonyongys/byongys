@@ -18,7 +18,6 @@ export default function SearchPage() {
 
   return (
     <div className="max-w-3xl mx-auto my-8 p-4">
-      <div className="page-background" aria-hidden="true"></div>
       <h1 className="text-2xl font-bold mb-4">Search results for: <em>{query}</em></h1>
       <SearchResults results={results} query={query} />
     </div>

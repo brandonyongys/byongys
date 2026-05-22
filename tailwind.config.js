@@ -26,6 +26,7 @@ export default {
         accent: {
           DEFAULT: 'var(--accent)',
           subtle: 'var(--accent-subtle)',
+          light: 'var(--accent-subtle)',
         },
         // Keep legacy aliases so existing components don't break yet
         brand: {

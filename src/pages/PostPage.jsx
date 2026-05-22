@@ -28,7 +28,6 @@ export default function PostPage() {
 
   return (
     <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-custom-bg rounded shadow">
-      <div className="page-background" aria-hidden="true"></div>
       <h1 className="text-4xl font-bold mb-3 text-brand-text-main">{post.title}</h1>
       <p className="text-sm font-semibold text-brand-text-muted mb-1">{post.description}</p>
       <p className="text-sm text-brand-text-muted mb-3">

@@ -16,7 +16,6 @@ export default function About() {
 
   return (
     <section className="max-w-4xl mx-auto p-8 my-8 bg-gray-custom-bg rounded shadow">
-      <div className="page-background" aria-hidden="true"></div>
       <h2 className="text-4xl font-bold mb-3 text-brand-text-main">About Me</h2>
       <article className="prose max-w-none text-gray-custom-muted mt-2">
         <ReactMarkdown

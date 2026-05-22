@@ -25,7 +25,6 @@ export default function ProjectPostPage() {
 
   return (
     <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-custom-bg rounded shadow">
-      <div className="page-background" aria-hidden="true"></div>
       <h1 className="text-4xl font-bold mb-3 text-brand-text-main">{project.title}</h1>
       {/* <p className="text-m font-semibold text-brand-text-accent mb-3">{project.description}</p> */}
       {
