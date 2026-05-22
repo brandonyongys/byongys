@@ -3,35 +3,38 @@ import { useMarkdownData } from '../hooks/useMarkdownData';
 import { formatDate } from '../utils/formatDate';
 import { PAGINATION } from '../config/constants';
 
-
-export default function PostList() {
+export default function LatestPostList() {
   const posts = useMarkdownData('posts');
-
-  // Limit posts to latest (assuming posts are already sorted by date descending)
   const latestPosts = posts.slice(0, PAGINATION.LATEST_POSTS_LIMIT);
 
   return (
-    <section className="max-w-4xl mx-auto p-8 bg-gray-custom-bg rounded shadow">
-      <h3 className="text-3xl font-semibold mb-4">Latest Posts</h3>
-      <ul className="space-y-3">
+    <section>
+      <div className="flex items-center gap-4 mb-6">
+        <h2 className="font-display text-sm font-semibold tracking-widest uppercase text-text-muted whitespace-nowrap">
+          Recent Writing
+        </h2>
+        <div className="flex-1 h-px bg-border-subtle" />
+      </div>
+
+      <ul className="space-y-0">
         {latestPosts.map(post => (
-          <li key={post.slug} className="border-b border-brand-primary-border pb-2">
-
-            {/* Clickable post title with post date */}
-            <div className="flex items-center justify-between">
-              <Link to={`/posts/${post.slug}`}>
-                <h3 className="text-xl font-semibold text-brand-text-main hover:underline">{post.title}</h3>
+          <li key={post.slug} className="py-4 border-b border-border-subtle last:border-b-0">
+            <div className="flex items-baseline justify-between gap-4">
+              <Link
+                to={`/posts/${post.slug}`}
+                className="font-body text-base text-text-primary hover:text-accent transition-colors leading-snug"
+              >
+                {post.title}
               </Link>
-              <p className="text-sm font-semibold text-brand-text-muted ml-4 whitespace-nowrap">
+              <span className="font-mono text-xs text-text-muted whitespace-nowrap shrink-0">
                 {formatDate(post.date)}
-              </p>
+              </span>
             </div>
-
-            {/* Post description */}
-            <p className="text-m font-semibold text-orange-700">{post.description}</p>
-
-            {/* Post summary */}
-            <p className="text-sm text-orange-600">{post.summary || ''}</p>
+            {post.description && (
+              <p className="font-body text-sm text-text-secondary mt-1 leading-relaxed">
+                {post.description}
+              </p>
+            )}
           </li>
         ))}
       </ul>
