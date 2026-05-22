@@ -1,4 +1,35 @@
 
+V2.0.0 / 2026-05-22
+===================
+
+  * updated gitignore
+  * Merge pull request #50 from brandonyongys/maintenance/2026/improve-frontend-design
+  * feat: add identity tagline to hero, replace card shadows with thin borders
+  * feat: apply custom typography to prose content blocks
+  * feat: redesign blog page with editorial text list layout
+  * feat: redesign home hero with editorial bare layout
+  * feat: redesign project cards with minimal thin-border style
+  * feat: redesign latest posts as editorial text list
+  * fix: add relative positioning and Escape key handler to navbar
+  * feat: redesign navbar with editorial minimal layout
+  * feat: redesign footer with minimal warm neutral style
+  * fix: add accent-light alias, remove dead page-background divs
+  * feat: replace orange palette with warm neutral color system
+  * fix: use array syntax for fontFamily Tailwind tokens
+  * feat: load Fraunces, Source Serif 4, JetBrains Mono fonts
+  * Merge pull request #49 from brandonyongys/post/2026/products-chatbot-mvp1
+  * Drafted post on products chatbot mvp1
+  * Updated claude md
+  * Merge pull request #48 from brandonyongys/post/2026/extending-products-scraping
+  * Drafted post on extending supermarket products scraping pipeline
+  * Updated claude markdowns
+  * Merge pull request #47 from brandonyongys/post/2026/ai-coding-assistant
+  * Drafted post on AI coding assistant
+  * Merge pull request #46 from brandonyongys/post/2026/sf-ai-dev-conference
+  * Resized the image
+  * Merge pull request #45 from brandonyongys/post/2026/sf-ai-dev-conference
+  * Drafted post on AI impact on SWE
+
 V1.2.4 / 2026-05-04
 ===================
 
