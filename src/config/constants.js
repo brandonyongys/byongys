@@ -14,3 +14,11 @@ export const SITE = {
     DEFAULT_TITLE: 'Brandon Yong | Software Engineer Portfolio',
     DEFAULT_DESCRIPTION: 'Personal portfolio and blog of Brandon Yong, a software engineer focusing on building scalable web applications and exploring new technologies.',
 };
+
+// NOTE: string values must be full Tailwind class names — no dynamic construction — so the build scanner can detect them.
+export const NAVBAR = {
+    SCROLL_THRESHOLD: 8,
+    PADDING_TOP: 'py-4',
+    PADDING_SCROLLED: 'py-1',
+    TRANSITION_DURATION_CLASS: 'duration-300',
+};
