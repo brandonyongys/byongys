@@ -9,59 +9,90 @@ const workExperience = sections.find(s => s.title.toLowerCase().includes('work')
 const contactDetails = sections.filter(s => s.title.toLowerCase().includes('contact'));
 const otherSections = sections.filter(s => !s.title.toLowerCase().includes('work') && !s.title.toLowerCase().includes('contact'));
 
+const publicationSections = otherSections.filter(s => s.title.toLowerCase().includes('publication'));
+const sidebarSections = otherSections.filter(s => !s.title.toLowerCase().includes('publication'));
+
 export default function CV() {
 
     usePageMeta({ title: 'CV', path: '/cv' });
 
     return (
-        <article className="max-w-4xl mx-auto p-8 my-8 bg-gray-custom-bg rounded shadow">
-            <h1 className="text-4xl font-bold mb-4 text-brand-text-main text-center">{name}</h1>
+        <article className="max-w-4xl mx-auto p-8 my-8 bg-surface-base rounded shadow-sm">
+            <h1 className="font-display text-4xl font-bold mb-4 text-text-primary text-center">{name}</h1>
 
             <div className="text-justify mb-8">
-                <h3 className="text-2xl font-semibold text-brand-text-accent border-b-2 border-brand-primary-border pb-1 mb-1">Summary</h3>
-                <p className="text-gray-custom-muted">{summary}</p>
+                <h3 className="font-display text-2xl font-semibold text-accent border-b-2 border-border-subtle pb-1 mb-1">Summary</h3>
+                <p className="text-text-secondary">{summary}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {/* Left side: Work experience */}
-                <div className="col-span-1 md:col-span-2">
-                    <h3 className="text-2xl font-semibold text-brand-text-accent border-b-2 border-brand-primary-border pb-1 mb-1">{workExperience.title}</h3>
-                    <div className="space-y-3">
-                        {workExperience.contents.map((item, idx) => (
-                            <div key={idx} className="border-b pb-3">
-                                <div className="flex justify-between items-start mb-1">
-                                    <div>
-                                        <h4 className="text-lg font-semibold text-gray-custom-text">{item.title}</h4>
-                                        <p className="text-gray-custom-muted">{item.institution}</p>
+                <div className="col-span-1 md:col-span-2 space-y-6">
+                    <div>
+                        <h3 className="font-display text-2xl font-semibold text-accent border-b-2 border-border-subtle pb-1 mb-1">{workExperience.title}</h3>
+                        <div className="space-y-3">
+                            {workExperience.contents.map((item, idx) => (
+                                <div key={idx} className="border-b border-border-subtle pb-3">
+                                    <div className="flex justify-between items-start mb-1">
+                                        <h4 className="font-display text-lg font-semibold text-text-primary">{item.title}</h4>
+                                        <span className="text-sm text-text-muted whitespace-nowrap ml-4">{item.year}</span>
                                     </div>
-                                    <span className="text-sm text-gray-custom-dim whitespace-nowrap">{item.year}</span>
+                                    <p className="text-text-secondary">{item.institution}</p>
+                                    {item.description && (
+                                        <ul className="list-disc list-inside text-text-secondary text-sm mt-2">
+                                            {item.description.map((desc, didx) => (
+                                                <li key={didx} className="mb-1">{desc}</li>
+                                            ))}
+                                        </ul>
+                                    )}
                                 </div>
-                                {item.description && (
-                                    <ul className="list-disc list-inside text-gray-custom-muted text-sm mt-2">
-                                        {item.description.map((desc, didx) => (
-                                            <li key={didx} className="mb-1">{desc}</li>
-                                        ))}
-                                    </ul>
-                                )}
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
+
+                    {publicationSections.map((section, index) => (
+                        <div key={index}>
+                            <h3 className="font-display text-2xl font-semibold text-accent border-b-2 border-border-subtle pb-1 mb-1">{section.title}</h3>
+                            <div className="space-y-4">
+                                {section.contents.map((item, idx) => (
+                                    <div key={idx}>
+                                        <div className="flex justify-between items-start mb-0.5">
+                                            <h4 className="font-display font-semibold text-text-primary leading-snug">{item.title}</h4>
+                                            <span className="text-sm text-text-muted whitespace-nowrap ml-4">{item.year}</span>
+                                        </div>
+                                        {item.institution && (
+                                            <p className="text-text-secondary italic text-sm mb-1">{item.institution}</p>
+                                        )}
+                                        {item.doi && (
+                                            <a
+                                                href={item.doi}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-block text-xs font-mono text-accent border border-border-subtle rounded px-2 py-0.5 hover:bg-accent-subtle transition-colors"
+                                            >
+                                                DOI ↗
+                                            </a>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
-                {/* Right side: Others */}
+
                 <div className="space-y-2">
                     {contactDetails.map((section, index) => (
                         <div key={index}>
-                            <h3 className="text-2xl font-semibold text-brand-text-accent border-b-2 border-brand-primary-border pb-1 mb-1">{section.title}</h3>
+                            <h3 className="font-display text-2xl font-semibold text-accent border-b-2 border-border-subtle pb-1 mb-1">{section.title}</h3>
                             <div className="space-y-1">
                                 {section.contents.map((item, idx) => {
                                     const isSocial = ['github', 'linkedin'].includes(item.label.toLowerCase());
 
                                     return (
                                         <div key={idx} className="flex items-center">
-                                            <span className="font-semibold text-gray-custom-text">{item.label}:</span>
-                                            <span className="ml-2 text-gray-custom-muted">
+                                            <span className="font-semibold text-text-primary">{item.label}:</span>
+                                            <span className="ml-2 text-text-secondary">
                                                 {isSocial ? (
-                                                    <a href={item.value} target="_blank" rel="noopener noreferrer" className="text-brand-text-accent hover:underline">
+                                                    <a href={item.value} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
                                                         {item.value.replace(/^https?:\/\//, '')}
                                                     </a>
                                                 ) : item.value}
@@ -73,19 +104,17 @@ export default function CV() {
                         </div>
                     ))}
 
-                    {otherSections.map((section, index) => (
+                    {sidebarSections.map((section, index) => (
                         <div key={index}>
-                            <h3 className="text-2xl font-semibold text-brand-text-accent border-b-2 border-brand-primary-border pb-1 mb-1">{section.title}</h3>
+                            <h3 className="font-display text-2xl font-semibold text-accent border-b-2 border-border-subtle pb-1 mb-1">{section.title}</h3>
                             <div className="space-y-3">
                                 {section.contents.map((item, idx) => (
                                     <div key={idx}>
                                         <div className="flex justify-between items-start mb-1">
-                                            <div>
-                                                <h4 className="font-semibold text-gray-custom-text">{item.title}</h4>
-                                                <p className="text-gray-custom-muted">{item.institution}</p>
-                                            </div>
-                                            <span className="text-sm text-gray-custom-dim whitespace-nowrap">{item.year}</span>
+                                            <h4 className="font-display font-semibold text-text-primary">{item.title}</h4>
+                                            <span className="text-sm text-text-muted whitespace-nowrap ml-4">{item.year}</span>
                                         </div>
+                                        <p className="text-text-secondary">{item.institution}</p>
                                     </div>
                                 ))}
                             </div>

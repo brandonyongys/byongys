@@ -9,7 +9,7 @@ sections:
 - title: Work Experience
   contents:
     - title: Software Engineer (Backend)
-      institution: National University Health System (NUHS), Singapore
+      institution: National University Health System, Singapore
       year: Apr 2023 - Present
       description:
         - Built and maintain a healthcare chatbot platform (Python, Django, Kubernetes) serving 40-50k patients daily across chronic disease management programmes
@@ -20,7 +20,7 @@ sections:
         - Implemented Kafka consumer and Kubernetes cronjobs for event-driven and scheduled health metric calculation
 
     - title: Machine Learning Engineer
-      institution: Department of Data Science, Singapore General Hospital (SGH), Singapore
+      institution: Singapore General Hospital, Singapore
       year: Nov 2020 - Mar 2023
       description:
         - Developed an ICU admission prediction model (logistic regression, tree-based methods) on a cohort of 10k patients with 100+ engineered features, achieving 0.7 recall
@@ -29,14 +29,14 @@ sections:
         - Provided ML scoping consultation to clinicians across departments
 
     - title: ML Research Engineer
-      institution: School of Physical and Mathematical Sciences, NTU, Singapore
+      institution: Nanyang Technological University, Singapore
       year: Nov 2018 - Nov 2020
       description:
-        - Published in PLOS One - RNA flexibility prediction using topological data analysis and ML, outperforming state-of-the-art by 10%+ (DOI = 10.1371/journal.pone.0237747)
+        - Developed a RNA flexibility prediction framework using topological data analysis and ML, outperforming state-of-the-art by 10%+; published in PLOS One (DOI = 10.1371/journal.pone.0237747)
         - Developed a stock market return simulation framework using Hidden Markov Model and Wasserstein GAN, trained on S&P data on a supercomputer; published in Quantitative Finance (DOI = 10.1080/14697688.2025.2511115)
 
     - title: Operations Analyst
-      institution: DB Schenker
+      institution: DB Schenker, Singapore
       year: Oct 2016 - Oct 2018
       description:
         - Automated weekly SKU velocity analysis for Apple Finished Goods account using Python, cutting processing time from 4 hours to 30 minutes
@@ -74,6 +74,19 @@ sections:
     - title: AWS Certified Cloud Practitioner
       institution: Amazon Web Services
       year: Mar 2023
+
+
+- title: Publications
+  contents:
+    - title: "RNA Flexibility Prediction using Topological Data Analysis and Machine Learning"
+      institution: PLOS One
+      year: 2020
+      doi: "https://doi.org/10.1371/journal.pone.0237747"
+
+    - title: "Stock Market Return Simulation using Hidden Markov Model and Wasserstein GAN"
+      institution: Quantitative Finance
+      year: 2025
+      doi: "https://doi.org/10.1080/14697688.2025.2511115"
 
 
 - title: Education
