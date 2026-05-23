@@ -2,49 +2,46 @@ name: Brandon Yong
 email: byongys@gmail.com 
 title: Senior Backend Engineer
 summary: |
-  Experienced Senior Backend Engineer with a strong background in data science and machine learning. Proven track record of architecting and deploying scalable, serverless platforms on AWS and Kubernetes. Skilled in building real-time applications, optimizing data pipelines, and collaborating with cross-functional teams to deliver impactful healthcare solutions. Passionate about leveraging AI and cloud technologies to improve patient outcomes and operational efficiency.  
+  Backend software engineer with 5+ years of experience building production systems on AWS and Kubernetes, mainly in healthcare. Experienced in Python backend development, cloud infrastructure, chatbot platforms, and AI-enabled systems serving large user populations. Background in machine learning research, with published work in PLOS One and Quantitative Finance. Currently focused on backend engineering, cloud architecture, Terraform, and applied AI systems. AWS Certified Solutions Architect, Developer Associate, and HashiCorp Terraform Associate.
 
 
 sections:
 - title: Work Experience
   contents:
-    - title: Senior Backend Engineer
+    - title: Software Engineer (Backend)
       institution: National University Health System (NUHS), Singapore
       year: Apr 2023 - Present
       description:
-        - Architected and developed serverless AWS and Kubernetes-based platforms to support patient follow-up, food logging, and clinical decision support for 3,000+ patients.
-        - Built real-time bidirectional chatbots using AWS Lambda and Django, enabling seamless patient communication via WhatsApp.
-        - Developed and deployed production-grade Kubernetes CronJobs to analyze 15,000+ patient records for health risk scoring and reporting.
-        - Implemented a Clinical Decision Support System used across 11 hospitals and polyclinics, reducing manual checks and consultation time by up to 20%.
-        - Designed an AI-powered drug knowledge ingestion pipeline integrating AWS Bedrock and Claude 3.5, eliminating manual drug data curation.
-        - Created a full-stack food logging system with AI feedback that accelerates dietitian consultations and improves patient engagement.
-        - Optimized AWS Athena query performance by 90% and reduced S3 storage costs by 50% through log partitioning and lifecycle policies.
-        - Collaborated closely with data scientists to build end-to-end pipelines combining NLP, embeddings, and LLMs for clinical and patient-facing applications.
+        - Built and maintain a healthcare chatbot platform (Python, Django, Kubernetes) serving 40-50k patients daily across chronic disease management programmes
+        - Designed a generic modular questionnaire service triggered by S3 uploads, replacing multiple bespoke pipelines and serving 30k+ patients across the BP monitoring programme
+        - Implemented a clinical decision support system (CDSS) calculating personalised health targets, used by 1,000 clinicians for 10k patients per day 
+        - Built a medication knowledge extraction pipeline using Amazon Bedrock (LLM) to parse unstructured drug data into a relational database
+        - Reduced Athena chatlog query time from 3 minutes to 30 seconds by partitioning data and setting up AWS Glue Crawler
+        - Implemented Kafka consumer and Kubernetes cronjobs for event-driven and scheduled health metric calculation
 
-    - title: Senior Data Scientist
+    - title: Machine Learning Engineer
       institution: Department of Data Science, Singapore General Hospital (SGH), Singapore
-      year: Dec 2020 - Mar 2023
+      year: Nov 2020 - Mar 2023
       description:
-        - Led and scaled a cross-functional data science team while spearheading forecasting, risk modeling, and real-time prediction projects.
-        - Deployed a Prophet-based system to predict dialysis demand, improving nurse scheduling and resource planning.
-        - Evaluated ML models to predict ICU risk and hypoglycemia using real-world patient data.
-        - Established HPC workflows, SOPs, and reviewed hospital-wide AI proposals for feasibility and impact.
+        - Developed an ICU admission prediction model (logistic regression, tree-based methods) on a cohort of 10k patients with 100+ engineered features, achieving 0.7 recall
+        - Built a renal dialysis workload forecasting model using Prophet, accounting for seasonality and public holidays across 5 years of data including COVID-19
+        - Acting technical lead for 2 junior analysts and 2 interns following team merger
+        - Provided ML scoping consultation to clinicians across departments
 
-    - title: Project Officer
+    - title: ML Research Engineer
       institution: School of Physical and Mathematical Sciences, NTU, Singapore
-      year: Oct 2018 - Oct 2020
+      year: Nov 2018 - Nov 2020
       description:
-        - Improved RNA flexibility prediction by 16% through a novel ML + topological data analysis framework.
-        - Simulated realistic financial time series using GANs and HMMs to explore market regime dynamics and investment strategies.
-        - Published and validated multiple research models in both biomedical and financial domains.
+        - Published in PLOS One - RNA flexibility prediction using topological data analysis and ML, outperforming state-of-the-art by 10%+ (DOI = 10.1371/journal.pone.0237747)
+        - Developed a stock market return simulation framework using Hidden Markov Model and Wasserstein GAN, trained on S&P data on a supercomputer; published in Quantitative Finance (DOI = 10.1080/14697688.2025.2511115)
 
-    - title: Data Analyst
+    - title: Operations Analyst
       institution: DB Schenker
       year: Oct 2016 - Oct 2018
       description:
-        - Optimized warehouse layout, routing, and fleet usage, achieving over SGD 270K in annual cost savings.
-        - Automated product velocity and truck allocation analyses using Python, improving logistics efficiency.
-        - Revised SOPs post-automation rollout to align operations with new conveyor and sorting systems.
+        - Automated weekly SKU velocity analysis for Apple Finished Goods account using Python, cutting processing time from 4 hours to 30 minutes
+        - Updated 15+ SOPs for Apple DC automation line, incorporating new picking and packing procedures
+        - Reduced Apple Care warehouse location utilisation from 95% to 85% through data-driven product categorisation and relocation
 
 
 - title: Contact Details

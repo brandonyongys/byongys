@@ -2,57 +2,45 @@
 layout: about
 title: about
 permalink: /
-subtitle: # <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle:
 published: true
 
 profile:
   align: right
   image: profile_pic.jpg
-  image_circular: false # crops the image to make it circular
-#  address: >
-#    <p>555 your office number</p>
-#    <p>123 your address street</p>
-#    <p>Your City, State 12345</p>
+  image_circular: false
 
-news: false  # includes a list of news items
-selected_papers: false # includes a list of papers marked as "selected={true}"
-social: true  # includes social icons at the bottom of the page
-
-# Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
-
-# Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-# Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
-
-
+news: false
+selected_papers: false
+social: true
 ---
 
-👋 Hi, I'm Brandon — a backend & cloud engineer working in Singapore's public healthcare system. I've worn many hats across data engineering, app development, and infrastructure, and these days I'm most excited about building AI systems that actually do something useful.
+Hi, I'm Brandon - a Senior Backend Engineer based in Singapore, open to relocation. I build production systems in public healthcare, with a focus on backend engineering, cloud infrastructure, and applied AI.
 
-By day, I build real-world tools for clinicians and patients: WhatsApp health chatbots, food logging pipelines, clinical decision support APIs, and LLM workflows that try to make sense of messy medical data. I've shipped production systems across Kubernetes, AWS Lambda, and Django — but I'm most in my element building scrappy, serverless pipelines that just work.
+At NUHS, I've shipped systems used across 11 hospitals and polyclinics: WhatsApp chatbots for patient follow-up, Kubernetes-based CronJobs scoring tens of thousands of patient records daily, and a Clinical Decision Support API used by over 1,000 clinicians. More recently, I've been building an automated nursing rostering pipeline, evaluating an agentic AI vendor POC for operations coordination, and replicating our hybrid AWS and on-premises infrastructure as code using Terraform - so it can be reproduced cleanly for external vendors and across environments.
 
-My journey started in logistics and academia, detoured through data science, and landed in healthcare. Along the way, I picked up some AWS certs, a love for automating things, and a healthy respect for every bug, bottleneck, and burnout that's made me better.
-
-<hr>
-
-### 🧪 Side Projects I Tinker With
-* RAG Banking Assistant – A chatbot that answers Singapore credit card and banking FAQs using embeddings + OpenSearch + LLMs.
-* LLM playgrounds – Always experimenting with retrieval strategies, prompt tuning, and how to make LLMs less… dumb.
-* Supermarket Price Tracker – A scraper + MySQL + Telegram chatbot that lets you check product prices from major supermarkets.
+My background is unconventional. I started in logistics analytics, moved into data science research, and eventually landed in backend engineering - each step adding a layer to how I think about systems. I hold AWS certifications in Cloud Practitioner, Solutions Architect, and Developer Associate, as well as the HashiCorp Terraform Associate. I use Terraform to manage infrastructure across all my personal projects and am actively bringing it into my team's production environment at work.
 
 <hr>
 
-### ⚙️ What I'm Into
-* AWS, Python, Django, Docker, Kubernetes
-* Exploring React for frontend UI
-* Exploring Golang for backend systems
-* Building scrappy but useful prototypes
-* Learning more about AI infrastructure and deployment patterns
+### Side Projects
+
+- **AskAuntieBot** - A Telegram chatbot for querying supermarket product prices in Singapore. Built on a microservices architecture: a Python scraping pipeline, a Spring Boot query service, and a dispatcher. Live at [t.me/AskAuntieBot](https://t.me/AskAuntieBot).
+- **RAG Banking Assistant** - A chatbot that answers Singapore credit card and banking FAQs using embeddings, OpenSearch, and LLMs. Ongoing experimentation with retrieval strategies and prompt design.
 
 <hr>
 
-### 🌏 Outside of tech
+### What I work with
 
-I'm probably deep in a Reddit rabbit hole, reading about financial independence, or daydreaming about chasing auroras in some freezing corner of the world.
+- Python, Django, Golang, Spring Boot
+- AWS (Lambda, ECS, Bedrock, Athena, DynamoDB), Kubernetes, Docker
+- Terraform, PostgreSQL, OpenSearch
+- Building and integrating LLM-powered pipelines
 
-Feel free to check out my blog or say hi!
+<hr>
+
+### Outside of tech
+
+I write here to think through what I'm learning and building. When I'm not coding, I'm probably reading about financial independence, watching films, or planning the next trip somewhere cold.
+
+Feel free to check out my blog or say hi.
