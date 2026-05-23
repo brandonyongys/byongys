@@ -12,9 +12,7 @@ I've been wanting to scrape and preprocess product data from different retailer 
 
 <hr>
 
-<p align="center">
-  <img src="/images/2025/products_data_scrapper_architecture.png" />
-</p>
+::image{src="/images/2025/products_data_scrapper_architecture.png" float="center" alt="Supermarket price scraper architecture diagram"}
 
 The diagram above shows the high-level design of my data scraping pipeline for supermarket sites.
 

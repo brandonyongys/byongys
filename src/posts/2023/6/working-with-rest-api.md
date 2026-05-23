@@ -16,9 +16,7 @@ Working with the Google Photos API is not easy especially for me despite being a
 
 API is short for 'Application Programming Interface'. It is simply a messenger that allows a client, be it you or a third party application, to interact with another server's resources. 
 
-![API](https://learn.g2.com/hubfs/G2CM_FI167_Learn_Article_Images_%5BAPI%5D_Infographic_V1a.png)
-
-*Credit goes to g2.com*
+::image{src="https://learn.g2.com/hubfs/G2CM_FI167_Learn_Article_Images_%5BAPI%5D_Infographic_V1a.png" float="center" alt="API diagram showing client-server communication" caption="Credit goes to g2.com"}
 
 Above is a simple diagram of how an API work. You are using a web browser to make a search. That search is a request sent via API to Google's search engine server. Relevant information are extracted and sent back to you, again, via API and is displayed in your web browser. 
 

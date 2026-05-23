@@ -34,6 +34,7 @@
 
 /* Reduce vertical margin around <hr> inside prose */
 .prose hr {
+  clear: both;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   border-color: var(--border-subtle);
@@ -96,4 +97,81 @@ body::before {
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   background-size: 200px 200px;
+}
+
+/* Floated image directives */
+.float-image {
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.float-image img {
+  border-radius: 4px;
+  display: block;
+  height: auto;
+}
+
+.float-image figcaption {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+.float-right {
+  float: right;
+  margin-left: 1.5rem;
+}
+
+.float-left {
+  float: left;
+  margin-right: 1.5rem;
+}
+
+.float-center {
+  display: block;
+  margin: 0 auto;
+  width: 100% !important;
+  float: none;
+}
+
+/* Side-by-side image row */
+.image-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.image-row figure {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.image-row figcaption {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+/* Mobile: collapse all floats and rows to full-width stacked */
+@media (max-width: 768px) {
+  .float-right,
+  .float-left {
+    float: none;
+    display: block;
+    width: 100% !important;
+    margin: 0 0 1rem 0;
+  }
+
+  .image-row {
+    flex-direction: column;
+  }
+
+  .image-row figure {
+    width: 100% !important;
+  }
 }
