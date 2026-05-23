@@ -1,4 +1,12 @@
 
+V2.2.0 / 2026-05-23
+===================
+
+  * Merge pull request #52 from brandonyongys/maintenance/2026/improve-frontend-design
+  * Merge branch 'main' into maintenance/2026/improve-frontend-design
+  * Changed icon
+  * Changed body font
+
 V2.1.0 / 2026-05-22
 ===================
 
