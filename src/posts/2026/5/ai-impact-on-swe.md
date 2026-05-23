@@ -11,10 +11,7 @@ published: true
 
 I am generally not a fan of conferences. Most feel more like product showcases than actual learning. The AI Dev 26 x SF conference organized by DeepLearning.ai was different. It gave me a lot to think about, particularly around where software engineers fit in a world increasingly shaped by AI. Getting to meet Andrew Ng, who first introduced me to deep learning close to ten years ago, made it even more memorable.
 
-<img 
-  src="/images/2026/andrew-ng-and-me.jpg"
-  style="float:right; margin-left:1.5rem; margin-bottom:1rem; max-height:250px; width:auto;"
-/>
+::image{src="/images/2026/andrew-ng-and-me.jpg" float="right" width="250" alt="Brandon and Andrew Ng at AI Dev 26" caption="Meeting Andrew Ng at AI Dev 26"}
 
 <hr>
 
