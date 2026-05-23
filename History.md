@@ -1,4 +1,14 @@
 
+V2.2.2 / 2026-05-23
+===================
+
+  * Merge pull request #54 from brandonyongys/feature/2026/profile-picture
+  * Make sure cv page design is consistent
+  * Added publication to CV
+  * Updated about me, cv and welcome page
+  * Updated profile picture
+  * Added profile picture to about me page
+
 V2.2.1 / 2026-05-23
 ===================
 
