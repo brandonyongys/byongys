@@ -14,6 +14,7 @@ try {
     projectsData = getMarkDown('projects');
 } catch (err) {
     console.error('Failed to load markdown content:', err.message);
+    // eslint-disable-next-line no-undef
     process.exit(1);
 }
 
@@ -41,5 +42,6 @@ try {
     console.log(`✅ searchIndex.json generated with ${searchIndex.length} entries`);
 } catch (err) {
     console.error('Failed to write searchIndex.json:', err.message);
+    // eslint-disable-next-line no-undef
     process.exit(1);
 }
