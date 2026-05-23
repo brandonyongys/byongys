@@ -1,4 +1,19 @@
 
+V2.2.1 / 2026-05-23
+===================
+
+  * Merge pull request #53 from brandonyongys/feature/2026/floated-images
+  * Migrated the images to use the image directive
+  * ignore superpowers folder
+  * Set image beside paragraph
+  * fix: extend rehype-sanitize schema to allow figure/figcaption/class/style and add clearfix
+  * docs: add post template with image directive reference
+  * feat: migrate ai-impact-on-swe post to use ::image directive
+  * feat: add CSS for floated images and image-row layout
+  * feat: wire remark-directive and remarkFloatImage into markdown pipeline
+  * feat: add remarkFloatImage remark plugin
+  * feat: install remark-directive
+
 V2.2.0 / 2026-05-23
 ===================
 
