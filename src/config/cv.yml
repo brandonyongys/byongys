@@ -32,8 +32,8 @@ sections:
       institution: Nanyang Technological University, Singapore
       year: Nov 2018 - Nov 2020
       description:
-        - Developed a RNA flexibility prediction framework using topological data analysis and ML, outperforming state-of-the-art by 10%+; published in PLOS One (DOI = 10.1371/journal.pone.0237747)
-        - Developed a stock market return simulation framework using Hidden Markov Model and Wasserstein GAN, trained on S&P data on a supercomputer; published in Quantitative Finance (DOI = 10.1080/14697688.2025.2511115)
+        - Developed a stock market return simulation framework using Hidden Markov Model and Wasserstein GAN, trained on S&P data on a supercomputer; published in Quantitative Finance.
+        - Developed a RNA flexibility prediction framework using topological data analysis and ML, outperforming state-of-the-art by 10%+; published in PLOS One.
 
     - title: Operations Analyst
       institution: DB Schenker, Singapore
@@ -78,15 +78,15 @@ sections:
 
 - title: Publications
   contents:
-    - title: "RNA Flexibility Prediction using Topological Data Analysis and Machine Learning"
-      institution: PLOS One
-      year: 2020
-      doi: "https://doi.org/10.1371/journal.pone.0237747"
-
     - title: "Stock Market Return Simulation using Hidden Markov Model and Wasserstein GAN"
       institution: Quantitative Finance
       year: 2025
       doi: "https://doi.org/10.1080/14697688.2025.2511115"
+
+    - title: "RNA Flexibility Prediction using Topological Data Analysis and Machine Learning"
+      institution: PLOS One
+      year: 2020
+      doi: "https://doi.org/10.1371/journal.pone.0237747"
 
 
 - title: Education
