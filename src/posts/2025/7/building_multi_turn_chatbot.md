@@ -12,7 +12,7 @@ I've had the opportunity to work with chatbots - and it's been both fun and inst
 
 My first chatbot project was somewhere in the middle. It involved building a questionnaire-based chatbot governed by dynamic business rules, where each question depended on the previous response.
 
-![Multi turn chatbot overall flow](/images/2025/multiturn_chatbot_overall_flow.png)
+::image{src="/images/2025/multiturn_chatbot_overall_flow.png" float="center" alt="Multi-turn chatbot overall flow diagram"}
 
 Think of the chatbot flow as a cycle: there's an initial trigger, followed by repeated back-and-forth exchanges, until a termination condition is reached.
 
