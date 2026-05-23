@@ -17,7 +17,7 @@ export default function CV() {
     usePageMeta({ title: 'CV', path: '/cv' });
 
     return (
-        <article className="max-w-4xl mx-auto p-8 my-8 bg-surface-base rounded shadow-sm">
+        <article className="max-w-4xl mx-auto p-8 my-8 bg-surface-raised rounded-sm border border-border-subtle">
             <h1 className="font-display text-4xl font-bold mb-4 text-text-primary text-center">{name}</h1>
 
             <div className="text-justify mb-8">
