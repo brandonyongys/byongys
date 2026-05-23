@@ -34,6 +34,7 @@
 
 /* Reduce vertical margin around <hr> inside prose */
 .prose hr {
+  clear: both;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   border-color: var(--border-subtle);
