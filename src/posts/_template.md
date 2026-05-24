@@ -36,3 +36,7 @@ Post content goes here.
 ::image{src="/images/YYYY/a.jpg" width="60%" alt="Wider image" caption="Wider caption"}
 ::image{src="/images/YYYY/b.jpg" width="38%" alt="Narrower image" caption="Narrower caption"}
 :::
+
+
+## Reference post
+[here](../posts/ai-impact-on-swe)
