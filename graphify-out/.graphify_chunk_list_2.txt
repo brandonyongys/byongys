@@ -1,0 +1,15 @@
+docs/superpowers/specs/2026-05-22-scroll-navbar-design.md
+docs/superpowers/specs/2026-05-23-floated-images-design.md
+docs/superpowers/plans/2026-05-22-warm-minimal-redesign.md
+docs/superpowers/plans/2026-05-22-scroll-navbar-shrink.md
+docs/superpowers/plans/2026-05-23-floated-images.md
+src/assets/20260427_185402.jpg
+src/assets/20260427_145903.jpg
+public/by-dark-on-paper.svg
+public/images/background/bg_ruins_to_future_artistic.webp
+public/images/background/bg_ruins_to_future_skyline.webp
+public/images/2026/andrew-ng-and-me.jpg
+public/images/2026/product_chatbot/historical_prices_after.JPG
+public/images/2026/product_chatbot/conversation_memory_after.JPG
+public/images/2026/product_chatbot/product_chatbot_welcome_message_20260524.JPG
+public/images/2026/product_chatbot/search_loose.JPG
